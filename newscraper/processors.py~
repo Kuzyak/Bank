@@ -1,0 +1,6 @@
+from __futures__ import unicode_literals
+
+def bank_get_EUR(text, loader_context):
+    eur = text[7]
+    code = "some"
+    return code

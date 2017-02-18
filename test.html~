@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>HTML Calculator</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />	
+<!-- 
+<style type="text/css">
+.calculator input {
+    font-size: 13px;
+    color: #555555;
+    width: 75px;
+    margin-right: 10px;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    border: 1px solid #cccccc;
+    border-radius: 3px 3px 3px 3px;
+    padding: 4px;
+    background-color: #ffffff;
+}
+input, textarea {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #666666;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    background-color: #f2f2f2;
+    box-shadow: inset 0px 1px 2px 0px #cccccc;
+    -moz-box-shadow: inset 0px 1px 2px 0px #cccccc;
+    -webkit-box-shadow: inset 0px 1px 2px 0px #cccccc;
+    font-size: 14px;
+}
+-->	
+</style>
+</head>
+<body>
+<form name="calculator" >
+<input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+<input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+<input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+<input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+<br>
+<input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+<input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+<input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+<input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+<br>
+<input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+<input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+<input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+<input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+<br>
+<input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+<input type="reset" value="Reset">
+<input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+<br>Solution is <input type="textfield" name="ans" value="">
+</form>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zclip/1.1.2/jquery.zclip.min.js"></script>
+
+<div class="first">
+ 	<div class="block">
+		<h3>Convertor valutar</h3>
+		<div class="content">
+			<div class="corner"></div>
+			<form class="calculator">
+				<div class="active"><label>EUR</label><input id="vlt2" name="converter-eur" type="text"/><b>21,1520</b><a id="vlt22"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div><label>USD</label><input id="vlt3" name="converter-usd" type="text"><b>20,0322</b><a id="vlt33"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div><label>RON</label><input id="vlt4" name="converter-ron" type="text"><b>4,6816</b><a id="vlt44"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div><label>UAH</label><input id="vlt5" name="converter-uah" type="text"><b>0,7418</b><a id="vlt55"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div><label>RUB</label><input id="vlt6" name="converter-rub" type="text"><b>0,3482</b><a id="vlt66"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div><label>GBP</label><input id="vlt7" name="converter-gbp" type="text"><b>24,8881</b><a id="vlt77"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+				<div id="last"><label>CHF</label><input id="vlt8" name="converter-chf" type="text"><b>19,8535</b><a id="vlt88"  title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a></div>
+			</form>
+		</div>
+	</div>
+
+</div>
+		
+<h3>Curs valutar <span>16 feb 2017</span></h3>
+</body>
+</html>
