@@ -1,0 +1,319 @@
+{% extends 'blogapp/index.html' %}
+
+{% block content %}
+
+
+
+<div class="second">
+
+	<script>
+	var y = 2;
+	function myFunctionL() {
+		w1 = y-1
+		var w1 = "some"+w1;
+		w2 = y+2
+		var w2 = "some"+w2;
+	  var x1 = document.getElementById(w1);
+	  var x2 = document.getElementById(w2);
+	  x1.style.display = 'block';
+	  x2.style.display = 'none';
+		y = y - 1;
+		check();
+	}
+	function myFunctionR() {
+		var w1 = "some"+y;
+		w2 = y+3
+		var w2 = "some"+w2;
+	  var x1 = document.getElementById(w1);
+	  var x2 = document.getElementById(w2);
+	  x2.style.display = 'block';
+	  x1.style.display = 'none';
+		y = y + 1;
+		check();
+	}
+	function check() {
+		if (y==2){
+			document.getElementById("buttonL").disabled = true;
+		} else {
+			document.getElementById("buttonL").disabled = false;
+		}
+		if (y==8){
+			document.getElementById("buttonR").disabled = true;
+		} else {
+			document.getElementById("buttonR").disabled = false;
+		}
+	}
+	</script>
+	<!-- / Buttons
+	<div class="block middle-banner">
+    <div id="adoceanroubgiqkinxc8" style="display: none;"></div>
+    <script type="text/javascript">
+    /* (c)AdOcean 2003-2016, bancamea_md.Bancamea.md.Homepage.Rectangle box 4 (center) */
+    ado.slave('adoceanroubgiqkinxc', {myMaster: 'mCZBIH5fvBGQ.KImkI2ur1Dlw6u31dIrTH9pwJWNter.M7' });
+    </script><script ="text/javascript">if(typeof adceanroubgiqkinxc=='function'){adoceanroubgiqkinxc();}</script><script id="script_sclolnsoqo" src="addons/sarg5884CCB1CE224356_002" language="javascript"></script>
+</div>-->
+<div width="800px" style="padding-left:0px;">
+	<div class="col-md-1" style="padding:0px;">
+		<p style="height:13px; border-left: 13px solid green;">
+			&nbsp;NEWS</p>
+	</div>
+	<div style="padding-left:0px;">
+			<hr style="margin-top:0;float:left;width:650px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+			<button disabled onclick="myFunctionL()" id="buttonL"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			<button onclick="myFunctionR()" id="buttonR"><span class="glyphicon glyphicon-chevron-right"></span></button>
+
+
+	</div>
+</div>
+
+<div class="rows">
+	<div class="col-md-5" style="padding-left:0px; padding-top:10px;">
+			<div>	<a href="{% url 'post_detail' pk=posts.0.pk %}"><img  src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
+				<a href="{% url 'post_detail' pk=posts.0.pk %}"><h2>{{ posts.0.title }}</h2></a><br>
+				<h5>{{ posts.0.published_date }}</h5><br>
+				<h3>{{ posts.0.title_text}}...</h3>
+
+			</div>
+
+	</div>
+	<div class="col-md-6" style="padding-top:10px; padding-left:0px;">
+
+		<div id="some2" style="display:block;">
+			<div class="col-md-12"  style=" padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.1.pk %}"><img src="{{ posts.1.images.url }}" title="{{ posts.1.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.1.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.1.title }}</h2></div></a>
+					<h5>{{ posts.1.published_date }}</h5>
+				</div>
+				<hr style="margin-left:10px;">
+			</div>
+		 </div>
+
+		 <div id="some3" style="display:block;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.2.pk %}"><img src="{{ posts.2.images.url }}" title="{{ posts.2.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.2.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.2.title }}</h2></div></a>
+					<h5>{{ posts.2.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+			</div>
+
+			<div id="some4" style="display:block;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.3.pk %}"><img src="{{ posts.3.images.url }}" title="{{ posts.3.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.3.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.3.title }}</h2></div></a>
+					<h5>{{ posts.3.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some5" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.4.pk %}"><img src="{{ posts.4.images.url }}" title="{{ posts.4.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.4.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.4.title }}</h2></div></a>
+					<h5>{{ posts.4.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some6" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.5.pk %}"><img src="{{ posts.5.images.url }}" title="{{ posts.5.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.5.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.5.title }}</h2></div></a>
+					<h5>{{ posts.5.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some7" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.6.pk %}"><img src="{{ posts.6.images.url }}" title="{{ posts.6.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.6.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.6.title }}</h2></div></a>
+					<h5>{{ posts.6.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some8" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.7.pk %}"><img src="{{ posts.7.images.url }}" title="{{ posts.7.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.7.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.7.title }}</h2></div></a>
+					<h5>{{ posts.7.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some9" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.8.pk %}"><img src="{{ posts.8.images.url }}" title="{{ posts.8.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.8.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.8.title }}</h2></div></a>
+					<h5>{{ posts.8.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some10" style="display:none;">
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.9.pk %}"><img src="{{ posts.9.images.url }}" title="{{ posts.9.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.9.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.9.title }}</h2></div></a>
+					<h5>{{ posts.9.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+
+			<div class="col-md-12" style="padding-top:0px; padding-left:0px;">
+				<center>
+				<a class = "post_link" style="font-size: 17pt;" href="{% url 'post_list_all'%}">Link: More News</a>
+
+			</center>
+
+			</div>
+
+
+</div>
+</div>
+	<div class="col-md-11" style=" padding-left:0px;">
+	<hr style="margin: 0;width:790px;height:13px;border:none;color:#999999;background-color:#999999;" />
+	<table class="main_table" cellpadding="7" align="center" width="790">
+	  <tr height = "80px">
+	    <td width = "263px"><h2><a href="{% url 'rate_ex_bank' %}">Exchange Rates</a></h2></td>
+	    <td width = "263px"><h2><a href="#">Deposits&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+	    <td width = "263px"><h2><a href="#">Loans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+	  </tr>
+		<tr height = "80px">
+	    <td><h2><a href="#">News&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+	    <td><h2><a href="#">Bank Cards</h2></a></td>
+	    <td><h2><a href="#">Map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+	  </tr>
+</table>
+	</div>
+
+
+<!-- News Tab Content
+<div class="feed" id="tab-news-feed">
+	<a href="http://bancamea.md/news/valoarea-operatiunilor-cu-cardurile-bancare-in-2016-s-a-majorat-cu-16-fata-de-2015">
+		<ins>16.02.17</ins>Valoarea operațiunilor cu cardurile bancare în 2016 s-a majorat cu 16% față...	</a>
+	<a href="http://bancamea.md/news/bce-raporteaza-119-miliarde-de-euro-profit-net-pentru-2016-banii-vor-fi-repartizati-bancilor-centrale-nationale">
+		<ins>16.02.17</ins>BCE raportează 1,19 miliarde EUR profit net pentru 2016, banii vor fi...	</a>
+	<a href="http://bancamea.md/news/credit-suisse-va-concedia-inca-6500-persoane-in-2017-dupa-cele-7250-disponibilizari-din-2016">
+		<ins>16.02.17</ins>Credit Suisse va concedia încă 6.500 persoane în 2017, după cele 7.250...	</a>
+	<a href="http://bancamea.md/news/recapitalizarea-preventiva-a-veneto-banca-si-banca-popolare-di-vicenza-necesita-5-miliarde-de-euro">
+		<ins>15.02.17</ins>Recapitalizarea preventivă a Veneto Banca şi Banca Popolare di Vicenza...	</a>
+	<a href="http://bancamea.md/news/maib-ofera-mai-multe-oportunitati-de-dezvoltare-pentru-tinerii-antreprenori">
+		<ins>10.02.17</ins>MAIB oferă mai multe oportunități de dezvoltare pentru tinerii antreprenori	</a>
+	<a href="http://bancamea.md/news/cele-mai-profitabile-depozite-bancare-la-termen-in-dolari-sua-februarie-2017">
+		<ins>10.02.17</ins>Cele mai profitabile depozite bancare la termen în dolari SUA (februarie 2017)	</a>
+	<a href="http://bancamea.md/news/societe-generale-anunta-pentru-2016-un-profit-net-de-387-miliarde-de-euro">
+		<ins>09.02.17</ins>Societe Generale anunță pentru 2016 un profit net de 3,87 miliarde de euro	</a>
+	<a href="http://bancamea.md/news/moldova-agroindbank-sustine-agricultorii-oferindu-le-finantare-pentru-dezvoltarea-afacerii">
+		<ins>09.02.17</ins>Moldova Agroindbank susţine agricultorii, oferindu-le finanţare pentru...	</a>
+	<a href="http://bancamea.md/news/cele-mai-profitabile-depozite-bancare-la-termen-in-euro-februarie-2017">
+		<ins>09.02.17</ins>Cele mai profitabile depozite bancare la termen în euro (februarie 2017)	</a>
+	<a href="http://bancamea.md/news/banca-sociala-anunta-licitatie-de-vanzare-a-27-de-loturi-constructii-administrative-incaperi-comerciale-si-terenuri">
+		<ins>08.02.17</ins><img src="addons/photo.gif" alt="photo">Banca Socială anunță licitație de vânzare a 27 de loturi - construcții...	</a>
+	<a href="http://bancamea.md/news/a-aparut-noul-numar-al-publicatiei-paysave-magazine">
+		<ins>08.02.17</ins>A apărut noul număr al publicației Pay&amp;Save Magazine	</a>
+	<a href="http://bancamea.md/news/bnp-paribas-va-investi-in-transformarea-digitala-3-miliarde-de-euro-in-urmatorii-3-ani">
+		<ins>08.02.17</ins>BNP Paribas va investi în transformarea digitală 3 miliarde de euro în...	</a>
+	<a href="http://bancamea.md/news/cele-mai-profitabile-depozite-bancare-la-termen-in-lei-februarie-2017">
+		<ins>08.02.17</ins>Cele mai profitabile depozite bancare la termen în lei (februarie 2017)	</a>
+	<a href="http://bancamea.md/news/franta-majoreaza-limita-la-platile-contactless-de-la-20-la-30-de-euro">
+		<ins>07.02.17</ins>Franța majorează limita la plățile contactless de la 20 la 30 de euro	</a>
+	<a href="http://bancamea.md/news/la-chisinau-a-fost-inaugurat-primul-centru-ipotecar">
+		<ins>07.02.17</ins><img src="addons/photo.gif" alt="photo">La Chișinău a fost inaugurat primul Centru Ipotecar din Republica Moldova	</a>
+	<a href="http://bancamea.md/news/italienii-de-la-unicredit-au-inceput-procesul-de-majorare-a-capitalului-in-valoare-de-13-miliarde-de-euro">
+		<ins>06.02.17</ins>Italienii de la UniCredit au început procesul de majorare a capitalului în...	</a>
+	<a href="http://bancamea.md/news/deutsche-bank-si-a-cerut-iertare-de-la-clientii-sai">
+		<ins>06.02.17</ins>Deutsche Bank și-a cerut iertare de la clienții săi	</a>
+	<a href="http://bancamea.md/news/serghei-cebotari-stabilitate-financiara-pastrata-in-pofida-constrangerilor-excesive">
+		<ins>06.02.17</ins>Serghei Cebotari: „Stabilitate financiară păstrată, în pofida...	</a>
+	<a href="http://bancamea.md/news/grafic-structura-depozitelor-populatiei-81-din-depuneri-sunt-concentrate-la-4-banci-licentiate">
+		<ins>06.02.17</ins><img src="addons/photo.gif" alt="photo">(grafic) Structura depozitelor populației – 81% din depuneri sunt...	</a>
+	<a href="http://bancamea.md/news/5124-bancheri-din-uniunea-europeana-au-castigat-in-2015-mai-mult-de-1000000-de-euro">
+		<ins>04.02.17</ins><img src="addons/photo.gif" alt="photo">5.124 bancheri din Uniunea Europeană au câștigat în 2015 mai mult de...	</a>
+	<a href="http://bancamea.md/news/sorin-andrei-fostul-presedinte-al-bcr-chisinau-va-face-parte-din-administratia-temporara-a-moldindconbank">
+		<ins>03.02.17</ins>Sorin Andrei, fostul președinte al BCR Chișinău, va face parte din...	</a>
+	<a href="http://bancamea.md/news/grafic-structura-si-volumul-banilor-aflati-in-circulatie-divizarea-pe-bancnote-si-monede">
+		<ins>03.02.17</ins><img src="addons/photo.gif" alt="photo">(grafic) Structura și volumul banilor aflați în circulație – divizarea pe...	</a>
+	<a href="http://bancamea.md/news/banca-sociala-anunta-licitatie-de-vanzare-a-30-loturi-incaperi-comerciale-automobile-apartamente-terenuri">
+		<ins>03.02.17</ins>Banca Socială anunță licitație de vânzare a 30 loturi - încăperi comerciale,...	</a>
+	<a href="http://bancamea.md/news/eurocreditbank-participa-la-expozitia-fabricat-in-moldova">
+		<ins>02.02.17</ins>EuroCreditBank participă la expoziţia „Fabricat în Moldova”	</a>
+	<a href="http://bancamea.md/news/sondaj-raiffeisen-bank-si-banca-transilvania-cele-mai-asteptate-institutii-financiare-pe-piata-republicii-moldova">
+		<ins>01.02.17</ins>(sondaj) Raiffeisen Bank și Banca Transilvania – cele mai așteptate...	</a>
+	<a href="http://bancamea.md/news/anunt-privind-expunerea-la-vanzare-a-actiunilor-ordinare-nominative-nou-emise-de-clasa-i-ale-bcmoldova-agroindbanksa">
+		<ins>01.02.17</ins>Anunţ privind expunerea la vânzare a acţiunilor ordinare nominative nou...	</a>
+	<a href="http://bancamea.md/news/deutsche-bank-va-plati-amenzi-de-625-milioane-pentru-activitati-de-spalare-de-bani-in-favoarea-clientilor-din-rusia">
+		<ins>31.01.17</ins>Deutsche Bank va plăti $625 milioane amenzi pentru activități de spălare de...	</a>
+	<a href="http://bancamea.md/news/moldindconbank-a-premiat-castigatoarea-premiului-mare-a-campaniei-primesti-bani-castigi-automobil">
+		<ins>31.01.17</ins><img src="addons/photo.gif" alt="photo">Moldindconbank a premiat câştigătoarea premiului mare a campaniei „Primeşti...	</a>
+	<a href="http://bancamea.md/news/romania-unele-categorii-de-depozite-vor-fi-garantate-suplimentar-cu-100000-de-euro">
+		<ins>30.01.17</ins>România: Unele categorii de depozite vor fi garantate suplimentar cu 100.000...	</a>
+	<a href="http://bancamea.md/news/bce-a-retras-din-circulatie-353000-de-bancnote-euro-contrafacute-80-sunt-cele-de-20-si-50-euro">
+		<ins>30.01.17</ins><img src="addons/photo.gif" alt="photo">BCE a retras din circulație 353.000 de bancnote euro contrafăcute, 80% sunt...	</a>
+</div>
+/ News Tab Content -->
+
+<!-- Blog Tab Content yle="display: none;">
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/sarbatorim-4000000-de-afisari-utile-pe-bancameamd"><ins>12.11.16</ins>Sărbătorim 4.000.000 de afișări utile pe bancamea.md</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/primele-6-luni-din-2016-pentru-bancameamd-8-elemente-de-baza"><ins>01.07.16</ins>Primele 6 luni din 2016 pentru bancamea.md – 8 elemente de bază</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/despre-cele-2500-de-materiale-publicate-pe-bancameamd"><ins>28.03.16</ins>Despre cele 2500+ de materiale publicate pe bancamea.md</a>
+	<a href="http://bancamea.md/blog/mircea-ploteanu/the-use-of-expert-systems-in-financial-sector"><ins>19.02.16</ins>The use of expert systems in financial sector</a>
+	<a href="http://bancamea.md/blog/mircea-ploteanu/the-currency-wars-and-the-risks-for-the-global-economy"><ins>11.01.16</ins>The currency wars and the risks for the global economy</a>
+	<a href="http://bancamea.md/blog/mircea-ploteanu/the-risks-of-bitcoin-use"><ins>05.01.16</ins>The risks of Bitcoin use</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/pagina-de-facebook-bancameamd-de-la-1-prieten-la-10000-cu-rabdare-pasiune-si-1-pe-zi"><ins>26.10.15</ins>Pagina de Facebook bancamea.md: De la 1 prieten la 10000. Cu răbdare,...</a>
+	<a href="http://bancamea.md/blog/denis-malendra/lichiditate-bancara-mijloace-banesti-analiza-lichiditatii-bancare-la-data-de-31082015"><ins>01.10.15</ins>Lichiditate bancară – mijloace bănești. Analiza lichidității bancare la data...</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/foto-private-banking-de-la-raiffeisen-bank-romania"><ins>06.09.15</ins>(foto) Private banking de la Raiffeisen Bank România</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/foto-testare-nereusita-de-alimentare-a-cardului-mastercard-emis-de-mobiasbanca-gsg-la-bancomatul-moldindconbank"><ins>01.09.15</ins>(foto) Testare nereușită de alimentare a cardului MasterCard emis de...</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/5-bonus-pentru-fiecare-comunicat-de-presa-plasat-pe-bancameamd"><ins>01.09.15</ins>$5 bonus pentru fiecare comunicat de presă plasat pe bancamea.md!</a>
+	<a href="http://bancamea.md/blog/alexandru-lupusor/topul-companiilor-de-asigurari-la-situatia-din-300615-moldasig-pastreaza-pozitia-de-lider-pe-piata"><ins>10.08.15</ins>Topul companiilor de asigurări la situația din 30.06.15: Moldasig păstrează...</a>
+	<a href="http://bancamea.md/blog/denis-malendra/fenomenele-atacurilor-raider-in-sectorul-bancar-din-republica-moldova-si-altor-state-analiza-cazurilor-si-solutiilor-pentru-excluderea-lor"><ins>29.06.15</ins>Fenomenele atacurilor raider în sectorul bancar din Republica Moldova și...</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/1000000-de-ori-multumesc"><ins>07.06.15</ins>Mulțumesc de 1.000.000 de ori!</a>
+	<a href="http://bancamea.md/blog/mircea-ploteanu/fraude-bancare-vladimir-levin-escrocul-informatic-sovietic-nr-1"><ins>23.05.15</ins>Fraude bancare: Vladimir Levin - escrocul informatic sovietic nr. 1.</a>
+	<a href="http://bancamea.md/blog/mircea-ploteanu/masurile-adoptate-de-banca-rusiei-pentru-a-stopa-deprecierea-rublei-rusesti"><ins>05.05.15</ins>Măsurile adoptate de Banca Rusiei pentru a stopa deprecierea rublei rusești</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/bankseu-proiect-despre-bancile-din-uniunea-europeana-pentru-vorbitorii-de-limba-rusa"><ins>24.04.15</ins>Banks.eu – proiect nou despre băncile din Uniunea Europeană pentru...</a>
+	<a href="http://bancamea.md/blog/alexandru-lupusor/cum-banca-de-economii-sa-a-inregistrat-castiguri-record-din-diferente-de-schimb-de-curs"><ins>24.03.15</ins>Cum Banca de Economii S.A. a înregistrat câștiguri record din diferențe de...</a>
+	<a href="http://bancamea.md/blog/denis-malendra/leul-moldovenesc-exista-viata-dupa-30"><ins>19.02.15</ins>Leul moldovenesc: există viață după 30?</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/7000-de-fani-pe-facebook-pentru-bancameamd-va-multumim-pentru-sustinere"><ins>26.01.15</ins>7.000 de fani pe Facebook pentru bancamea.md - vă mulțumim pentru susținere!</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/un-investitor-cauta-o-banca-partener-in-moldova-pe-cine-recomandam-si-de-ce"><ins>13.01.15</ins>Un investitor caută o bancă-partener în Moldova. Pe cine recomandăm și de ce?</a>
+	<a href="http://bancamea.md/blog/tabarcea-sergiu/1000-de-zile-de-bancameamd-ce-am-reusit-sa-facem-si-ce-nu-s-a-primit"><ins>26.11.14</ins>1.000 de zile de bancamea.md: Ce am reușit să facem și ce nu s-a primit?</a>
+</div>
+/ Blog Tab Content -->
+</div>
+
+{% endblock %}

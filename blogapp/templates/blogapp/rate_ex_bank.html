@@ -1,0 +1,445 @@
+{% extends 'blogapp/index.html' %}
+{% block content %}
+<div class="second">
+
+	<div width="800px" style="padding-left:0px;">
+		<div class="col-md-2" style="padding:0px;">
+			<p style="height:13px; border-left: 13px solid green;">
+				&nbsp;Exchange Rates</p>
+		</div>
+		<div style="padding-left:0px;">
+				<hr style="margin-top:0;float:left;width:670px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+		</div>
+	</div>
+
+<div class="rate_ex_bank" id="rate_ex_bank" style="width:819px; margin-top:0px;">
+<!-- Header -->
+<div class="tr f">
+	<div class="th col1">
+		<div class="col_span"><i><b>&nbsp;</b></i></div>
+	</div>
+	<div class="th active">
+		<div class="col_span"><b>€</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>$</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>RON</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>RUB</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>CNY</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>₤</b></div>
+	</div>
+	<div class="th">
+		<div class="col_span"><b>CHF</b></div>
+	</div>
+</div>
+
+<div class="tr comp">
+	<div class="td col1"></div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+	<div class="td">
+		<div class="tdc">Buy</div>
+		<div class="tdc">Sell</div>
+	</div>
+</div>
+<!-- / Header -->
+
+
+<!-- BNM -->
+<div class="tr bnm">
+	<div class="td col1">Banca Nationala</div>
+
+		<div class="td">
+		<div class="tdcs">{{ firstbank.EUR }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.USD }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.RON }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.RUB }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.CNY }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.GBP }} <ins></ins></div>
+	</div>
+		<div class="td">
+		<div class="tdcs">{{ firstbank.CHF }} <ins></ins></div>
+	</div>
+
+</div>
+<!-- / BNM -->
+
+<!-- Other banks -->
+<div class="tr">
+	<div class="td col1">
+		Budapest Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.EUR1 }}</div>
+		<div class="tdc">{{ BUDAPEST.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.USD1 }}</div>
+		<div class="tdc">{{ BUDAPEST.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.RON }}</div>
+		<div class="tdc">{{ BUDAPEST.RON }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.RUB }}</div>
+		<div class="tdc">{{ BUDAPEST.RUB }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.CNY }}</div>
+		<div class="tdc">{{ BUDAPEST.CNY }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.GBP1 }}</div>
+		<div class="tdc">{{ BUDAPEST.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ BUDAPEST.CHF1 }}</div>
+		<div class="tdc">{{ BUDAPEST.CHF2 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		CIB Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ CIB.EUR1 }}</div>
+		<div class="tdc">{{ CIB.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.USD1 }}</div>
+		<div class="tdc">{{ CIB.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.RON }}</div>
+		<div class="tdc">{{ CIB.RON }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.RUB }}</div>
+		<div class="tdc">{{ CIB.RUB }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.CNY }}</div>
+		<div class="tdc">{{ CIB.CNY }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.GBP1 }}</div>
+		<div class="tdc">{{ CIB.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ CIB.CHF1 }}</div>
+		<div class="tdc">{{ CIB.CHF2 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		Erste Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ ERSTE.EUR1 }}</div>
+		<div class="tdc">{{ ERSTE.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.USD1 }}</div>
+		<div class="tdc">{{ ERSTE.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.RON1 }}</div>
+		<div class="tdc">{{ ERSTE.RON2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.RUB }}</div>
+		<div class="tdc">{{ ERSTE.RUB }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.CNY }}</div>
+		<div class="tdc">{{ ERSTE.CNY }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.GBP1 }}</div>
+		<div class="tdc">{{ ERSTE.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ ERSTE.CHF1 }}</div>
+		<div class="tdc">{{ ERSTE.CHF1 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		Granit Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ GRANIT.EUR1 }}</div>
+		<div class="tdc">{{ GRANIT.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.USD1 }}</div>
+		<div class="tdc">{{ GRANIT.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.RON }}</div>
+		<div class="tdc">{{ GRANIT.RON }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.RUB }}</div>
+		<div class="tdc">{{ GRANIT.RUB }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.CNY }}</div>
+		<div class="tdc">{{ GRANIT.CNY }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.GBP1 }}</div>
+		<div class="tdc">{{ GRANIT.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ GRANIT.CHF1 }}</div>
+		<div class="tdc">{{ GRANIT.CHF2 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		K&H Bank	</div>
+
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		MKB Bank	</div>
+
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		OTP Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ OTP.EUR1 }}</div>
+		<div class="tdc">{{ OTP.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.USD1 }}</div>
+		<div class="tdc">{{ OTP.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.RON }}</div>
+		<div class="tdc">{{ OTP.RON }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.RUB }}</div>
+		<div class="tdc">{{ OTP.RUB }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.CNY1 }}</div>
+		<div class="tdc">{{ OTP.CNY2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.GBP1 }}</div>
+		<div class="tdc">{{ OTP.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ OTP.CHF1 }}</div>
+		<div class="tdc">{{ OTP.CHF2 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		Raiffeisien Bank	</div>
+
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.EUR1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.EUR2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.USD1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.USD2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.RON1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.RON2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.RUB1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.RUB2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.CNY }}</div>
+		<div class="tdc">{{ RAIFFEISEN.CNY }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.GBP1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.GBP2 }}</div>
+	</div>
+		<div class="td">
+		<div class="tdc">{{ RAIFFEISEN.CHF1 }}</div>
+		<div class="tdc">{{ RAIFFEISEN.CHF2 }}</div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		Sberbank Bank	</div>
+
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+	</div>
+<div class="tr">
+	<div class="td col1">
+		UniCredit Bank	</div>
+
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+		<div class="td">
+		<div class="tdc"> --- </div>
+		<div class="tdc"> --- </div>
+	</div>
+	</div>
+
+<!-- / Other banks -->
+
+</div>
+</div>
+
+
+{% endblock %}

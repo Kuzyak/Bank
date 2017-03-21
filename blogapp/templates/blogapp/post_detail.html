@@ -1,0 +1,26 @@
+{% extends 'blogapp/index.html' %}
+{% block content %}
+  <div class="second">
+    <div width="800px" style="padding-left:0px;">
+    	<div class="col-md-1" style="padding:0px;">
+    		<p style="height:13px; border-left: 13px solid green;">
+    			&nbsp;NEWS</p>
+    	</div>
+    	<div style="padding-left:0px;">
+    			<hr style="margin-top:0;float:left;width:650px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+    	</div>
+    </div>
+    <div class="post col-md-11">
+        <h1>{{ post.title }}</h1>   <br>
+        <div class="news_photo">
+          <img src="{{ post.images.url }}" title="{{ post.title }}" alt="Error" width="327">
+        </div>
+            {% if post.published_date %}
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+            {% endif %}
+        <br><p>{{ post.text|linebreaksbr }}</p>
+    </div>
+  </div>
+{% endblock %}

@@ -3,8 +3,21 @@ from django.contrib import admin
 # Register your models here.
 from .models import NewsWebsite
 from .models import Article
-#from .models import ArticleItem
+from .models import Post
+
+class PostModelAdmin(admin.ModelAdmin):
+    list_display = ["title", "created_date", "published_date"]
+    list_filter = ["created_date", "published_date"]
+    search_fields = ["title","text"]
+    class Meta:
+        model = Post
+
+class ArticleModelAdmin(admin.ModelAdmin):
+    list_display = ["__unicode__"]
+    #list_filter = ["created_date", "published_date"]
+    class Meta:
+        model = Article
 
 admin.site.register(NewsWebsite)
-admin.site.register(Article)
-#admin.site.register(ArticleItem)
+admin.site.register(Article, ArticleModelAdmin)
+admin.site.register(Post, PostModelAdmin)

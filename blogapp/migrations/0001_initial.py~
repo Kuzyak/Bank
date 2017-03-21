@@ -10,9 +10,9 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    #dependencies = [
-    #    ('dynamic_scraper', '0018_auto_20170202_1829'),
-    #]
+    dependencies = [
+        ('dynamic_scraper', '0018_auto_20170202_1829'),
+    ]
 
     operations = [
         migrations.CreateModel(

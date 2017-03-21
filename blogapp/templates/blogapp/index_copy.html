@@ -5,8 +5,8 @@
 	<!-- base href="http://bancamea.md/" -->
 	<meta charset="utf-8">
 	<title>TEST</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<meta name="description" content="">
 <!--
 	<link rel="shortcut icon" href="http://bancamea.md/favicon.png">
@@ -14,6 +14,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="http://bancamea.md/touch-icon-ipad.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="http://bancamea.md/touch-icon-iphone4.png">
 	<link rel="apple-touch-icon-precomposed" href="http://bancamea.md/touch-icon-android.png">
+-->
 	<meta property="og:type" content="company">
 	<meta property="og:site_name" content="TEST">
 	<meta property="fb:app_id" content="115370438592501">
@@ -21,11 +22,11 @@
 	<meta property="og:description" content="noutăţi bancare, produse bancare, informaţii utile">
 	<meta property="og:url" content="http://bancamea.md/">
 	<meta property="og:image" content="http://bancamea.md/img/fb_b.png">
--->
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 	<script type="text/javascript" async="" src="{% static 'js/ga.js' %}"></script><script async="async" defer="defer" src="{% static 'js/xgemius.js' %}"></script><script id="facebook-jssdk" src="{% static 'js/all.js' %}"></script><script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/package.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/sitemap-popup.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/tooltip.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/hoverIntent.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/superfish.js' %}"></script>
@@ -37,6 +38,7 @@
 	<script type="text/javascript" src="{% static 'js/jquery_002.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/all_002.js' %}"></script>
+
 	<script type="text/javascript" src="{% static 'js/daily_items.js' %}"></script>
 
 	<script type="text/javascript">
@@ -220,13 +222,13 @@
 
 <ul id="menu" class="sf-js-enabled">
 	<li class="">
-		<a href="{% url 'post_list' %}" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
+		<a href="#" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
 
 	</li>
 	<li class="">
-		<a href="{% url 'rate_ex_bank' %}" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
+		<a href="#" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
 		<ul style="display: none; visibility: hidden;">
-											<li><a href="{% url 'rate_ex_bank' %}">Today Exchange Rates</a></li>
+											<li><a href="#">Today Exchange Rates</a></li>
 											<li><a href="#">Exchange Rates History</a></li>
 
 		</ul>
@@ -270,7 +272,7 @@
 <input name="today-usd" value="{{ firstbank.USD }}" type="hidden">
 <input name="today-ron" value="{{ firstbank.RON }}" type="hidden">
 <input name="today-rub" value="{{ firstbank.RUB }}" type="hidden">
-<input name="today-uah" value="{{ firstbank.CNY }}" type="hidden">
+<input name="today-uah" value="{{ firstbank.UAH }}" type="hidden">
 <input name="today-gbp" value="{{ firstbank.GBP }}" type="hidden">
 <input name="today-chf" value="{{ firstbank.CHF }}" type="hidden">
 <!-- / Today BNM Exchange Rates -->
@@ -286,7 +288,7 @@
 				<div class="active"><label>EUR</label><input id="vlt2" name="converter-eur" type="text"><b>{{ firstbank.EUR }}</b><a id="vlt22" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_2" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_2" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
 				<div><label>USD</label><input id="vlt3" name="converter-usd" type="text"><b>{{ firstbank.USD }}</b><a id="vlt33" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_3" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_3" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
 				<div><label>RON</label><input id="vlt4" name="converter-ron" type="text"><b>{{ firstbank.RON }}</b><a id="vlt44" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_4" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_4" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_4" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>CNY</label><input id="vlt5" name="converter-uah" type="text"><b>{{ firstbank.CNY }}</b><a id="vlt55" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_5" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_5" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+				<div><label>CNY</label><input id="vlt5" name="converter-uah" type="text"><b>{{ firstbank.UAH }}</b><a id="vlt55" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_5" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_5" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
 				<div><label>RUB</label><input id="vlt6" name="converter-rub" type="text"><b>{{ firstbank.RUB }}</b><a id="vlt66" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_6" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_6" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_6" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=6&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
 				<div><label>GBP</label><input id="vlt7" name="converter-gbp" type="text"><b>{{ firstbank.GBP }}</b><a id="vlt77" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_7" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_7" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_7" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=7&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
 				<div id="last"><label>CHF</label><input id="vlt8" name="converter-chf" type="text"><b>{{ firstbank.CHF }}</b><a id="vlt88" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_8" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_8" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_8" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=8&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
@@ -296,7 +298,7 @@
 
 	<div class="block">
 
-<h3>Curs valutar <span>{{ time_date }}</span></h3>
+<h3>Curs valutar <span>17 feb 2017</span></h3>
 <div class="content">
 	<div class="corner"></div>
 
@@ -340,8 +342,8 @@
 								<div class="tr">
 					<div class="td a">
 						ERSTE					</div>
-					<div class="td b">{{ ERSTE.EUR1 }}</div>
-					<div class="td c">{{ ERSTE.EUR2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,43</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -352,20 +354,20 @@
 								<div class="tr">
 					<div class="td a">
 						K&H					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,22</div>
+					<div class="td c">21,46</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						MKB					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,19</div>
+					<div class="td c">21,39</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						OTP					</div>
-					<div class="td b">{{ OTP.EUR1 }}</div>
-					<div class="td c">{{ OTP.EUR2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,44</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -376,14 +378,14 @@
 								<div class="tr">
 					<div class="td a">
 						SBERBANK					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 							<div class="tr">
 					<div class="td a">
 						UNICREDIT					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 
 
@@ -414,8 +416,8 @@
 								<div class="tr">
 					<div class="td a">
 						ERSTE					</div>
-					<div class="td b">{{ ERSTE.USD1 }}</div>
-					<div class="td c">{{ ERSTE.USD2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,43</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -426,20 +428,20 @@
 								<div class="tr">
 					<div class="td a">
 						K&H					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,22</div>
+					<div class="td c">21,46</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						MKB					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,19</div>
+					<div class="td c">21,39</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						OTP					</div>
-					<div class="td b">{{ OTP.USD1 }}</div>
-					<div class="td c">{{ OTP.USD2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,44</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -450,14 +452,14 @@
 								<div class="tr">
 					<div class="td a">
 						SBERBANK					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 							<div class="tr">
 					<div class="td a">
 						UNICREDIT					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 
 
@@ -475,44 +477,44 @@
 									<div class="tr">
 						<div class="td a">
 							BUDAPEST					</div>
-						<div class="td b">{{ BUDAPEST.RON }}</div>
-						<div class="td c">{{ BUDAPEST.RON }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							CIB					</div>
-						<div class="td b">{{ CIB.RON }}</div>
-						<div class="td c">{{ CIB.RON }}</div>
+							<div class="td b"> — </div>
+							<div class="td c"> — </div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							ERSTE					</div>
-						<div class="td b">{{ ERSTE.RON1 }}</div>
-						<div class="td c">{{ ERSTE.RON2 }}</div>
+						<div class="td b">21,23</div>
+						<div class="td c">21,43</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							GRANIT					</div>
-						<div class="td b">{{ GRANIT.RON }}</div>
-						<div class="td c">{{ GRANIT.RON }}</div>
+							<div class="td b"> — </div>
+							<div class="td c"> — </div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							K&H					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,22</div>
+						<div class="td c">21,46</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							MKB					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,19</div>
+						<div class="td c">21,39</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							OTP					</div>
-						<div class="td b">{{ OTP.RON }}</div>
-						<div class="td c">{{ OTP.RON }}</div>
+						<div class="td b">21,23</div>
+						<div class="td c">21,44</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
@@ -523,14 +525,14 @@
 									<div class="tr">
 						<div class="td a">
 							SBERBANK					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,20</div>
+						<div class="td c">21,47</div>
 					</div>
 								<div class="tr">
 						<div class="td a">
 							UNICREDIT					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,20</div>
+						<div class="td c">21,47</div>
 					</div>
 
 			</div>
@@ -546,44 +548,44 @@
 								<div class="tr">
 					<div class="td a">
 						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.RUB }}</div>
-					<div class="td c">{{ BUDAPEST.RUB }}</div>
+					<div class="td b"> — </div>
+					<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						CIB					</div>
-					<div class="td b">{{ CIB.RUB }}</div>
-					<div class="td c">{{ CIB.RUB }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						ERSTE					</div>
-					<div class="td b">{{ ERSTE.RUB }}</div>
-					<div class="td c">{{ ERSTE.RUB }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,43</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						GRANIT					</div>
-					<div class="td b">{{ GRANIT.RUB }}</div>
-					<div class="td c">{{ GRANIT.RUB }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						K&H					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,22</div>
+					<div class="td c">21,46</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						MKB					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,19</div>
+					<div class="td c">21,39</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						OTP					</div>
-					<div class="td b">{{ OTP.RUB }}</div>
-					<div class="td c">{{ OTP.RUB }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,44</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -594,14 +596,14 @@
 								<div class="tr">
 					<div class="td a">
 						SBERBANK					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 							<div class="tr">
 					<div class="td a">
 						UNICREDIT					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 
 			</div>
@@ -616,62 +618,62 @@
 								<div class="tr">
 					<div class="td a">
 						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.CNY }}</div>
-					<div class="td c">{{ BUDAPEST.CNY }}</div>
+					<div class="td b"> — </div>
+					<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						CIB					</div>
-					<div class="td b">{{ CIB.CNY }}</div>
-					<div class="td c">{{ CIB.CNY }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						ERSTE					</div>
-					<div class="td b">{{ ERSTE.CNY }}</div>
-					<div class="td c">{{ ERSTE.CNY }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,43</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						GRANIT					</div>
-					<div class="td b">{{ GRANIT.CNY }}</div>
-					<div class="td c">{{ GRANIT.CNY }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						K&H					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,22</div>
+					<div class="td c">21,46</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						MKB					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,19</div>
+					<div class="td c">21,39</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						OTP					</div>
-					<div class="td b">{{ OTP.CNY1 }}</div>
-					<div class="td c">{{ OTP.CNY2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,44</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.CNY }}</div>
-					<div class="td c">{{ RAIFFEISEN.CNY }}</div>
+						<div class="td b"> — </div>
+						<div class="td c"> — </div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						SBERBANK					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 							<div class="tr">
 					<div class="td a">
 						UNICREDIT					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 
 			</div>
@@ -699,8 +701,8 @@
 								<div class="tr">
 					<div class="td a">
 						ERSTE					</div>
-					<div class="td b">{{ ERSTE.GBP1 }}</div>
-					<div class="td c">{{ ERSTE.GBP2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,43</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -711,20 +713,20 @@
 								<div class="tr">
 					<div class="td a">
 						K&H					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,22</div>
+					<div class="td c">21,46</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						MKB					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,19</div>
+					<div class="td c">21,39</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
 						OTP					</div>
-					<div class="td b">{{ OTP.GBP1 }}</div>
-					<div class="td c">{{ OTP.GBP2 }}</div>
+					<div class="td b">21,23</div>
+					<div class="td c">21,44</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
@@ -735,14 +737,14 @@
 								<div class="tr">
 					<div class="td a">
 						SBERBANK					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 							<div class="tr">
 					<div class="td a">
 						UNICREDIT					</div>
-					<div class="td b"> --- </div>
-					<div class="td c"> --- </div>
+					<div class="td b">21,20</div>
+					<div class="td c">21,47</div>
 				</div>
 
 			</div>
@@ -770,8 +772,8 @@
 									<div class="tr">
 						<div class="td a">
 							ERSTE					</div>
-						<div class="td b">{{ ERSTE.CHF1 }}</div>
-						<div class="td c">{{ ERSTE.CHF2 }}</div>
+						<div class="td b">21,23</div>
+						<div class="td c">21,43</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
@@ -782,20 +784,20 @@
 									<div class="tr">
 						<div class="td a">
 							K&H					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,22</div>
+						<div class="td c">21,46</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							MKB					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,19</div>
+						<div class="td c">21,39</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
 							OTP					</div>
-						<div class="td b">{{ OTP.CHF1 }}</div>
-						<div class="td c">{{ OTP.CHF2 }}</div>
+						<div class="td b">21,23</div>
+						<div class="td c">21,44</div>
 					</div>
 									<div class="tr">
 						<div class="td a">
@@ -806,14 +808,14 @@
 									<div class="tr">
 						<div class="td a">
 							SBERBANK					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,20</div>
+						<div class="td c">21,47</div>
 					</div>
 								<div class="tr">
 						<div class="td a">
 							UNICREDIT					</div>
-						<div class="td b"> --- </div>
-						<div class="td c"> --- </div>
+						<div class="td b">21,20</div>
+						<div class="td c">21,47</div>
 					</div>
 
 			</div>
@@ -840,8 +842,9 @@
 
 
 </div>
-{% block content %}
-{% endblock %}
+
+						{% block content %}
+            {% endblock %}
 
 				</div>
 			</div>
