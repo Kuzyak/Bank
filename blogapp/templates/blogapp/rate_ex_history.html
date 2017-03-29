@@ -1,0 +1,427 @@
+{% extends 'blogapp/index.html' %}
+{% block content %}
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+$(document).ready(function(){
+	var endpoint = "/api/chart/data/"
+	$.ajax({
+		method: "GET",
+		url:endpoint,
+		success: function(data){
+			Eur = data.EUR
+			Usd = data.USD
+			Ron = data.RON
+			Cny = data.CNY
+			Rub = data.RUB
+			Gbp = data.GBP
+			Chf = data.CHF
+			Day = data.DAY
+			lab = data.LAB
+			var dates = new Array();
+			$.each(Day, function(key, val) {
+				var day = parseInt(val.split(" ")[0]);
+				var month = getMonthNameShort(val.split(" ")[1]);
+				var chartDate = month + " " + day;
+				dates.push(chartDate);
+			});
+			days = dates
+			setChart()
+			setChart1()
+		},
+		error: function(error_data){
+			console.log("error")
+			console.log(error_data)
+		}
+	})
+	function getMonthNameShort(month) {
+		switch (month) {
+			case 'January': month = "jan."; break;
+			case 'February': month = "feb."; break;
+			case 'March': month = "mar."; break;
+			case 'April': month = "apr."; break;
+			case 'May': month = "may."; break;
+			case 'June': month = "jun."; break;
+			case 'July': month = "jul."; break;
+			case 'August': month = "aug."; break;
+			case 'September': month = "sep."; break;
+			case 'October': month = "oct."; break;
+			case 'November': month = "nov."; break;
+			case 'December': month = "dec."; break;
+		}
+
+		return month;
+	}
+	//"rgba(0,152,44,1)",
+	//"rgba(230,160,0,1)",
+	function setChart(){
+		var ctx = document.getElementById("myChart1");
+		var myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "EUR",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(0,152,44,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(0,152,44,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Eur,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution EUR per period: " + lab,
+						}
+				}
+		})
+	}
+	function setChart1(){
+		var ctx2 = document.getElementById("myChart2");
+		var myChart2 = new Chart(ctx2, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "USD",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(230,160,0,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(230,160,0,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Usd,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution USD per period: " + lab,
+						}
+				}
+		});
+		var ctx3 = document.getElementById("myChart3");
+		var myChart3 = new Chart(ctx3, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "RON",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(0,152,44,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(0,152,44,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Ron,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution RON per period: " + lab,
+						}
+				}
+		});
+		var ctx4 = document.getElementById("myChart4");
+		var myChart4 = new Chart(ctx4, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "RUB",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(230,160,0,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(230,160,0,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Rub,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution RUB per period: " + lab,
+						}
+				}
+		});
+		var ctx5 = document.getElementById("myChart5");
+		var myChart5 = new Chart(ctx5, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "CNY",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(0,152,44,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(0,152,44,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Cny,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution CNY per period: " + lab,
+						}
+				}
+		});
+		var ctx6 = document.getElementById("myChart6");
+		var myChart6 = new Chart(ctx6, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "GBP",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(230,160,0,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(230,160,0,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Gbp,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution GBP per period: " + lab,
+						}
+				}
+		});
+		var ctx7 = document.getElementById("myChart7");
+		var myChart7 = new Chart(ctx7, {
+				type: 'line',
+				data: {
+						labels: days,
+						datasets: [{
+								label: "CHF",
+		            fill: false,
+		            lineTension: 0,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(0,152,44,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 5,
+		            pointHoverRadius: 6,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(0,152,44,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: Chf,
+		            spanGaps: false,
+						}]
+				},
+				options: {
+						title: {
+								display: true,
+								text: "Evolution CHF per period: " + lab,
+						}
+				}
+		});
+	}
+})
+function myFunctionButton1() {
+	document.getElementById('myChart1').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("eur");
+}
+function myFunctionButton2() {
+	document.getElementById('myChart2').style.display = 'block';
+	document.getElementById('myChart1').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("usd");
+}
+function myFunctionButton3() {
+	document.getElementById('myChart3').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart1').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("ron");
+}
+function myFunctionButton4() {
+	document.getElementById('myChart4').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart1').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("rub");
+}
+function myFunctionButton5() {
+	document.getElementById('myChart5').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart1').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("cny");
+}
+function myFunctionButton6() {
+	document.getElementById('myChart6').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart1').style.display = 'none';
+	document.getElementById('myChart7').style.display = 'none';
+	check("gbp");
+}
+function myFunctionButton7() {
+	document.getElementById('myChart7').style.display = 'block';
+	document.getElementById('myChart2').style.display = 'none';
+	document.getElementById('myChart3').style.display = 'none';
+	document.getElementById('myChart4').style.display = 'none';
+	document.getElementById('myChart5').style.display = 'none';
+	document.getElementById('myChart6').style.display = 'none';
+	document.getElementById('myChart1').style.display = 'none';
+	check("chf");
+}
+function check(some) {
+	document.getElementById("eur").disabled = false;
+	document.getElementById("usd").disabled = false;
+	document.getElementById("ron").disabled = false;
+	document.getElementById("rub").disabled = false;
+	document.getElementById("cny").disabled = false;
+	document.getElementById("gbp").disabled = false;
+	document.getElementById("chf").disabled = false;
+	document.getElementById(some).disabled = true;
+}
+</script>
+
+<div class="second">
+
+	<div width="800px" style="padding-left:0px;">
+		<div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:20%;">
+			<p style="height:13px; border-left: 13px solid green;">
+				&nbsp;Exchange Rates History</p>
+		</div>
+		<div style="padding-left:0px;">
+				<hr style="margin-top:0;float:left;width:640px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+		</div>
+	</div>
+	<div class="col-md-11 col-sm-11 col-xs-11" style="padding:0;margin-top:0px;margin-bottom:26px;">
+		<br>
+		<button disabled onclick="myFunctionButton1()" id="eur"><span class="glyphicon glyphicon-euro"></span></button>
+		<button onclick="myFunctionButton2()" id="usd"><span class="glyphicon glyphicon-usd"></span></button>
+		<button onclick="myFunctionButton3()" id="ron"><span></span>RON</button>
+		<button onclick="myFunctionButton4()" id="rub"><span></span>RUB</button>
+		<button onclick="myFunctionButton5()" id="cny"><span></span>CNY</button>
+		<button onclick="myFunctionButton6()" id="gbp"><span class="glyphicon glyphicon-gbp"></span></button>
+		<button onclick="myFunctionButton7()" id="chf"><span></span>CHF</button>
+		<br>
+	</div>
+	<div class="rate_ex_history col-md-11 col-sm-11 col-xs-11" id="rate_ex_history" style="padding:0;margin-top:0px;">
+		<canvas id="myChart1" style="display: block; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart2" style="display: none; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart3" style="display: none; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart4" style="display: none; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart5" style="display: none; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart6" style="display: none; width: 816px; height: 400px;"></canvas>
+		<canvas id="myChart7" style="display: none; width: 816px; height: 400px;"></canvas>
+	</div>
+
+
+
+</div>
+
+
+{% endblock %}

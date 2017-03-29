@@ -48,7 +48,7 @@ class Article(models.Model):
     #
     #created_date = models.DateTimeField(default=timezone.now)
     news_website = models.ForeignKey(NewsWebsite)
-    description = models.TextField(blank=True)
+    description = models.TextField()
     url = models.URLField()
     checker_runtime = models.ForeignKey(SchedulerRuntime)
 

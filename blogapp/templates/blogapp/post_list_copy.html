@@ -6,6 +6,44 @@
 
 <div class="second">
 
+	<script>
+	var y = 2;
+	function myFunctionL() {
+		w1 = y-1
+		var w1 = "some"+w1;
+		w2 = y+2
+		var w2 = "some"+w2;
+	  var x1 = document.getElementById(w1);
+	  var x2 = document.getElementById(w2);
+	  x1.style.display = 'block';
+	  x2.style.display = 'none';
+		y = y - 1;
+		check();
+	}
+	function myFunctionR() {
+		var w1 = "some"+y;
+		w2 = y+3
+		var w2 = "some"+w2;
+	  var x1 = document.getElementById(w1);
+	  var x2 = document.getElementById(w2);
+	  x2.style.display = 'block';
+	  x1.style.display = 'none';
+		y = y + 1;
+		check();
+	}
+	function check() {
+		if (y==2){
+			document.getElementById("buttonL").disabled = true;
+		} else {
+			document.getElementById("buttonL").disabled = false;
+		}
+		if (y==8){
+			document.getElementById("buttonR").disabled = true;
+		} else {
+			document.getElementById("buttonR").disabled = false;
+		}
+	}
+	</script>
 	<!-- / Buttons
 	<div class="block middle-banner">
     <div id="adoceanroubgiqkinxc8" style="display: none;"></div>
@@ -21,7 +59,7 @@
 	</div>
 	<div style="padding-left:0px;">
 			<hr style="margin-top:0;float:left;width:650px;height:13px;border:none;color:#999999;background-color:#999999;"/>
-			<button onclick="myFunctionL()" id="buttonL"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			<button disabled onclick="myFunctionL()" id="buttonL"><span class="glyphicon glyphicon-chevron-left"></span></button>
 			<button onclick="myFunctionR()" id="buttonR"><span class="glyphicon glyphicon-chevron-right"></span></button>
 
 
@@ -30,10 +68,10 @@
 
 <div class="rows">
 	<div class="col-md-5 col-sm-5 col-xs-5" style="padding-left:0px; padding-top:10px;">
-			<div>	<a id="a1_0" href="{% url 'post_detail' pk=posts.0.pk %}"><img id="img_0" src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
-				<a id="a2_0" href="{% url 'post_detail' pk=posts.0.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_0">{{ posts.0.title }}</h2></div></a><br>
-				<h5 id="h5_0">{{ posts.3.published_date }}</h5><br>
-				<h3 id="h3_0">{{ posts.0.title_text}}</h3>
+			<div>	<a href="{% url 'post_detail' pk=posts.0.pk %}"><img  src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
+				<a href="{% url 'post_detail' pk=posts.0.pk %}"><h2>{{ posts.0.title }}</h2></a><br>
+				<h5>{{ posts.0.published_date }}</h5><br>
+				<h3>{{ posts.0.title_text}}...</h3>
 
 			</div>
 
@@ -43,11 +81,11 @@
 		<div id="some2" style="display:block;">
 			<div class="col-md-12 col-sm-12 col-xs-12"  style=" padding-left:0px;">
 				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
-					<a id="a1_1" href="{% url 'post_detail' pk=posts.1.pk %}"><img id="img_1" src="{{ posts.1.images.url }}" title="{{ posts.1.title }}" alt="Error" width="109" height="80"></a>
+					<a href="{% url 'post_detail' pk=posts.1.pk %}"><img src="{{ posts.1.images.url }}" title="{{ posts.1.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_1" href="{% url 'post_detail' pk=posts.1.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_1">{{ posts.1.title }}</h2></div></a>
-					<h5 id="h5_1" >{{ posts.1.published_date }}</h5>
+					<a href="{% url 'post_detail' pk=posts.1.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.1.title }}</h2></div></a>
+					<h5>{{ posts.1.published_date }}</h5>
 				</div>
 				<hr style="margin-left:10px;">
 			</div>
@@ -56,11 +94,11 @@
 		 <div id="some3" style="display:block;">
 			<div class="col-md-12  col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
 				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
-					<a id="a1_2"  href="{% url 'post_detail' pk=posts.2.pk %}"><img id="img_2" src="{{ posts.2.images.url }}" title="{{ posts.2.title }}" alt="Error" width="109" height="80"></a>
+					<a href="{% url 'post_detail' pk=posts.2.pk %}"><img src="{{ posts.2.images.url }}" title="{{ posts.2.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_2"  href="{% url 'post_detail' pk=posts.2.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_2">{{ posts.2.title }}</h2></div></a>
-					<h5 id="h5_2">{{ posts.2.published_date }}</h5>
+					<a href="{% url 'post_detail' pk=posts.2.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.2.title }}</h2></div></a>
+					<h5>{{ posts.2.published_date }}</h5>
 				</div>
 					<hr style="margin-left:10px;">
 			</div>
@@ -69,11 +107,89 @@
 			<div id="some4" style="display:block;">
 			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
 				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
-					<a id="a1_3"  href="{% url 'post_detail' pk=posts.3.pk %}"><img id="img_3" src="{{ posts.3.images.url }}" title="{{ posts.3.title }}" alt="Error" width="109" height="80"></a>
+					<a href="{% url 'post_detail' pk=posts.3.pk %}"><img src="{{ posts.3.images.url }}" title="{{ posts.3.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_3"  href="{% url 'post_detail' pk=posts.3.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_3">{{ posts.3.title }}</h2></div></a>
-					<h5 id="h5_3">{{ posts.3.published_date }}</h5>
+					<a href="{% url 'post_detail' pk=posts.3.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.3.title }}</h2></div></a>
+					<h5>{{ posts.3.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some5" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.4.pk %}"><img src="{{ posts.4.images.url }}" title="{{ posts.4.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.4.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.4.title }}</h2></div></a>
+					<h5>{{ posts.4.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some6" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.5.pk %}"><img src="{{ posts.5.images.url }}" title="{{ posts.5.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.5.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.5.title }}</h2></div></a>
+					<h5>{{ posts.5.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some7" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.6.pk %}"><img src="{{ posts.6.images.url }}" title="{{ posts.6.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.6.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.6.title }}</h2></div></a>
+					<h5>{{ posts.6.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some8" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.7.pk %}"><img src="{{ posts.7.images.url }}" title="{{ posts.7.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.7.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.7.title }}</h2></div></a>
+					<h5>{{ posts.7.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some9" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.8.pk %}"><img src="{{ posts.8.images.url }}" title="{{ posts.8.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.8.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.8.title }}</h2></div></a>
+					<h5>{{ posts.8.published_date }}</h5>
+				</div>
+					<hr style="margin-left:10px;">
+			</div>
+		</div>
+
+		<div id="some10" style="display:none;">
+			<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:0px; padding-left:0px;">
+				<div class="col-md-4 col-sm-4 col-xs-4" style=" padding-left:10px;">
+					<a href="{% url 'post_detail' pk=posts.9.pk %}"><img src="{{ posts.9.images.url }}" title="{{ posts.9.title }}" alt="Error" width="109" height="80"></a>
+				</div>
+				<div style="padding-top:3px; padding-left:20px;">
+					<a href="{% url 'post_detail' pk=posts.9.pk %}"><div style="overflow: hidden; height:48px;"><h2>{{ posts.9.title }}</h2></div></a>
+					<h5>{{ posts.9.published_date }}</h5>
 				</div>
 					<hr style="margin-left:10px;">
 			</div>
@@ -92,7 +208,7 @@
 </div>
 </div>
 	<div class="col-md-11  col-sm-11 col-xs-11" style=" padding-left:0px;">
-	<hr style="margin:10px 0px 0px 0px;width:790px;height:13px;border:none;color:#999999;background-color:#999999;" />
+	<hr style="margin: 0;width:790px;height:13px;border:none;color:#999999;background-color:#999999;" />
 	<table class="main_table" cellpadding="7" align="center" width="790">
 	  <tr height = "80px">
 	    <td width = "263px"><h2><a href="{% url 'rate_ex_bank' %}">Exchange Rates</a></h2></td>
@@ -198,83 +314,6 @@
 	<a href="http://bancamea.md/blog/tabarcea-sergiu/1000-de-zile-de-bancameamd-ce-am-reusit-sa-facem-si-ce-nu-s-a-primit"><ins>26.11.14</ins>1.000 de zile de bancamea.md: Ce am reușit să facem și ce nu s-a primit?</a>
 </div>
 / Blog Tab Content -->
-
-<script>
-/*
-{% url 'post_detail' pk=posts.0.pk %}
-{{ posts.0.images.url }}
-{{ posts.0.title }}
-{{ posts.0.published_date }}
-{{ posts.0.title_text}}...
-*/
-var y = 0
-check();
-var title = [	"{{ posts.0.title }}","{{ posts.1.title }}","{{ posts.2.title }}","{{ posts.3.title }}","{{ posts.4.title }}",
-							"{{ posts.5.title }}","{{ posts.6.title }}","{{ posts.7.title }}","{{ posts.8.title }}","{{ posts.9.title }}"];
-
-var text = ["{{ posts.0.title_text }}","{{ posts.1.title_text }}","{{ posts.2.title_text }}","{{ posts.3.title_text }}",
-						"{{ posts.4.title_text }}","{{ posts.5.title_text }}","{{ posts.6.title_text }}","{{ posts.7.title_text }}",
-						"{{ posts.8.title_text }}","{{ posts.9.title_text }}"];
-
-var img =  ["{{ posts.0.images.url }}","{{ posts.1.images.url }}","{{ posts.2.images.url }}","{{ posts.3.images.url }}",
-						"{{ posts.4.images.url }}","{{ posts.5.images.url }}","{{ posts.6.images.url }}","{{ posts.7.images.url }}",
-						"{{ posts.8.images.url }}","{{ posts.9.images.url }}"];
-
-var date_p = ["{{ posts.0.published_date }}","{{ posts.1.published_date }}","{{ posts.2.published_date }}","{{ posts.3.published_date }}",
-							"{{ posts.4.published_date }}","{{ posts.5.published_date }}","{{ posts.6.published_date }}","{{ posts.7.published_date }}",
-							"{{ posts.8.published_date }}","{{ posts.9.published_date }}"];
-
-var link = ["{% url 'post_detail' pk=posts.0.pk %}","{% url 'post_detail' pk=posts.1.pk %}","{% url 'post_detail' pk=posts.2.pk %}",
-						"{% url 'post_detail' pk=posts.3.pk %}","{% url 'post_detail' pk=posts.4.pk %}","{% url 'post_detail' pk=posts.5.pk %}",
-						"{% url 'post_detail' pk=posts.6.pk %}","{% url 'post_detail' pk=posts.7.pk %}","{% url 'post_detail' pk=posts.8.pk %}",
-						"{% url 'post_detail' pk=posts.9.pk %}",];
-
-var id = ['a1_','img_','title_','h5_','h3_','a2_'];
-
-function myFunctionR() {
-	y = y + 1
-	for (i = 0; i < 4; i++) {
-		document.getElementById(id[0] + i).href = link[y+i];
-		document.getElementById(id[5] + i).href = link[y+i];
-		document.getElementById(id[1] + i).src = img[y+i];
-		document.getElementById(id[1] + i).title = title[y+i];
-		document.getElementById(id[2] + i).innerHTML = title[y+i];
-		document.getElementById(id[3] + i).innerHTML = date_p[y+i];
-		if (i==0){
-			document.getElementById(id[4] + i).innerHTML = text[y+i] + "...";
-		}
-	}
-	check();
-}
-function myFunctionL() {
-	y = y - 1
-	for (i = 0; i < 4; i++) {
-		document.getElementById(id[0] + i).href = link[y+i];
-		document.getElementById(id[5] + i).href = link[y+i];
-		document.getElementById(id[1] + i).src = img[y+i];
-		document.getElementById(id[1] + i).title = title[y+i];
-		document.getElementById(id[2] + i).innerHTML = title[y+i];
-		document.getElementById(id[3] + i).innerHTML = date_p[y+i];
-		if (i==0){
-			document.getElementById(id[4] + i).innerHTML = text[y+i];
-		}
-	}
-	check();
-}
-function check() {
-	if (y==0){
-		document.getElementById("buttonL").disabled = true;
-	} else {
-		document.getElementById("buttonL").disabled = false;
-	}
-	if (y==6){
-		document.getElementById("buttonR").disabled = true;
-	} else {
-		document.getElementById("buttonR").disabled = false;
-	}
-}
-</script>
-
 </div>
 
 {% endblock %}

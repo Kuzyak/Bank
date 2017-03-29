@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dynamic_scraper',
     'djcelery',
     'kombu.transport.django',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

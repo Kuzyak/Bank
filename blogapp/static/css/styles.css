@@ -262,11 +262,11 @@ h5 { font-size:12px; }
   z-index:3;
 }
 #middle .menu_block .left {
-  background:url("/img/sprite.png") no-repeat 0 -160px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat 0 -160px;
   left:0;
 }
 #middle .menu_block .right {
-  background:url("/img/sprite.png") no-repeat -9px -160px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -9px -160px;
   right:0;
 }
 #middle .menu_block .select_bank {
@@ -285,12 +285,12 @@ h5 { font-size:12px; }
 }
 #middle .menu_block .select_bank #bank-popup .gr-button { display:block; }
 #middle .menu_block .select_bank #bank-popup .top {
-  background:url("/img/sprite.png") no-repeat 0 -231px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat 0 -231px;
   width:100%;
   height:7px;
 }
 #middle .menu_block .select_bank #bank-popup .bottom {
-  background:url("/img/sprite.png") no-repeat 0 -238px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat 0 -238px;
   width:100%;
   height:4px;
 }
@@ -329,7 +329,7 @@ h5 { font-size:12px; }
   width:198px;
 }
 #middle .menu_block .select_bank .icon {
-  background:url("/img/sprite.png") no-repeat -136px -96px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -136px -96px;
   width:9px;
   height:5px;
   position:absolute;
@@ -402,7 +402,7 @@ h5 { font-size:12px; }
   height:6px;
   text-indent:-999em;
   overflow:hidden;
-  background:url("/img/sprite.png") no-repeat -80px -96px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -80px -96px;
   display:-moz-inline-stack;
   display:inline-block;
   zoom:1;
@@ -431,7 +431,7 @@ h5 { font-size:12px; }
 }
 #middle .menu_block #menu li.current a { color:#5d5c5c; }
 #middle .menu_block #menu li.current a .sf-sub-indicator {
-  background:url("/img/sprite.png") no-repeat -106px -96px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -106px -96px;
   width:9px;
   height:6px;
 }
@@ -446,7 +446,7 @@ h5 { font-size:12px; }
   text-shadow:0px 1px 0 #1b5a33;
 }
 #middle .menu_block #menu li.sfHover a .sf-sub-indicator {
-  background:url("/img/sprite.png") no-repeat -119px -96px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -119px -96px;
   width:9px;
   height:6px;
 }
@@ -570,7 +570,7 @@ h5 { font-size:12px; }
   width:100%;
 }
 #middle #columns .deposit_detailed .left p b {
-  background:url("/img/sprite.png") repeat-x 0 -741px;
+  background:url("{% static 'css/sprite.png' %}") repeat-x 0 -741px;
   font-weight:normal;
   float:left;
   width:162px;
@@ -714,7 +714,7 @@ h5 { font-size:12px; }
   width:100%;
 }
 #middle #columns .dots_dark {
-  background:url("/img/sprite.png") repeat-x 0 -776px;
+  background:url("{% static 'css/sprite.png' %}") repeat-x 0 -776px;
   height:1px;
   width:100%;
   margin-top:8px;
@@ -722,7 +722,7 @@ h5 { font-size:12px; }
 #middle #columns .dot_lighter {
   width:100%;
   float:left;
-  background:url("/img/sprite.png") repeat-x 0 -776px;
+  background:url("{% static 'css/sprite.png' %}") repeat-x 0 -776px;
   height:1px;
 }
 #middle #columns .line {
@@ -935,7 +935,7 @@ h5 { font-size:12px; }
 #middle #columns .feedback .button_type5 { float:right; }
 #middle #columns .bank_controls { margin-top:15px; }
 #middle #columns .bank_controls a {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   float:left;
   height:44px;
   cursor:pointer;
@@ -990,7 +990,7 @@ h5 { font-size:12px; }
   visibility:hidden;
   display:none !important;
 }
-#middle #columns .star-rating, #middle #columns .star-rating a { background:url("/img/sprite.png") no-repeat 0 0px; }
+#middle #columns .star-rating, #middle #columns .star-rating a { background:url("{% static 'css/sprite.png' %}") no-repeat 0 0px; }
 #middle #columns .rating-cancel a, #middle #columns .star-rating a {
   display:block;
   width:16px;
@@ -1050,7 +1050,7 @@ h5 { font-size:12px; }
   font-size:13px;
 }
 #middle #columns .link_type1 .butttons {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   display:block;
   position:absolute;
   right:0;
@@ -1335,7 +1335,7 @@ h5 { font-size:12px; }
 }
 #middle #columns .advertising_box img { margin-top:-20px; }
 #middle #columns .advertising_box .shaddow {
-  background:url("/img/sprite.png") no-repeat 0 -796px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat 0 -796px;
   height:16px;
   width:190px;
   display:-moz-inline-stack;
@@ -1494,7 +1494,7 @@ h5 { font-size:12px; }
   padding:10px 0 0;
 }
 #middle #columns .srch_controls h4 strong { margin-right:6px; }
-#middle #columns .corner { background-image:url("/img/sprite.png"); }
+#middle #columns .corner { background-image:url("{% static 'css/sprite.png' %}"); }
 #middle #columns .charts { color:#454545; }
 #middle #columns .charts h3 {
   margin:10px 0 20px 0px;
@@ -1572,7 +1572,7 @@ h5 { font-size:12px; }
   margin-left:-0.48em;
   top:4px;
 }
-#middle #columns .ui-state-default, #middle #columns .ui-widget-content .ui-state-default { background:url("/img/sprite.png") no-repeat -177px -96px; }
+#middle #columns .ui-state-default, #middle #columns .ui-widget-content .ui-state-default { background:url("{% static 'css/sprite.png' %}") no-repeat -177px -96px; }
 #middle #columns .ui-slider-label {
   color:#7c908c;
   font-size:10px;
@@ -1731,12 +1731,12 @@ h5 { font-size:12px; }
   color:#157e3e;
 }
 #middle #columns .tabsX li.active {
-  background:url("/img/sprite.png") repeat-x 0 -1032px;
+  background:url("{% static 'css/sprite.png' %}") repeat-x 0 -1032px;
   padding:0 16px;
   margin:-1px 6px 0 6px;
 }
 #middle #columns .tabsX li.active a b, #middle #columns .tabsX li.active a i {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   background-repeat:no-repeat;
   position:absolute;
   display:block;
@@ -1826,7 +1826,7 @@ h5 { font-size:12px; }
 }
 #middle #columns .exch_rate .tr { padding:6px 0; }
 #middle #columns .exch_rate .tr .up b, #middle #columns .exch_rate .tr .down  b {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   width:9px;
   height:5px;
   display:block;
@@ -1880,7 +1880,7 @@ h5 { font-size:12px; }
   width:100%;
 }
 #middle #columns .controls_table .prev ins, #middle #columns .controls_table .next ins {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   width:46px;
   height:0px;
   display:block;
@@ -1940,7 +1940,7 @@ h5 { font-size:12px; }
   color:#aaaaaa !important;
 }
 #middle #columns .rate_ex_bank .bnm .down ins, #middle #columns .rate_ex_bank .bnm .up ins {
-  background-image:url("/img/sprite.png");
+  background-image:url("{% static 'css/sprite.png' %}");
   width:9px;
   height:5px;
   display:block;
@@ -2163,7 +2163,7 @@ h5 { font-size:12px; }
   position:absolute;
   right:0;
   width:18px;
-  background:url("/img/sprite.png") no-repeat -2px -1312px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -2px -1312px;
 }
 #middle .convert_control h1 {
   display:-moz-inline-stack;
@@ -2329,7 +2329,7 @@ h5 { font-size:12px; }
 #middle .block .content .navigation li.l { margin-bottom:1.3em; }
 #middle .block .content .navigation li.l b {
   left:0px;
-  background:url("/img/sprite.png") no-repeat -166px -107px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -166px -107px;
   top:-5px;
   position:absolute;
   display:block;
@@ -2338,7 +2338,7 @@ h5 { font-size:12px; }
 }
 #middle .block .content .navigation li b {
   left:0px;
-  background:url("/img/sprite.png") no-repeat -150px -96px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -150px -96px;
   bottom:-5px;
   position:absolute;
   display:block;
@@ -2440,7 +2440,7 @@ h5 { font-size:12px; }
   width:168px;
   height:11px;
   disply:block;
-  background:url("/img/sprite.png") no-repeat 0 -929px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat 0 -929px;
   position:absolute;
   bottom:-11px;
   left:0;
@@ -2684,7 +2684,7 @@ h5 { font-size:12px; }
   top:2px;
 }
 #footer .copy .footer_logo {
-  background:url("/img/sprite.png") no-repeat -183px -14px;
+  background:url("{% static 'css/sprite.png' %}") no-repeat -183px -14px;
   height:36px;
   width:37px;
   margin-right:10px;
@@ -2727,7 +2727,7 @@ h5 { font-size:12px; }
   color:#999999;
   font-size:11px;
 }
-#footer p a { background-image:url("/img/sprite.png"); }
+#footer p a { background-image:url("{% static 'css/sprite.png' %}"); }
 #footer p .amigo {
   width:65px;
   height:12px;
