@@ -7,6 +7,7 @@ from inline_requests import inline_requests
 import json
 import requests
 from datetime import date
+from datetime import datetime
 #from django.utils import timezone
 
 
@@ -266,13 +267,22 @@ class ArticleSpider(DjangoSpider):
                 gbp = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
             elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'USD':
                 usd = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
-        for some in range(0,len(result["results"][0]["results"][0]["results"])):
-            if result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'CNY':
-                cny = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
-            elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RON':
-                ron = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
-            elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RUB':
-                rub = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+        try:
+            for some in range(0,len(result["results"][1]["results"][0]["results"])):
+                if result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'CNY':
+                    cny = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+                elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RON':
+                    ron = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+                elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RUB':
+                    rub = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+        except:
+            for some in range(0,len(result["results"][0]["results"][0]["results"])):
+                if result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'CNY':
+                    cny = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+                elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RON':
+                    ron = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+                elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RUB':
+                    rub = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
         yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -316,10 +326,42 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://www.mkb.hu/apps/rates/rates?type=CAD",
                                 title = "MKB")
 
+    def kredit(self, response):
+        #
+        print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    KREDIT!")
+        sel = Selector(response)
+        result = sel.xpath('//div[@class="result_list"]/div')[:-1]#.extract()
+        print (len(result))
+        print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        name = ''
+        thm = ''
+        year = ''
+        period = ''
+        zatrat = ''
+        info = 'Info'
+        other = ''
+        des = 'EUR = name\nUSD = THM\nCNY = year\nRUB = period\nRON = zatrat\nGBP = info\nCHF = other'
+        for some in result:
+            name = name + some.xpath('.//h3[@class="productname"]/text()').extract()[0] + "/"
+            thm = thm + some.xpath('.//div[@class="product_col3"]/text()').extract()[0][:-1] + "/"
+            year = year + some.xpath('.//div[@class="col"]/strong/text()').extract()[0][:-1] + "/"
+            period = period + some.xpath('.//div[@class="col last"]/strong/text()').extract()[0] + "/"
+            zatrat = zatrat + some.xpath('.//div[@class="col kezdeti_koltseg"]/strong/text()').extract()[0][:-3] + "|" + "".join(some.xpath('.//div[@class="col kezdeti_koltseg"]/span/strong/text()').extract())[:-3] + "/"
+            other = other + some.xpath('.//div[@class="right"]/text()').extract()[0].split(": ")[-1].split(" ")[0] + "/"
+        yield ArticleItem(      EUR = name[:-1],
+                                USD = thm[:-1],
+                                CNY = year[:-1],
+                                RUB = period[:-1],
+                                RON = zatrat[:-1].replace(" ",""),
+                                GBP = info,
+                                CHF = other[:-1],
+                                description = des,
+                                url = "https://www.bankracio.hu/hitelkalkulator/lakashitel/2-lakasvasarlasi-hitel-uj-lakasra",
+                                title = "KREDIT")
+
 
     @inline_requests
     def parse(self, response):
-
         print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    NachBank!")
         sel = Selector(response)
         eur = sel.xpath('//table[@class="datatable"]/tbody/tr[2]/td[4]/text()').extract()[0]
@@ -339,7 +381,9 @@ class ArticleSpider(DjangoSpider):
                                 #description = des,
                                 url = 'https://www.mnb.hu/arfolyamok',
                                 title = "NachBank")
-
+        #KREDIT
+        yield Request("https://www.bankracio.hu/hitelkalkulator/lakashitel/2-lakasvasarlasi-hitel-uj-lakasra", callback=self.kredit)
+        '''
         #BUDAPEST
         yield Request("https://www.budapestbank.hu/info/arfolyamok/db_arfolyamok.php?sent=1&frm_arfolyam=CCR", callback=self.budapest)
 
@@ -377,7 +421,7 @@ class ArticleSpider(DjangoSpider):
 
         try:
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   UNICREDIT!")
-            d = date.today()
+            d = datetime.today()
             date_now = str(d.year)
             if len(str(d.month)) == 1:
                 date_now = date_now + "0" + str(d.month)
@@ -387,7 +431,13 @@ class ArticleSpider(DjangoSpider):
                 date_now = date_now + "0" + str(d.day)
             else:
                 date_now = date_now + str(d.day)
-            payload = {'Currency': '*ALL','DateFrom':date_now}
+            date_now = date_now + "T"
+            if len(str(d.hour)) == 1:
+                date_now = date_now + "0" + str(d.hour)
+            else:
+                date_now = date_now + str(d.hour)
+            date_now = date_now + "23:00:00.000+0300"
+            payload = {'Currency': '*ALL','DateFrom':date_now,'DateTo':date_now}
             headers = {     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
                             'Accept': '*/*',
                             'Content-Type': 'application/json',
@@ -408,19 +458,19 @@ class ArticleSpider(DjangoSpider):
             for some in range(0,len(result)):
                 if result[some]["CurrencyCode"] in ['CHF','CNY','EUR','GBP','RON','RUB','USD']:
                     if result[some]["CurrencyCode"] == 'CHF':
-                        chf = str(result[some]["PurchaseRate"]) + "/" + str(result[some]["SaleRate"])
+                        chf = str("%.2f" % result[some]["PurchaseRate"]) + "/" + str("%.2f" % result[some]["SaleRate"])
                     elif result[some]["CurrencyCode"] == 'CNY':
                         cny = str("%.2f" % result[some]["CashPurchaseRate"]) + "/" + str("%.2f" % result[some]["CashSaleRate"])
                     elif result[some]["CurrencyCode"] == 'EUR':
-                        eur = str(result[some]["PurchaseRate"]) + "/" + str(result[some]["SaleRate"])
+                        eur = str("%.2f" % result[some]["PurchaseRate"]) + "/" + str("%.2f" % result[some]["SaleRate"])
                     elif result[some]["CurrencyCode"] == 'GBP':
-                        gbp = str(result[some]["PurchaseRate"]) + "/" + str(result[some]["SaleRate"])
+                        gbp = str("%.2f" % result[some]["PurchaseRate"]) + "/" + str("%.2f" % result[some]["SaleRate"])
                     elif result[some]["CurrencyCode"] == 'RON':
                         ron = str("%.2f" % result[some]["CashPurchaseRate"]) + "/" + str("%.2f" % result[some]["CashSaleRate"])
                     elif result[some]["CurrencyCode"] == 'RUB':
                         rub = str("%.2f" % result[some]["CashPurchaseRate"]) + "/" + str("%.2f" % result[some]["CashSaleRate"])
                     elif result[some]["CurrencyCode"] == 'USD':
-                        usd = str(result[some]["PurchaseRate"]) + "/" + str(result[some]["SaleRate"])
+                        usd = str("%.2f" % result[some]["PurchaseRate"]) + "/" + str("%.2f" % result[some]["SaleRate"])
             yield ArticleItem(      EUR = eur,
                                     USD = usd,
                                     CNY = cny,
@@ -435,7 +485,7 @@ class ArticleSpider(DjangoSpider):
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   UNICREDIT! ERROR or Weekend")
 
         print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    SBERBANK!")
-        d = date.today()
+        d = datetime.today()
         date_now = str(d.year)
         if len(str(d.month)) == 1:
             date_now = date_now + ".0" + str(d.month)
@@ -483,3 +533,4 @@ class ArticleSpider(DjangoSpider):
                                     title = "SBERBANK")
         else:
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   SBERBANK! ERROR or Weekend")
+        '''

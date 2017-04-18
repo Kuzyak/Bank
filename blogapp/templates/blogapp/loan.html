@@ -1,0 +1,2571 @@
+{% extends 'blogapp/index.html' %}
+
+{% block content %}
+
+
+
+<div class="second">
+
+  <div width="800px" style="padding-left:0px;">
+    <div class="col-md-1 col-sm-1 col-xs-1" style="padding:0px; width:7%;">
+      <p style="height:13px; border-left: 13px solid green;">
+        &nbsp;Loans</p>
+    </div>
+    <div style="padding-left:0px;">
+        <hr style="margin-top:0;float:left;width:756px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+    </div>
+  </div>
+
+<div class="col-md-11 col-sm-11 col-xs-11 page_kalkulator" style="padding:0;margin-top:0px;margin-bottom:26px;">
+  <div class="main_center">
+
+
+
+		<!-- <form_main> -->
+		<div id="form_main" class="form_main" style="font: 14px 'Open Sans',Verdana,sans-serif;">
+
+
+
+			<div class="form_panel">
+
+				<div class="biglabel">Mennyi pénzre van szükséged?</div>
+
+				<div class="field field_borrow" style="margin-right: 50px;">
+					<div class="labell">Hitelösszeg</div>
+					<div class="input-box">
+						<input name="borrowvalue" id="borrowvalue" value="10000000" class="txtinput numeric number_format" type="text" onkeyup="LastFunction()">
+						<span class="unit">Ft</span>
+					</div>
+				</div>
+
+				<div class="field field_futamido">
+
+					<div class="labell">Futamidő</div>
+					<div class="input-box field_year1">
+						<input name="yeartop" id="yeartop" value="15" maxlength="2" class="txtinput numeric" style="width: 50px;" type="text">
+						<span class="unit">év</span>
+					</div>
+
+				</div>
+
+								<div class="field field_ingatlan_vetelara">
+										<div class="labell">A lakás vételára</div>
+					<div class="input-box graytext">
+						<input name="ingatlan_vetelaravalue" id="ingatlan_vetelaravalue" value="14300000" class="txtinput numeric number_format" type="text">
+						<span class="unit">Ft</span>
+					</div>
+				</div>
+
+
+
+				<!-- </further_options> -->
+        {% load staticfiles%}
+
+
+				<div class="button_container">
+          <button onclick="myFunctionM()" id="buttonM"><span></span>Keresés</button>
+				</div>
+
+
+
+
+			</div>
+
+
+
+		</div>
+    <div class="col-md-12 col-sm-12 col-xs-12 page_kalkulator" style="padding:10px 0 0 0;">
+      <div id="some03" style="display:none;padding:0 0 10px 0;color: #db0000;font-weight: bold;font-size: 14px;">
+            A futamidő 1 és 420 hónap között állítható.
+      </div>
+      <div id="some02" style="display:none;padding:0 0 10px 0;color: #db0000;font-weight: bold;font-size: 14px;">
+          Sajnos a keresett beállítások alapján nem tudunk hitelkalkulációt mutatni.</br>
+          Kérjük állítsd át a futamidőt, a hitelösszeget, feltételeket, a kamatperiódust vagy a jövedelmedet!
+      </div>
+      <div id="some01" style="display:block;padding:0 0 10px 0;font-size: 13px;color: #42494f;font-weight: 600;">
+          30 Kedvező Lakáshitelt Találtunk Neked
+      </div>
+      <div id="some0" style="display:none;">
+        <div id="bank0" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img0' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name0'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month0" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat0" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat00" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz0" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog0" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year0" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma0" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud0" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits0" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some1" style="display:none;">
+        <div id="bank1" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img1' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name1'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month1" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat1" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat01" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz1" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog1" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year1" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma1" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud1" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits1" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some2" style="display:none;">
+        <div id="bank2" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img2' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name2'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month2" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat2" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat02" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz2" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog2" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year2" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma2" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud2" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits2" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some3" style="display:none;">
+        <div id="bank3" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img3' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name3'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month3" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat3" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat03" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz3" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog3" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year3" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma3" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud3" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits3" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some4" style="display:none;">
+        <div id="bank4" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img4' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name4'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month4" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat4" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat04" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz4" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog4" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year4" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma4" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud4" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits4" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some5" style="display:none;">
+        <div id="bank5" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img5' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name5'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month5" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat5" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat05" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz5" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog5" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year5" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma5" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud5" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits5" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some6" style="display:none;">
+        <div id="bank6" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img6' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name6'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month6" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat6" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat06" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz6" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog6" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year6" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma6" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud6" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits6" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some7" style="display:none;">
+        <div id="bank7" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img7' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name7'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month7" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat7" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat07" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz7" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog7" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year7" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma7" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud7" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits7" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some8" style="display:none;">
+        <div id="bank8" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img8' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name8'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month8" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat8" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat08" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz8" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog8" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year8" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma8" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud8" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits8" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some9" style="display:none;">
+        <div id="bank9" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img9' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name9'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month9" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat9" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat09" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz9" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog9" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year9" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma9" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud9" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits9" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some10" style="display:none;">
+        <div id="bank10" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img10' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name10'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month10" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat10" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat010" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz10" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog10" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year10" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma10" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud10" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits10" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some11" style="display:none;">
+        <div id="bank11" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img11' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name11'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month11" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat11" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat011" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz11" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog11" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year11" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma11" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud11" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits11" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some12" style="display:none;">
+        <div id="bank12" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img12' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name12'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month12" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat12" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat012" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz12" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog12" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year12" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma12" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud12" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits12" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some13" style="display:none;">
+        <div id="bank13" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img13' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name13'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month13" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat13" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat013" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz13" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog13" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year13" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma13" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud13" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits13" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some14" style="display:none;">
+        <div id="bank14" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img14' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name14'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month14" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat14" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat014" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz14" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog14" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year14" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma14" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud14" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits14" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some15" style="display:none;">
+        <div id="bank15" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img15' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name15'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month15" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat15" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat015" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz15" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog15" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year15" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma15" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud15" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits15" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some16" style="display:none;">
+        <div id="bank16" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img16' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name16'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month16" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat16" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat016" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz16" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog16" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year16" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma16" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud16" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits16" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some17" style="display:none;">
+        <div id="bank17" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img17' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name17'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month17" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat17" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat017" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz17" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog17" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year17" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma17" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud17" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits17" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some18" style="display:none;">
+        <div id="bank18" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img18' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name18'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month18" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat18" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat018" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz18" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog18" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year18" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma18" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud18" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits18" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some19" style="display:none;">
+        <div id="bank19" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img19' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name19'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month19" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat19" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat019" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz19" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog19" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year19" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma19" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud19" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits19" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some20" style="display:none;">
+        <div id="bank20" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img20' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name20'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month20" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat20" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat020" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz20" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog20" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year20" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma20" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud20" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits20" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some21" style="display:none;">
+        <div id="bank21" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img21' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name21'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month21" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat21" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat021" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz21" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog21" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year21" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma21" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud21" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits21" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some22" style="display:none;">
+        <div id="bank22" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img22' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name22'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month22" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat22" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat022" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz22" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog22" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year22" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma22" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud22" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits22" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some23" style="display:none;">
+        <div id="bank23" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img23' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name23'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month23" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat23" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat023" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz23" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog23" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year23" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma23" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud23" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits23" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some24" style="display:none;">
+        <div id="bank24" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img24' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name24'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month24" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat24" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat024" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz24" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog24" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year24" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma24" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud24" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits24" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some25" style="display:none;">
+        <div id="bank25" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img25' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name25'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month25" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat25" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat025" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz25" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog25" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year25" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma25" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud25" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits25" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some26" style="display:none;">
+        <div id="bank26" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img26' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name26'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month26" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat26" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat026" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz26" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog26" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year26" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma26" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud26" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits26" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some27" style="display:none;">
+        <div id="bank27" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img27' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name27'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month27" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat27" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat027" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz27" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog27" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year27" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma27" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud27" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits27" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some28" style="display:none;">
+        <div id="bank28" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#EBEBEB;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img28' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name28'>
+              {{ data.name.0 }}</br>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month28" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat28" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat028" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz28" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog28" style="color:#157e3e;">
+                  3000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year28" style="color:black;">
+                  {{ data.year.0 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma28" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud28" style="color:black;">
+                  {{ data.per.0 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits28" style="color:black;font-size:12px;">
+                  {{ data.lim.0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="some29" style="display:none;">
+        <div id="bank29" class="col-md-12 col-sm-12 col-xs-12 borders" style="background:white;padding:0;">
+          <div>
+            <div class="col-md-5 col-sm-5 col-xs-5 name" style="padding:10px 0 0 10px;">
+              <div style="margin-bottom:10px">
+                <img src="{% static 'css/img/mkb.png' %}" id='img29' title="K&H Bank" alt="K&H Bank">
+                </br>
+              </div>
+              <div id='name29'>
+              {{ data.name.1 }}
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 name" style="padding:10px 0 0 0;">
+              <div class="col-md-4 col-sm-4 col-xs-4" style=" padding:0;width:35%">
+                <div width="100%">
+                  Törlesztőrészlet (hó)
+                </div>
+                <div width="100%" id="month29" style="color:#157e3e;">
+                  65000 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kezdeti költség
+                </div>
+                <div width="100%" id="zatrat29" style="color:black;">
+                  12600 Ft
+                </div>
+                <div width="100%" id="zatrat029" style="font-size:12px;display:none;">
+                  Ebből a bank visszatérít:
+                </div>
+                <div width="100%" id="zatratz29" style="font-size:12px;color:black;display:none;">
+                  12600 Ft
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
+                <div width="100%">
+                  A hitel teljes díja
+                </div>
+                <div width="100%" id="itog29" style="color:#157e3e;">
+                  2000000
+                </div>
+              </br>
+                <div width="100%">
+                  Éves kamat
+                </div>
+                <div width="100%" id="year29" style="color:black;">
+                  {{ data.year.1 }}
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
+                <div width="100%">
+                  Visszafizetendő
+                </div>
+                <div width="100%" id="suma29" style="color:#157e3e;">
+                  12918355 Ft
+                </div>
+              </br>
+                <div width="100%">
+                  Kamatperiódus
+                </div>
+                <div width="100%" id="periud29" style="color:black;">
+                  {{ data.per.1 }}
+                </div>
+                <div width="100%" style="font-size:12px;">
+                  Futamidő:
+                </div>
+                <div width="100%" id="limits29" style="color:black;font-size:12px;">
+                  {{ data.lim.1 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+		<script>
+				//obj_hitel_form=new init_hitel_form_v3('form_main', {type : 'lakashitel', lp_id : 2,calcloader: true});
+		</script>
+
+	</div>
+</div>
+
+
+
+</div>
+
+<script>
+/*
+{{ posts.0.images.url }}
+{{ posts.0.title }}
+{{ posts.0.published_date }}
+{{ posts.0.title_text}}...
+*/
+var names = ["{{ data.name.0 }}","{{ data.name.1 }}","{{ data.name.2 }}","{{ data.name.3 }}","{{ data.name.4 }}","{{ data.name.5 }}",
+            "{{ data.name.6 }}","{{ data.name.7 }}","{{ data.name.8 }}","{{ data.name.9 }}","{{ data.name.10 }}","{{ data.name.11 }}",
+            "{{ data.name.12 }}","{{ data.name.13 }}","{{ data.name.14 }}","{{ data.name.15 }}","{{ data.name.16 }}","{{ data.name.17 }}",
+            "{{ data.name.18 }}","{{ data.name.19 }}","{{ data.name.20 }}","{{ data.name.21 }}","{{ data.name.22 }}","{{ data.name.23 }}",
+            "{{ data.name.24 }}","{{ data.name.25 }}","{{ data.name.26 }}","{{ data.name.27 }}","{{ data.name.28 }}","{{ data.name.29 }}"];
+
+var thm = ["{{ data.thm.0 }}","{{ data.thm.1 }}","{{ data.thm.2 }}","{{ data.thm.3 }}","{{ data.thm.4 }}","{{ data.thm.5 }}",
+            "{{ data.thm.6 }}","{{ data.thm.7 }}","{{ data.thm.8 }}","{{ data.thm.9 }}","{{ data.thm.10 }}","{{ data.thm.11 }}",
+            "{{ data.thm.12 }}","{{ data.thm.13 }}","{{ data.thm.14 }}","{{ data.thm.15 }}","{{ data.thm.16 }}","{{ data.thm.17 }}",
+            "{{ data.thm.18 }}","{{ data.thm.19 }}","{{ data.thm.20 }}","{{ data.thm.21 }}","{{ data.thm.22 }}","{{ data.thm.23 }}",
+            "{{ data.thm.24 }}","{{ data.thm.25 }}","{{ data.thm.26 }}","{{ data.thm.27 }}","{{ data.thm.28 }}","{{ data.thm.29 }}"];
+
+var year = ["{{ data.year.0 }}","{{ data.year.1 }}","{{ data.year.2 }}","{{ data.year.3 }}","{{ data.year.4 }}","{{ data.year.5 }}",
+            "{{ data.year.6 }}","{{ data.year.7 }}","{{ data.year.8 }}","{{ data.year.9 }}","{{ data.year.10 }}","{{ data.year.11 }}",
+            "{{ data.year.12 }}","{{ data.year.13 }}","{{ data.year.14 }}","{{ data.year.15 }}","{{ data.year.16 }}","{{ data.year.17 }}",
+            "{{ data.year.18 }}","{{ data.year.19 }}","{{ data.year.20 }}","{{ data.year.21 }}","{{ data.year.22 }}","{{ data.year.23 }}",
+            "{{ data.year.24 }}","{{ data.year.25 }}","{{ data.year.26 }}","{{ data.year.27 }}","{{ data.year.28 }}","{{ data.year.29 }}"];
+
+var per = ["{{ data.per.0 }}","{{ data.per.1 }}","{{ data.per.2 }}","{{ data.per.3 }}","{{ data.per.4 }}","{{ data.per.5 }}",
+           "{{ data.per.6 }}","{{ data.per.7 }}","{{ data.per.8 }}","{{ data.per.9 }}","{{ data.per.10 }}","{{ data.per.11 }}",
+           "{{ data.per.12 }}","{{ data.per.13 }}","{{ data.per.14 }}","{{ data.per.15 }}","{{ data.per.16 }}","{{ data.per.17 }}",
+           "{{ data.per.18 }}","{{ data.per.19 }}","{{ data.per.20 }}","{{ data.per.21 }}","{{ data.per.22 }}","{{ data.per.23 }}",
+           "{{ data.per.24 }}","{{ data.per.25 }}","{{ data.per.26 }}","{{ data.per.27 }}","{{ data.per.28 }}","{{ data.per.29 }}"];
+
+var zat = ["{{ data.zat.0 }}","{{ data.zat.1 }}","{{ data.zat.2 }}","{{ data.zat.3 }}","{{ data.zat.4 }}","{{ data.zat.5 }}",
+           "{{ data.zat.6 }}","{{ data.zat.7 }}","{{ data.zat.8 }}","{{ data.zat.9 }}","{{ data.zat.10 }}","{{ data.zat.11 }}",
+           "{{ data.zat.12 }}","{{ data.zat.13 }}","{{ data.zat.14 }}","{{ data.zat.15 }}","{{ data.zat.16 }}","{{ data.zat.17 }}",
+           "{{ data.zat.18 }}","{{ data.zat.19 }}","{{ data.zat.20 }}","{{ data.zat.21 }}","{{ data.zat.22 }}","{{ data.zat.23 }}",
+           "{{ data.zat.24 }}","{{ data.zat.25 }}","{{ data.zat.26 }}","{{ data.zat.27 }}","{{ data.zat.28 }}","{{ data.zat.29 }}"];
+
+var lim = ["{{ data.lim.0 }}","{{ data.lim.1 }}","{{ data.lim.2 }}","{{ data.lim.3 }}","{{ data.lim.4 }}","{{ data.lim.5 }}",
+           "{{ data.lim.6 }}","{{ data.lim.7 }}","{{ data.lim.8 }}","{{ data.lim.9 }}","{{ data.lim.10 }}","{{ data.lim.11 }}",
+           "{{ data.lim.12 }}","{{ data.lim.13 }}","{{ data.lim.14 }}","{{ data.lim.15 }}","{{ data.lim.16 }}","{{ data.lim.17 }}",
+           "{{ data.lim.18 }}","{{ data.lim.19 }}","{{ data.lim.20 }}","{{ data.lim.21 }}","{{ data.lim.22 }}","{{ data.lim.23 }}",
+           "{{ data.lim.24 }}","{{ data.lim.25 }}","{{ data.lim.26 }}","{{ data.lim.27 }}","{{ data.lim.28 }}","{{ data.lim.29 }}"];
+
+var img = ["{% static 'css/img/buda00.png' %}","{% static 'css/img/cib00.jpg' %}","{% static 'css/img/erste00.png' %}","{% static 'css/img/granit00.png' %}",
+           "{% static 'css/img/kh00.png' %}","{% static 'css/img/mkb00.png' %}","{% static 'css/img/mohac00.png' %}","{% static 'css/img/otp00.jpg' %}",
+           "{% static 'css/img/sber00.jpeg' %}","{% static 'css/img/uni00.png' %}"]
+
+var img_title = ["Budapest Bank","CIB Bank","Erste Bank","Gránit Bank","K&H Bank",
+                 "MKB Bank","Mohácsi Takarék Bank","OTP Bank","Sberbank","UniCredit Bank"]
+
+var list_name = ["name","periud","year","zatrat","zatrat0","zatratz","suma","month",
+                 "img","limits","itog","some","bank"," Kedvező Lakáshitelt Találtunk Neked"]//,"","",]
+
+function myFunctionM() {
+  var y = 0;
+  var years = parseInt(document.getElementById("yeartop").value);
+  var num1 = parseInt(document.getElementById("ingatlan_vetelaravalue").value)/143*100;
+  var num2 = parseInt(document.getElementById("borrowvalue").value);
+  if (years < 1 || years > 35) {
+    close_all()
+    document.getElementById(list_name[11] + "03").style.display="block";
+  } else if (num2 > num1) {
+    close_all()
+    document.getElementById(list_name[11] + "02").style.display="block";
+  } else {
+    open_all()
+    var num_bank = 0
+    for (i = 0; i < 30; i++) {
+      if ((years * 12) >= parseInt(lim[i].split("-")[0]) && (years * 12) <= parseInt(lim[i].split("-")[1])) {
+        var z = 0;
+        if (document.getElementById(list_name[5] + i).style.display == "block") {
+          z = parseInt(zat[i].split("|")[1]);
+        }
+
+        var num_month = years * 12;
+        var procent = parseFloat(year[i]);
+        var p = procent / 12 / 100;
+        var start_sum = parseInt(document.getElementById("borrowvalue").value);
+        var one_month = start_sum * ( p + p / (Math.pow(1 + p,num_month) - 1));
+        var month =  Math.round(one_month);
+        var suma = Math.round(one_month * num_month + parseInt(zat[i].split("|")[0]) - z);
+        var itog = suma - start_sum;
+
+        document.getElementById(list_name[10] + i).innerHTML = itog + " Ft";
+        document.getElementById(list_name[7] + i).innerHTML = month + " Ft";
+        document.getElementById(list_name[6] + i).innerHTML = suma + " Ft";
+        num_bank = num_bank + 1
+      } else {
+        document.getElementById(list_name[10] + i).innerHTML = (years * 12);
+        document.getElementById(list_name[11] + i).style.display="none";
+      }
+    }
+    document.getElementById(list_name[11] + "01").style.display="block";
+    document.getElementById(list_name[11] + "01").innerHTML= num_bank + " Kedvező Lakáshitelt Találtunk Neked";
+    check_color()
+  }
+  //document.getElementById("zatrat0").innerHTML = document.getElementById("yeartop").value;
+}
+StartFunction();
+function StartFunction() {
+  var y = 0;
+  for (i = 0; i < 30; i++) {
+    y = names[i][0] == "U" ? 9 : names[i][0] == "S" ? 8 : names[i][0] == "O" ? 7 : names[i][0] == "K" ? 4 :
+        names[i][0] == "G" ? 3 : names[i][0] == "E" ? 2 : names[i][0] == "C" ? 1 : names[i][0] == "B" ? 0 : names[i][1] == "K" ? 6 : 5;
+
+    document.getElementById(list_name[11] + i).style.display="block";
+    document.getElementById(list_name[8] + i).src = img[y];
+    document.getElementById(list_name[8] + i).title = img_title[y];
+    document.getElementById(list_name[8] + i).alt = img_title[y];
+    document.getElementById(list_name[0] + i).innerHTML = names[i];
+    document.getElementById(list_name[1] + i).innerHTML = per[i];
+    document.getElementById(list_name[2] + i).innerHTML = year[i];
+    document.getElementById(list_name[3] + i).innerHTML = zat[i].split("|")[0]+" Ft";
+    document.getElementById(list_name[9] + i).innerHTML = lim[i];
+
+    var z = 0;
+    if (zat[i].split("|")[1] != '') {
+      z = parseInt(zat[i].split("|")[1]);
+      document.getElementById(list_name[4] + i).style.display="block";
+      document.getElementById(list_name[5] + i).style.display="block";
+      document.getElementById(list_name[5] + i).innerHTML = z + " Ft";
+    }
+
+    var num_month = parseInt(document.getElementById("yeartop").value) * 12;
+    var procent = parseFloat(year[i]);
+    var p = procent / 12 / 100;
+    var start_sum = parseInt(document.getElementById("borrowvalue").value);
+    var one_month = start_sum * ( p + p / (Math.pow(1 + p,num_month) - 1));
+    var month =  Math.round(one_month);
+    var suma = Math.round(one_month * num_month + parseInt(zat[i].split("|")[0]) - z);
+    var itog = suma - start_sum;
+
+    document.getElementById(list_name[10] + i).innerHTML = itog + " Ft";
+    document.getElementById(list_name[7] + i).innerHTML = month + " Ft";
+    document.getElementById(list_name[6] + i).innerHTML = suma + " Ft";
+  }
+  //document.getElementById("zatrat0").innerHTML = document.getElementById("yeartop").value;
+}
+function close_all() {
+  for (i = 0; i < 30; i++) {
+    document.getElementById(list_name[11] + i).style.display="none";
+  }
+  document.getElementById(list_name[11] + "01").style.display="none";
+  document.getElementById(list_name[11] + "03").style.display="none";
+  document.getElementById(list_name[11] + "02").style.display="none";  
+}
+function open_all() {
+  for (i = 0; i < 30; i++) {
+    document.getElementById(list_name[11] + i).style.display="block";
+  }
+  document.getElementById(list_name[11] + "03").style.display="none";
+  document.getElementById(list_name[11] + "02").style.display="none";
+}
+function check_color() {
+  var y = 2;
+  for (i = 0; i < 30; i++) {
+    if (document.getElementById(list_name[11] + i).style.display == "block"){
+      if (y % 2 == 1) {
+        document.getElementById(list_name[12] + i).style.backgroundColor = "white";
+      } else {
+        document.getElementById(list_name[12] + i).style.backgroundColor = "#EBEBEB";
+      }
+      y = y + 1
+    }
+  }
+}
+function LastFunction() {
+  //ingatlan_vetelaravalue
+  var some = parseInt(document.getElementById("borrowvalue").value)/100*143;
+  if (some>5000000){
+    document.getElementById("ingatlan_vetelaravalue").value = parseInt(some);
+  } else {
+  document.getElementById("ingatlan_vetelaravalue").value = 5000000;
+  }
+
+}
+//background:white;
+</script>
+
+<script type='text/javascript'>
+        toHtmlNumericInput('borrowvalue');
+        toHtmlNumericInput('yeartop');
+        toHtmlNumericInput('ingatlan_vetelaravalue');
+        function toHtmlNumericInput(inputElementId, useCommaAsDecimalSeparator) {
+            var textbox = document.getElementById(inputElementId);
+            textbox.addEventListener("keydown", function _OnNumericInputKeyDown(e) {
+                var key = e.which || e.keyCode; // http://keycode.info/
+                if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                    // alphabet
+                    key >= 65 && key <= 90 ||
+                    // spacebar
+                    key == 32) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                    // numbers
+                    key >= 48 && key <= 57 ||
+                    // Numeric keypad
+                    key >= 96 && key <= 105 ||
+                    // allow: Ctrl+A
+                    (e.keyCode == 65 && e.ctrlKey === true) ||
+                    // allow: Ctrl+C
+                    (key == 67 && e.ctrlKey === true) ||
+                    // Allow: Ctrl+X
+                    (key == 88 && e.ctrlKey === true) ||
+                    // allow: home, end, left, right
+                    (key >= 35 && key <= 39) ||
+                    // Backspace and Tab and Enter
+                    key == 8 || key == 9 || key == 13 ||
+                    // Del and Ins
+                    key == 46 || key == 45) {
+                    return true;
+                }
+                var v = this.value; // v can be null, in case textbox is number and does not valid
+
+                if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                    // comma, period and numpad.dot
+                    key == 190 || key == 188 || key == 110) {
+                    // console.log('already having comma, period, dot', key);
+                    if (/[\.,]/.test(v)) {
+                        // console.log('return, already has , . somewhere');
+                        return false;
+                    }
+                }
+            });
+            textbox.addEventListener("keyup", function _OnNumericInputKeyUp(e) {
+                var v = this.value;
+                if(false) {
+                } else if (v) {
+                    v = '' +
+                        (useCommaAsDecimalSeparator ?
+                            v.replace(/[^0-9\,]/g, '') :
+                            v.replace(/[^0-9\.]/g, ''));
+
+                    // remove all decimalSeparator that have other decimalSeparator following. After this processing, only the last decimalSeparator is kept.
+                    if(useCommaAsDecimalSeparator){
+                        v = v.replace(/,(?=(.*),)+/g, '');
+                    } else {
+                        v = v.replace(/\.(?=(.*)\.)+/g, '');
+                    }
+                    //console.log(this.value, v);
+                    this.value = v; // update value only if we changed it
+                }
+            });
+        }
+    </script>
+
+</div>
+
+{% endblock %}

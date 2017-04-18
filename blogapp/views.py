@@ -56,20 +56,46 @@ def rate_ex_bank(request):
     dictionary = bank_info()
     return render(request, 'blogapp/rate_ex_bank.html', dictionary)
 
+def loan(request):
+    kredit = Article.objects.filter(title="KREDIT")
+    num = len(kredit)-1
+    KREDIT_N = kredit[num]
+    name0 = KREDIT_N.EUR.split("/")
+    thm0 = KREDIT_N.USD.split("/")
+    year0 = KREDIT_N.CNY.split("/")
+    period0 = KREDIT_N.RUB.split("/")
+    zatrat0 = KREDIT_N.RON.split("/")
+    limit0 = KREDIT_N.CHF.split("/")
+    name = []
+    thm = []
+    year = []
+    period = []
+    zatrat = []
+    limit = []
+    for i in range(len(KREDIT_N.EUR.split("/"))):
+        name.append(name0[i])
+        thm.append(float(thm0[i].replace(",",".")))
+        year.append(float(year0[i].replace(",",".")))
+        period.append(period0[i])
+        zatrat.append(zatrat0[i])
+        limit.append(limit0[i])
+
+    data = {
+        "name":name,
+        "thm":thm,
+        "year":year,
+        "per":period,
+        "zat":zatrat,
+        "lim":limit
+    }
+    dictionary = bank_info()
+    dictionary['data'] = data
+    return render(request, 'blogapp/loan.html', dictionary)
+
 class rate_ex_history(View):
     def get(self, request, *args, **kwargs):
         dictionary = bank_info()
         return render(request, 'blogapp/rate_ex_history.html', dictionary)
-
-'''
-def get_data(request, *args, **kwargs):
-    data = {
-        "car":10,
-        "moto":3,
-        "jeep":2,
-    }
-    return JsonResponse(data)
-'''
 
 class ChartData(APIView):
     authentication_classes = []
