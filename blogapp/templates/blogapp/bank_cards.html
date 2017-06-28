@@ -1,0 +1,102 @@
+{% extends 'blogapp/index.html' %}
+
+{% block content %}
+
+
+
+<div class="second">
+{% load staticfiles%}
+  <div width="800px" style="padding-left:0px;">
+    <div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:11%;">
+      <p style="height:13px; border-left: 13px solid green;">
+        &nbsp;Bank Cards</p>
+    </div>
+    <div style="padding-left:0px;">
+        <hr style="margin-top:0;float:left;width:720px;height:13px;border:none;color:#999999;background-color:#999999;"/>
+    </div>
+  </div>
+
+<div class="col-md-11 col-sm-11 col-xs-11" style="padding:0;margin-top:0px;margin-bottom:26px;">
+  <div class="main_center">
+  <div class="col-md-12 col-sm-12 col-xs-12" style="padding:10px 0 0 0;">
+  {% for post in cards %}
+  <div class="card_some" style="display:block; margin-bottom:110px;">
+    <div class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#e6e6e6;padding:0;margin-bottom:35px;">
+      <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0;">
+        <div class="col-md-2 col-sm-2 col-xs-2 name" style="padding:10px 0 0 10px;">
+          <div>
+            <div><img src="{{ post.card_image.url }}" title="{{ post.card_name }}" alt="Error" width="120" height="75"></div>
+          </div>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-10 name" style="padding:6px 0 0 0;">
+          <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top:30px; padding:0 10px 0 0;;width:25%">
+            <div width="100%" style="margin-left:5px;">
+              {{ post.bank_name }}
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4" style="margin-top:25px; padding:0 5px 0 5px;width:30%">
+            <div width="100%">
+              {{ post.card_name }}
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top:25px; padding:0;width:20%; font-size:16px">
+            <div width="100%" style="text-align: center">
+             THM:
+            </div>
+            <div width="100%" style="text-align: center">
+              {{ post.thm }}
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-5" style="padding:0;width:25%; font-size:20px">
+            <div width="100%">
+					         <a href={{ post.link }} target="_blank" rel="nofollow" class="elem_link">&nbsp;</a>
+                   <a href={{ post.link }} target="_blank" rel="nofollow" class="btn_tovabb">
+                  <span>Részletek</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12" style="background:#cccccc;padding:0;">
+        <div style="margin:10px 0 10px 30px;">
+
+				<ul class="attribs good" style="list-style-image: url({% static 'css/img/list.png' %});">
+          {% for info in post.info_block %}
+          <li>{{ info }}</li>
+          {% endfor %}
+        </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</br>
+</br>
+  {% endfor %}
+  </div>
+  </div>
+  </div>
+
+
+<!--
+{% for post in cards %}
+  <div class = "card">
+    </br>
+    <a href="#"><img src="{{ post.card_image.url }}" title="{{ post.card_name }}" alt="Error" width="120" height="75"></a>
+    {{ post.card_image.url }}
+    </br>
+    {{ post.bank_name }}
+    </br>
+    {{ post.card_name }}
+    </br>
+    {{ post.thm }}
+    </br>
+    {{ post.link }}
+    </br>
+    {{ post.info_block }}
+  </div>
+{% endfor %}
+-->
+
+</div>
+
+{% endblock %}

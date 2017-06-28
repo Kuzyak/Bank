@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import NewsWebsite
 from .models import Article
 from .models import Post
+from .models import BankCard
 
 class PostModelAdmin(admin.ModelAdmin):
     list_display = ["title", "created_date", "published_date"]
@@ -18,6 +19,7 @@ class ArticleModelAdmin(admin.ModelAdmin):
     class Meta:
         model = Article
 
+admin.site.register(BankCard)
 admin.site.register(NewsWebsite)
 admin.site.register(Article, ArticleModelAdmin)
 admin.site.register(Post, PostModelAdmin)

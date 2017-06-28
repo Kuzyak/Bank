@@ -364,13 +364,25 @@ class ArticleSpider(DjangoSpider):
     def parse(self, response):
         print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    NachBank!")
         sel = Selector(response)
-        eur = sel.xpath('//table[@class="datatable"]/tbody/tr[2]/td[4]/text()').extract()[0]
-        usd = sel.xpath('//table[@class="datatable"]/tbody/tr[3]/td[4]/text()').extract()[0]
-        cny = sel.xpath('//table[@class="datatable"]/tbody/tr[5]/td[4]/text()').extract()[-1]
-        rub = sel.xpath('//table[@class="datatable"]/tbody/tr[25]/td[4]/text()').extract()[-1]
-        ron = sel.xpath('//table[@class="datatable"]/tbody/tr[23]/td[4]/text()').extract()[-1]
-        gbp = sel.xpath('//table[@class="datatable"]/tbody/tr[8]/td[4]/text()').extract()[-1]
-        chf = sel.xpath('//table[@class="datatable"]/tbody/tr[1]/td[4]/text()').extract()[0]
+        result1 = sel.xpath('//table[@class="datatable"]/tbody/tr')[:-1]
+        for some1 in result1:
+            name = some1.xpath('.//td//text()').extract()[0]
+            value = some1.xpath('.//td//text()').extract()[-1]
+            if (name == "EUR"):
+                eur = value
+            elif (name == "USD"):
+                usd = value
+            elif (name == "CNY"):
+                cny = value
+            elif (name == "RUB"):
+                rub = value
+            elif (name == "RON"):
+                ron = value
+            elif (name == "GBP"):
+                gbp = value
+            elif (name == "CHF"):
+                chf = value
+        print (sel.xpath('//table[@class="datatable"]/tbody/tr[5]/td//text()').extract())
         yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -381,9 +393,9 @@ class ArticleSpider(DjangoSpider):
                                 #description = des,
                                 url = 'https://www.mnb.hu/arfolyamok',
                                 title = "NachBank")
+
         #KREDIT
         yield Request("https://www.bankracio.hu/hitelkalkulator/lakashitel/2-lakasvasarlasi-hitel-uj-lakasra", callback=self.kredit)
-        '''
         #BUDAPEST
         yield Request("https://www.budapestbank.hu/info/arfolyamok/db_arfolyamok.php?sent=1&frm_arfolyam=CCR", callback=self.budapest)
 
@@ -533,4 +545,4 @@ class ArticleSpider(DjangoSpider):
                                     title = "SBERBANK")
         else:
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   SBERBANK! ERROR or Weekend")
-        '''
+        

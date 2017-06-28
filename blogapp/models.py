@@ -27,6 +27,17 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class BankCard(models.Model):
+    bank_name = models.CharField(max_length=300)
+    card_name = models.CharField(max_length=300)
+    thm = models.CharField(max_length=50)
+    info_block = models.TextField()
+    link = models.CharField(max_length=300)
+    card_image = models.ImageField(upload_to='new', blank=True)
+
+    def __str__(self):
+        return self.card_name
+
 class NewsWebsite(models.Model):
     name = models.CharField(max_length=200)
     url = models.URLField()

@@ -6,6 +6,8 @@ urlpatterns = [
     #url(r'^api/data/$', views.get_data, name='api-data'),
     url(r'^api/chart/data/$', views.ChartData.as_view()),
     url(r'^news/$', views.post_list_all, name='post_list_all'),
+    url(r'^bank_cards/$', views.bank_cards, name='bank_cards'),
+    url(r'^map/$', views.map, name='map'),
     url(r'^rate_bank/$', views.rate_ex_bank, name='rate_ex_bank'),
     url(r'^loan/$', views.loan, name='loan'),
     #url(r'^history/$', views.rate_ex_history, name='rate_ex_history'),

@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from .models import Article
 from .models import Post
+from .models import BankCard
 
 from django.views.generic import View
 from django.http import JsonResponse
@@ -55,6 +56,20 @@ def post_detail(request, pk):
 def rate_ex_bank(request):
     dictionary = bank_info()
     return render(request, 'blogapp/rate_ex_bank.html', dictionary)
+
+def bank_cards(request):
+    cards = BankCard.objects.all()
+    dictionary = bank_info()
+    n = len(cards)
+    for i in range(n):
+        some = cards[i].info_block
+        cards[i].info_block = some.split("/*/")
+    dictionary['cards'] = cards
+    return render(request, 'blogapp/bank_cards.html', dictionary)
+
+def map(request):
+    dictionary = bank_info()
+    return render(request, 'blogapp/map.html', dictionary)
 
 def loan(request):
     kredit = Article.objects.filter(title="KREDIT")
