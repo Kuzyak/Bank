@@ -15,13 +15,13 @@
     </script><script ="text/javascript">if(typeof adceanroubgiqkinxc=='function'){adoceanroubgiqkinxc();}</script><script id="script_sclolnsoqo" src="addons/sarg5884CCB1CE224356_002" language="javascript"></script>
 </div>-->
 <div width="800px" style="padding-left:0px;">
-	<div class="col-md-1 col-sm-1 col-xs-1" style="padding:0px;">
-		<p style="height:13px; border-left: 13px solid green;">
+	<div class="col-md-1 col-sm-1 col-xs-1" style="padding:0px;width: 10.9%;">
+		<p class="dottostart">
 			&nbsp;NEWS</p>
 	</div>
 	<div style="padding-left:0px;">
-			<hr style="margin-top:0;float:left;width:650px;height:13px;border:none;color:#999999;background-color:#999999;"/>
-			<button onclick="myFunctionL()" id="buttonL"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			<hr class="linetostart" style="width:620px;"/>
+			<button onclick="myFunctionL()" id="buttonL" style="margin-left:10px"><span class="glyphicon glyphicon-chevron-left"></span></button>
 			<button onclick="myFunctionR()" id="buttonR"><span class="glyphicon glyphicon-chevron-right"></span></button>
 
 
@@ -31,7 +31,7 @@
 <div class="rows">
 	<div class="col-md-5 col-sm-5 col-xs-5" style="padding-left:0px; padding-top:10px;">
 			<div>	<a id="a1_0" href="{% url 'post_detail' pk=posts.0.pk %}"><img id="img_0" src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
-				<a id="a2_0" href="{% url 'post_detail' pk=posts.0.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_0">{{ posts.0.title }}</h2></div></a><br>
+				<a id="a2_0" href="{% url 'post_detail' pk=posts.0.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_0">{{ posts.0.title }}</h2></div></a><br>
 				<h5 id="h5_0">{{ posts.3.published_date }}</h5><br>
 				<h3 id="h3_0">{{ posts.0.title_text}}</h3>
 
@@ -46,7 +46,7 @@
 					<a id="a1_1" href="{% url 'post_detail' pk=posts.1.pk %}"><img id="img_1" src="{{ posts.1.images.url }}" title="{{ posts.1.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_1" href="{% url 'post_detail' pk=posts.1.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_1">{{ posts.1.title }}</h2></div></a>
+					<a id="a2_1" href="{% url 'post_detail' pk=posts.1.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_1">{{ posts.1.title }}</h2></div></a>
 					<h5 id="h5_1" >{{ posts.1.published_date }}</h5>
 				</div>
 				<hr style="margin-left:10px;">
@@ -59,7 +59,7 @@
 					<a id="a1_2"  href="{% url 'post_detail' pk=posts.2.pk %}"><img id="img_2" src="{{ posts.2.images.url }}" title="{{ posts.2.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_2"  href="{% url 'post_detail' pk=posts.2.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_2">{{ posts.2.title }}</h2></div></a>
+					<a id="a2_2"  href="{% url 'post_detail' pk=posts.2.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_2">{{ posts.2.title }}</h2></div></a>
 					<h5 id="h5_2">{{ posts.2.published_date }}</h5>
 				</div>
 					<hr style="margin-left:10px;">
@@ -72,7 +72,7 @@
 					<a id="a1_3"  href="{% url 'post_detail' pk=posts.3.pk %}"><img id="img_3" src="{{ posts.3.images.url }}" title="{{ posts.3.title }}" alt="Error" width="109" height="80"></a>
 				</div>
 				<div style="padding-top:3px; padding-left:20px;">
-					<a id="a2_3"  href="{% url 'post_detail' pk=posts.3.pk %}"><div style="overflow: hidden; height:48px;"><h2 id="title_3">{{ posts.3.title }}</h2></div></a>
+					<a id="a2_3"  href="{% url 'post_detail' pk=posts.3.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_3">{{ posts.3.title }}</h2></div></a>
 					<h5 id="h5_3">{{ posts.3.published_date }}</h5>
 				</div>
 					<hr style="margin-left:10px;">
@@ -88,21 +88,35 @@
 
 			</div>
 
-
+{% load static %}
 </div>
 </div>
 	<div class="col-md-11  col-sm-11 col-xs-11" style=" padding-left:0px;">
-	<hr style="margin:10px 0px 0px 0px;width:790px;height:13px;border:none;color:#999999;background-color:#999999;" />
+	<hr class="lineundernews"/>
 	<table class="main_table" cellpadding="7" align="center" width="790">
 	  <tr height = "80px">
-	    <td width = "263px"><h2><a href="{% url 'rate_ex_bank' %}">Exchange Rates</a></h2></td>
-	    <td width = "263px"><h2><a href="#">Deposits&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
-	    <td width = "263px"><h2><a href="{% url 'loan' %}">Loans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+	    <td width = "300px">
+				<a href="{% url 'rate_ex_bank' %}" class="logo">
+					<img src="{% static 'css/img/exchange.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<h2 style="padding-top: 24px;">Exchange Rates</h2></a></td>
+			<td>
+				<a href="{% url 'loan' %}" class="logo">
+					<img src="{% static 'css/img/loan.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<h2 style="padding-top: 24px;">Loans</h2></a></td>
 	  </tr>
 		<tr height = "80px">
-	    <td><h2><a href="{% url 'post_list_all' %}">News&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
-	    <td><h2><a href="{% url 'bank_cards' %}">Bank Cards</h2></a></td>
-	    <td><h2><a href="{% url 'map' %}">Map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h2></td>
+			<td>
+				<a href="{% url 'post_list_all' %}" class="logo">
+					<img src="{% static 'css/img/news.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<h2 style="padding-top: 24px;">News</h2></a></td>
+			<td>
+				<a href="{% url 'bank_cards' %}" class="logo">
+					<img src="{% static 'css/img/card.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<h2 style="padding-top: 24px;">Bank Cards</h2></a></td>
+			<td>
+				<a href="{% url 'map' %}" class="logo">
+					<img src="{% static 'css/img/mappoint.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<h2 style="padding-top: 24px;">Map</h2></a></td>
 	  </tr>
 </table>
 	</div>

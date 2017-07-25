@@ -1,3 +1,27 @@
+.lineundernews {
+  margin: 10px 0px 0px 0px;
+  width: 790px;
+  height: 13px;
+  border: none;
+  color: #999999;
+  background-color: #999999;
+  border-radius: 6px 6px 6px 6px;
+}
+.linetostart {
+  border-radius: 0 15px 15px 0;
+  margin-top: 0;
+  margin-bottom: 7px;
+  float: left;
+  height: 25px;
+  border: none;
+  color: #999999;
+  background-color: #999999;
+}
+.dottostart {
+  border-radius: 15px 0 0 15px;
+  height: 25px;
+  border-left: 25px solid green;
+}
 .btn_tovabb {
     background: #157e3e no-repeat right 7px center;
     height: 40px;
@@ -181,7 +205,7 @@ caption, th, td {
 }
 .main_table{
   margin-top:10px;
-  background-color:#dfdfdf;
+  background-color:#E4E4E4;
   color:#333;
   font-family: Georgia, serif;
   padding: 12px 16px;
@@ -298,12 +322,11 @@ h5 { font-size:12px; }
   background:#ffffff url("/img/header.png") no-repeat top center;
 }
 #header .logo {
-  background:url("/img/logo-bancamea.png") no-repeat 0 0;
   display:block;
   height:44px;
   left:10px;
   position:absolute;
-  top:13px;
+  top:10px;
   width:230px;
 }
 #header .wrapper { height:80px; }
@@ -313,7 +336,7 @@ h5 { font-size:12px; }
   position:relative;
   top:38px;
 }
-#header .curs.curs2 { top:30px; }
+#header .curs.curs2 { top:25px; }
 #header .curs i {
   width:50px;
   color:#348f58;
@@ -343,10 +366,13 @@ h5 { font-size:12px; }
   top:-7.3em;
 }
 #header .curs b { padding-right:5px; }
-#header .curs .left { float:left; }
+#header .curs .left {
+  float:left;
+  margin-left:110px;
+}
 #header .curs .right {
   float:right;
-  margin-right:130px;
+  margin-right:170px;
 }
 #header .contact {
   position:absolute;
@@ -403,10 +429,10 @@ h5 { font-size:12px; }
   height:45px;
   z-index:1000;
   position:relative;
-  border-radius:6px 6px 6px 6px;
-  -webkit-border-radius:6px 6px 6px 6px;
-  -moz-border-radius:6px 6px 6px 6px;
-  background:#dedede;
+  border-radius:10px 10px 10px 10px;
+  -webkit-border-radius:10px 10px 10px 10px;
+  -moz-border-radius:10px 10px 10px 10px;
+  background:#E4E4E4;
   margin:0 5px;
 }
 #middle .menu_block .left, #middle .menu_block .right {
@@ -2266,9 +2292,8 @@ h5 { font-size:12px; }
   margin-left: 20%;
 }
 #middle #columns .second p {
-  font-size:14px;
+  font-size:20px;
   color:#333333;
-  line-height:21px;
   padding-bottom:7px;
 }
 #middle #columns .second .half_col {
@@ -2356,7 +2381,8 @@ h5 { font-size:12px; }
 }
 #middle .block { margin-bottom:18px; }
 #middle .block h3 {
-  background-color:#cccccc;
+  background-color:#D5D5D5;
+  border-radius: 10px 10px 10px 10px;
   padding:8px 10px 6px 23px;
 }
 #middle .block h3 span {
@@ -2388,8 +2414,9 @@ h5 { font-size:12px; }
 }
 #middle .block .calendar.first_col { background-color:#e1e1e1; }
 #middle .block .content {
-  margin:0 0 0 5px;
+  margin:0 5px 0 5px;
   position:relative;
+  border-radius: 0 0 6px 6px;
   background-color:#f2f2f2;
 }
 #middle .block .content .calculator { padding:10px 0 10px 20px; }
@@ -2412,7 +2439,7 @@ h5 { font-size:12px; }
 #middle .block .content .calculator input {
   font-size:13px;
   color:#555555;
-  width:75px;
+  width:90px;
   margin-right:10px;
   font-weight:bold;
   letter-spacing:-0.05em;
@@ -2527,6 +2554,7 @@ h5 { font-size:12px; }
   zoom:1;
   *display:inline;
   padding:0 0 0 0%;
+  margin:0 0 0 0;
   width:100%;
 }
 #middle .block .content .table .a { width:54%; }
@@ -2662,7 +2690,7 @@ h5 { font-size:12px; }
   display:inline-block;
   zoom:1;
   *display:inline;
-  padding-left:18px;
+  padding-left:10px;
   text-align:center;
   margin-bottom:7px;
 }
@@ -2820,7 +2848,7 @@ h5 { font-size:12px; }
 #footer {
   background:url("/img/footer.png") no-repeat top center;
   height:90px;
-  margin:40px 0 70px 0;
+  margin:40px 0 0 0;
   font-size:12px;
   position:relative;
   z-index:2;
@@ -2898,8 +2926,8 @@ h5 { font-size:12px; }
 .social-icons {
   position:absolute;
   z-index:4;
-  top:33px;
-  right:15px;
+  top:25px;
+  right:45px;
 }
 .social-icons li {
   float:left;

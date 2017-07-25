@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<meta name="description" content="">
+	{% load static %}
+	<link rel="shortcut icon" href="{% static 'css/img/main.png' %}" >
 <!--
 	<link rel="shortcut icon" href="http://bancamea.md/favicon.png">
 	<link rel="apple-touch-icon" href="http://bancamea.md/touch-icon-iphone.png">
@@ -131,153 +133,141 @@
     </script><script type="text/javascript" src="{% static 'js/ad.js' %}"></script>
 
 
+		{% load static %}
+		<body>
+			<div id="fb-root"></div>
 
-<body>
-	<div id="fb-root"></div>
+				<div id="container">
+				<div id="header" style="background: url('{% static 'css/img/main1.png' %}') no-repeat top center;height: 90px;">
+					<div class="wrapper" style="width: 1150px;">
 
-		<div id="container">
-		<div id="header">
-			<div class="wrapper">
-	<!--<a href="http://bancamea.md/" class="logo"></a>-->
+			    <a href="{% url 'post_list' %}" class="logo">
+						<img src="{% static 'css/img/logo_main.png' %}" alt="Logo ERROR" style="height:44px;width:230px;"/></a>
 
-<div class="curs curs2">
-			<div class="left">
-						<i>Now</i>
+		<div class="curs curs2">
+					<div class="left">
+								<i>Now</i>
+								<b>EUR</b>
+					{{ firstbank.EUR }} huf
+						<!--<span class="up">
+											<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
+							0,1785							</span>
+							<div class="tomorrow">
+						<i>Luni</i>
 						<b>EUR</b>
-			{{ firstbank.EUR }} huf
-				<!--<span class="up">
+						21,3298 lei
+						<span class="down">
+												<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
+							0,0007									</span>
+					</div>-->
+							</div>
+
+
+
+
+
+			<div class="right">
+				<b>USD</b>
+				{{ firstbank.USD }} huf
+			<!--	<span class="up">
 									<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
-					0,1785							</span>
-					<div class="tomorrow">
-				<i>Luni</i>
-				<b>EUR</b>
-				21,3298 lei
-				<span class="down">
+						0,0266					</span>
+
+						<div class="tomorrow">
+					<b>USD</b>
+					20,0355 lei
+					<span class="down">
 										<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
-					0,0007									</span>
-			</div>-->
+						0,0233							</span>
+				</div>-->
 					</div>
 
 
 
 
 
-	<div class="right">
-		<b>USD</b>
-		{{ firstbank.USD }} huf
-	<!--	<span class="up">
-							<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
-				0,0266					</span>
 
-				<div class="tomorrow">
-			<b>USD</b>
-			20,0355 lei
-			<span class="down">
-								<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
-				0,0233							</span>
-		</div>-->
+		</div>
+
+			<ul class="social-icons">
+				<li><a class="rss" href="#" target="_blank"><img src="{% static 'css/img/soc1.png' %}" alt="My image"/></a></li>
+				<li><a class="facebook" href="#" target="_blank"><img src="{% static 'css/img/soc2.png' %}" alt="My image"/></a></li>
+				<li><a class="twitter" href="#" target="_blank"><img src="{% static 'css/img/soc3.png' %}" alt="My image"/></a></li>
+				<li><a class="mail" href="#" target="_blank"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>
+				<!--<li><a class="rss" href="http://bancamea.md/rss" target="_blank"><img src="{% static 'css/img/soc1.png' %}" alt="My image"/></a></li>
+				<li><a class="facebook" href="http://www.facebook.com/bancamea.md" target="_blank"><img src="{% static 'css/img/soc2.png' %}" alt="My image"/></a></li>
+				<li><a class="twitter" href="http://twitter.com/#%21/bancamea_md" target="_blank"><img src="{% static 'css/img/soc3.png' %}" alt="My image"/></a></li>
+				<li><a class="mail" target="_blank" href="mailto:team@bancamea.md"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>-->
+			</ul>
+		</div>
+				</div>
+
+						<div id="middle">
+					<div class="wrapper">
+						<div class="menu_block">
+
+		<ul id="menu" class="sf-js-enabled">
+			<li class="">
+				<a href="{% url 'post_list' %}" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
+
+			</li>
+			<li class="">
+				<a href="{% url 'rate_ex_bank' %}" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
+				<ul style="display: none; visibility: hidden;">
+													<li><a href="{% url 'rate_ex_bank' %}">Today Exchange Rates</a></li>
+													<li><a href="{% url 'rate_ex_history' %}">Exchange Rates History</a></li>
+
+				</ul>
+			</li>
+			<li class="">
+				<a href="{% url 'loan' %}" class="sf-with-ul">Loans<span class="sf-sub-indicator"> »</span></a>
+
+			</li>
+			<li class="">
+				<a href="{% url 'bank_cards' %}" class="sf-with-ul">Bank Cards<span class="sf-sub-indicator"> »</span></a>
+
+			</li>
+			<li class="">
+				<a href="{% url 'map' %}" class="sf-with-ul">Map<span class="sf-sub-indicator"> »</span></a>
+
+			</li>
+		</ul>
+				</div>
+						<div class="clear"></div>
+						<div id="columns" class="clearfix">
+							<!-- Today BNM Exchange Rates -->
+		<input name="today-eur" value="{{ firstbank.EUR }}" type="hidden">
+		<input name="today-usd" value="{{ firstbank.USD }}" type="hidden">
+		<input name="today-ron" value="{{ firstbank.RON }}" type="hidden">
+		<input name="today-rub" value="{{ firstbank.RUB }}" type="hidden">
+		<input name="today-uah" value="{{ firstbank.CNY }}" type="hidden">
+		<input name="today-gbp" value="{{ firstbank.GBP }}" type="hidden">
+		<input name="today-chf" value="{{ firstbank.CHF }}" type="hidden">
+		<!-- / Today BNM Exchange Rates -->
+		<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+		<div class="first">
+		 	<div class="block" style="font-style: italic;">
+				<h3 style="border-radius: 6px 6px 6px 6px;">Convertor valutar</h3>
+				<div class="content" style="margin: 0 5px 0 5px;">
+					<div class="corner"></div>
+					<form class="calculator">
+						<div><label>HUF</label><input name="converter-mdl" id="vlt1" type="text"><b>–</b><a id="vlt11" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_1" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_1" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div class="active"><label>EUR</label><input id="vlt2" name="converter-eur" type="text"><b>{{ firstbank.EUR }}</b><a id="vlt22" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_2" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_2" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div><label>USD</label><input id="vlt3" name="converter-usd" type="text"><b>{{ firstbank.USD }}</b><a id="vlt33" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_3" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_3" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div><label>RON</label><input id="vlt4" name="converter-ron" type="text"><b>{{ firstbank.RON }}</b><a id="vlt44" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_4" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_4" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_4" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div><label>CNY</label><input id="vlt5" name="converter-uah" type="text"><b>{{ firstbank.CNY }}</b><a id="vlt55" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_5" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_5" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div><label>RUB</label><input id="vlt6" name="converter-rub" type="text"><b>{{ firstbank.RUB }}</b><a id="vlt66" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_6" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_6" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_6" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=6&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div><label>GBP</label><input id="vlt7" name="converter-gbp" type="text"><b>{{ firstbank.GBP }}</b><a id="vlt77" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_7" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_7" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_7" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=7&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+						<div id="last"><label>CHF</label><input id="vlt8" name="converter-chf" type="text"><b>{{ firstbank.CHF }}</b><a id="vlt88" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_8" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_8" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_8" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=8&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
+					</form>
+				</div>
 			</div>
 
+			<div class="block" style="font-style: italic;">
 
-
-
-
-
-</div>
-
-	<ul class="social-icons">
-		<li><a class="rss" href="http://bancamea.md/rss" target="_blank"></a></li>
-		<li><a class="facebook" href="http://www.facebook.com/bancamea.md" target="_blank"></a></li>
-		<li><a class="twitter" href="http://twitter.com/#%21/bancamea_md" target="_blank"></a></li>
-		<li><a class="mail" target="_blank" href="mailto:team@bancamea.md"></a></li>
-	</ul>
-</div>
-		</div>
-
-				<div id="middle">
-			<div class="wrapper">
-				<div class="menu_block">
-
-<ul id="menu" class="sf-js-enabled">
-	<li class="">
-		<a href="{% url 'post_list' %}" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
-
-	</li>
-	<li class="">
-		<a href="{% url 'rate_ex_bank' %}" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
-		<ul style="display: none; visibility: hidden;">
-											<li><a href="{% url 'rate_ex_bank' %}">Today Exchange Rates</a></li>
-											<li><a href="{% url 'rate_ex_history' %}">Exchange Rates History</a></li>
-
-		</ul>
-	</li>
-	<li class="">
-		<a href="#" class="sf-with-ul">Deposits<span class="sf-sub-indicator"> »</span></a>
-		<ul style="display: none; visibility: hidden;">
-											<li><a href="#">Deposits</a></li>
-											<li><a href="#">Calculator</a></li>
-
-		</ul>
-	</li>
-	<li class="">
-		<a href="{% url 'loan' %}" class="sf-with-ul">Loans<span class="sf-sub-indicator"> »</span></a>
-
-	</li>
-	<li class="">
-		<a href="{% url 'bank_cards' %}" class="sf-with-ul">Bank Cards<span class="sf-sub-indicator"> »</span></a>
-
-	</li>
-	<li class="">
-		<a href="{% url 'map' %}" class="sf-with-ul">Map<span class="sf-sub-indicator"> »</span></a>
-
-	</li>
-</ul>
-
-<!--<form id="searchForm" action="/search">
-	<input name="keywords" placeholder="Caută prin noutăți" type="text">
-	<input value="" type="submit">
-</form>-->
-<ul class="icons" style="display: none;">
-	<li><a class="facebook" href="http://www.facebook.com/bancamea.md" target="_blank"><img src="{% static 'css/sprite.png' %}" alt="facebook"></a></li>
-	<li><a class="twitter" href="http://twitter.com/#%21/bancamea_md" target="_blank"><img src="{% static 'css/sprite.png' %}" alt="twitter"></a></li>
-	<!--<li><a class="gplus" href="https://plus.google.com/u/0/103904907062949515213" target="_blank"><img src="img/sprite.png" alt="gplus"/></a></li>-->
-	<li><a class="rss" target="_blank" href="http://bancamea.md/rss"><img alt="rss" src="{% static 'css/sprite.png' %}"></a></li>
-</ul>				</div>
-				<div class="clear"></div>
-				<div id="columns" class="clearfix">
-					<!-- Today BNM Exchange Rates -->
-<input name="today-eur" value="{{ firstbank.EUR }}" type="hidden">
-<input name="today-usd" value="{{ firstbank.USD }}" type="hidden">
-<input name="today-ron" value="{{ firstbank.RON }}" type="hidden">
-<input name="today-rub" value="{{ firstbank.RUB }}" type="hidden">
-<input name="today-uah" value="{{ firstbank.CNY }}" type="hidden">
-<input name="today-gbp" value="{{ firstbank.GBP }}" type="hidden">
-<input name="today-chf" value="{{ firstbank.CHF }}" type="hidden">
-<!-- / Today BNM Exchange Rates -->
-<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-
-<div class="first">
- 	<div class="block">
-		<h3>Convertor valutar</h3>
-		<div class="content">
-			<div class="corner"></div>
-			<form class="calculator">
-				<div><label>HUF</label><input name="converter-mdl" id="vlt1" type="text"><b>–</b><a id="vlt11" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_1" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_1" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div class="active"><label>EUR</label><input id="vlt2" name="converter-eur" type="text"><b>{{ firstbank.EUR }}</b><a id="vlt22" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_2" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_2" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>USD</label><input id="vlt3" name="converter-usd" type="text"><b>{{ firstbank.USD }}</b><a id="vlt33" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_3" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_3" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>RON</label><input id="vlt4" name="converter-ron" type="text"><b>{{ firstbank.RON }}</b><a id="vlt44" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_4" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_4" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_4" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>CNY</label><input id="vlt5" name="converter-uah" type="text"><b>{{ firstbank.CNY }}</b><a id="vlt55" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_5" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_5" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>RUB</label><input id="vlt6" name="converter-rub" type="text"><b>{{ firstbank.RUB }}</b><a id="vlt66" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_6" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_6" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_6" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=6&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div><label>GBP</label><input id="vlt7" name="converter-gbp" type="text"><b>{{ firstbank.GBP }}</b><a id="vlt77" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_7" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_7" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_7" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=7&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-				<div id="last"><label>CHF</label><input id="vlt8" name="converter-chf" type="text"><b>{{ firstbank.CHF }}</b><a id="vlt88" title="Copiază suma data"><i style="display:none">Copiază suma dată</i></a><div class="zclip" id="zclip-ZeroClipboardMovie_8" style="position: absolute; left: 101px; top: 6px; width: 16px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_8" src="{% static 'css/ZeroClipboard.swf' %}" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_8" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=8&amp;width=16&amp;height=15" wmode="transparent" width="16" height="15" align="middle"></div></div>
-			</form>
-		</div>
-	</div>
-
-	<div class="block">
-
-<h3>Curs valutar <span>{{ time_date }}</span></h3>
-<div class="content">
+		<h3 style="border-radius: 6px 6px 6px 6px;">Curs valutar <span>{{ time_date }}</span></h3>
+		<div class="content" style="margin: 0 5px 0 5px;">
 	<div class="corner"></div>
 
 	<!-- Tabs -->
