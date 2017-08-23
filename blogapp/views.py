@@ -31,6 +31,22 @@ def post_list(request):
     dictionary['posts'] = posts
     return render(request, 'blogapp/post_list.html', dictionary)
 
+def post_list_en(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    n = len(posts)
+    for i in range(n):
+        len_text = len(posts[i].text)
+        x = posts[i].text.find('\n')
+        if len_text > 85 and x > 85:
+            posts[i].title_text = posts[i].text[:85]
+        elif len_text > 85:
+            posts[i].title_text = posts[i].text[:x-1]
+        else:
+            posts[i].title_text = posts[i].text
+    dictionary = bank_info()
+    dictionary['posts'] = posts
+    return render(request, 'blogapp/post_list_en.html', dictionary)
+
 def post_list_all(request):
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     paginator = Paginator(post_list, 9)
@@ -47,15 +63,41 @@ def post_list_all(request):
     dictionary['postst'] = post
     return render(request, 'blogapp/post_list_all.html', dictionary)
 
+def post_list_all_en(request):
+    post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(post_list, 9)
+    page = request.GET.get('page')
+    try:
+        post = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        post = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        post = paginator.page(paginator.num_pages)
+    dictionary = bank_info()
+    dictionary['postst'] = post
+    return render(request, 'blogapp/post_list_all_en.html', dictionary)
+
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     dictionary = bank_info()
     dictionary['post'] = post
     return render(request, 'blogapp/post_detail.html', dictionary)
 
+def post_detail_en(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    dictionary = bank_info()
+    dictionary['post'] = post
+    return render(request, 'blogapp/post_detail_en.html', dictionary)
+
 def rate_ex_bank(request):
     dictionary = bank_info()
     return render(request, 'blogapp/rate_ex_bank.html', dictionary)
+
+def rate_ex_bank_en(request):
+    dictionary = bank_info()
+    return render(request, 'blogapp/rate_ex_bank_en.html', dictionary)
 
 def bank_cards(request):
     cards = BankCard.objects.all()
@@ -67,9 +109,23 @@ def bank_cards(request):
     dictionary['cards'] = cards
     return render(request, 'blogapp/bank_cards.html', dictionary)
 
+def bank_cards_en(request):
+    cards = BankCard.objects.all()
+    dictionary = bank_info()
+    n = len(cards)
+    for i in range(n):
+        some = cards[i].info_block
+        cards[i].info_block = some.split("/*/")
+    dictionary['cards'] = cards
+    return render(request, 'blogapp/bank_cards_en.html', dictionary)
+
 def map(request):
     dictionary = bank_info()
     return render(request, 'blogapp/map.html', dictionary)
+
+def map_en(request):
+    dictionary = bank_info()
+    return render(request, 'blogapp/map_en.html', dictionary)
 
 def loan(request):
     kredit = Article.objects.filter(title="KREDIT")
@@ -107,10 +163,51 @@ def loan(request):
     dictionary['data'] = data
     return render(request, 'blogapp/loan.html', dictionary)
 
+def loan_en(request):
+    kredit = Article.objects.filter(title="KREDIT")
+    num = len(kredit)-1
+    KREDIT_N = kredit[num]
+    name0 = KREDIT_N.EUR.split("/")
+    thm0 = KREDIT_N.USD.split("/")
+    year0 = KREDIT_N.CNY.split("/")
+    period0 = KREDIT_N.RUB.split("/")
+    zatrat0 = KREDIT_N.RON.split("/")
+    limit0 = KREDIT_N.CHF.split("/")
+    name = []
+    thm = []
+    year = []
+    period = []
+    zatrat = []
+    limit = []
+    for i in range(len(KREDIT_N.EUR.split("/"))):
+        name.append(name0[i])
+        thm.append(float(thm0[i].replace(",",".")))
+        year.append(float(year0[i].replace(",",".")))
+        period.append(period0[i])
+        zatrat.append(zatrat0[i])
+        limit.append(limit0[i])
+
+    data = {
+        "name":name,
+        "thm":thm,
+        "year":year,
+        "per":period,
+        "zat":zatrat,
+        "lim":limit
+    }
+    dictionary = bank_info()
+    dictionary['data'] = data
+    return render(request, 'blogapp/loan_en.html', dictionary)
+
 class rate_ex_history(View):
     def get(self, request, *args, **kwargs):
         dictionary = bank_info()
         return render(request, 'blogapp/rate_ex_history.html', dictionary)
+
+class rate_ex_history_en(View):
+    def get(self, request, *args, **kwargs):
+        dictionary = bank_info()
+        return render(request, 'blogapp/rate_ex_history_en.html', dictionary)
 
 class ChartData(APIView):
     authentication_classes = []
@@ -156,9 +253,6 @@ class ChartData(APIView):
         }
         return Response(data)
 
-#def rate_ex_history(request):
-    #dictionary = bank_info()
-    #return render(request, 'blogapp/rate_ex_history.html', dictionary)
 
 
 def bank_info():

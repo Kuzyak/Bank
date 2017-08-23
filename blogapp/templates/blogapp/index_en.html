@@ -141,7 +141,7 @@
 				<div id="header" style="background: url('{% static 'css/img/main2.png' %}') no-repeat top center;height: 90px;">
 					<div class="wrapper" style="width: 1150px;">
 
-			    <a href="{% url 'post_list' %}" class="logo">
+			    <a href="{% url 'post_list_en' %}" class="logo">
 						<img src="{% static 'css/img/logo_main.png' %}" alt="Logo ERROR" style="height:44px;width:230px;"/></a>
 
 		<div class="curs curs2">
@@ -208,32 +208,32 @@
 
 		<ul id="menu" class="sf-js-enabled">
 			<li class="">
-				<a href="{% url 'post_list' %}" class="sf-with-ul">Főoldal<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'post_list_en' %}" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 			<li class="">
-				<a href="{% url 'rate_ex_bank' %}" class="sf-with-ul">Árfolyamok<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'rate_ex_bank_en' %}" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
 				<ul style="display: none; visibility: hidden;">
-													<li><a href="{% url 'rate_ex_bank' %}">Jelenlegi árfolyamok</a></li>
-													<li><a href="{% url 'rate_ex_history' %}">Árfolyamok története</a></li>
+													<li><a href="{% url 'rate_ex_bank_en' %}">Today Exchange Rates</a></li>
+													<li><a href="{% url 'rate_ex_history_en' %}">Exchange Rates History</a></li>
 
 				</ul>
 			</li>
 			<li class="">
-				<a href="{% url 'loan' %}" class="sf-with-ul">Kölcsönök<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'loan_en' %}" class="sf-with-ul">Loans<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 			<li class="">
-				<a href="{% url 'bank_cards' %}" class="sf-with-ul">Bankkártyák<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'bank_cards_en' %}" class="sf-with-ul">Bank Cards<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 			<li class="">
-				<a href="{% url 'map' %}" class="sf-with-ul">Térkép<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'map_en' %}" class="sf-with-ul">Map<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 		</ul>
-		<a href="{% url 'post_list_en' %}" class="language_en_hu">
-			<img src="{% static 'css/img/en.png' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
+		<a href="{% url 'post_list' %}" class="language_en_hu">
+			<img src="{% static 'css/img/hu.png' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
 				</div>
 						<div class="clear"></div>
 						<div id="columns" class="clearfix">
@@ -250,7 +250,7 @@
 
 		<div class="first">
 		 	<div class="block">
-				<h3 style="border-radius: 6px 6px 6px 6px;">Valutaváltó</h3>
+				<h3 style="border-radius: 6px 6px 6px 6px;">Currency converter</h3>
 				<div class="content" style="margin: 0 5px 0 5px;">
 					<div class="corner"></div>
 					<form class="calculator">
@@ -268,7 +268,7 @@
 
 			<div class="block">
 
-		<h3 style="border-radius: 6px 6px 6px 6px;">Árfolyam</br> <span>{{ time_date }}</span></h3>
+		<h3 style="border-radius: 6px 6px 6px 6px;">Exchange rate</br> <span>{{ time_date }}</span></h3>
 		<div class="content" style="margin: 0 5px 0 5px;">
 	<div class="corner"></div>
 
@@ -828,11 +828,11 @@
 		</div>
 				<ul class="menu">
 					<li>
-				<a href="#">Kapcsolatok</a>			</li>
+				<a href="#">Contacts</a>			</li>
 					<li>
-				<a href="#">Rólunk</a>			</li>
+				<a href="#">About us</a>			</li>
 					<li>
-				<a href="#">Kövess minket</a>			</li>
+				<a href="#">Follow us</a>			</li>
       </ul>
 
 

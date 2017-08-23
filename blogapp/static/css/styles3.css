@@ -7,6 +7,11 @@
   background-color: #999999;
   border-radius: 6px 6px 6px 6px;
 }
+.language_en_hu{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 .linetostart {
   border-radius: 0 15px 15px 0;
   margin-top: 0;
@@ -205,7 +210,7 @@ caption, th, td {
 }
 .main_table{
   margin-top:10px;
-  background-color:#E4E4E4;
+  background-color:#CED2DE;
   color:#333;
   font-family: Georgia, serif;
   padding: 12px 16px;
@@ -432,7 +437,7 @@ h5 { font-size:12px; }
   border-radius:10px 10px 10px 10px;
   -webkit-border-radius:10px 10px 10px 10px;
   -moz-border-radius:10px 10px 10px 10px;
-  background:#E4E4E4;
+  background:#C9E6D2;
   margin:0 5px;
 }
 #middle .menu_block .left, #middle .menu_block .right {
@@ -2381,9 +2386,10 @@ h5 { font-size:12px; }
 }
 #middle .block { margin-bottom:18px; }
 #middle .block h3 {
-  background-color:#D5D5D5;
+  background-color:#C9E6D2;
   border-radius: 10px 10px 10px 10px;
-  padding:8px 10px 6px 23px;
+  padding:8px 10px 6px 10px;
+  text-align: center;
 }
 #middle .block h3 span {
   color:#a9a9a9;
@@ -2417,7 +2423,7 @@ h5 { font-size:12px; }
   margin:0 5px 0 5px;
   position:relative;
   border-radius: 0 0 6px 6px;
-  background-color:#f2f2f2;
+  background-color:#dedace;
 }
 #middle .block .content .calculator { padding:10px 0 10px 20px; }
 #middle .block .content .calculator .active { font-weight:bold; }
