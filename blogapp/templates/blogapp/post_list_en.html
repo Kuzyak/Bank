@@ -33,7 +33,7 @@
 			<div>	<a id="a1_0" href="{% url 'post_detail_en' pk=posts.0.pk %}"><img id="img_0" src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
 				<a id="a2_0" href="{% url 'post_detail_en' pk=posts.0.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_0">{{ posts.0.title }}</h2></div></a><br>
 				<h5 id="h5_0">{{ posts.3.published_date }}</h5><br>
-				<h3 id="h3_0">{{ posts.0.title_text}}</h3>
+				<!--<h3 id="h3_0">{{ posts.0.title_text}}</h3>-->
 
 			</div>
 
@@ -135,10 +135,6 @@ check();
 var title = [	"{{ posts.0.title }}","{{ posts.1.title }}","{{ posts.2.title }}","{{ posts.3.title }}","{{ posts.4.title }}",
 							"{{ posts.5.title }}","{{ posts.6.title }}","{{ posts.7.title }}","{{ posts.8.title }}","{{ posts.9.title }}"];
 
-var text = ["{{ posts.0.title_text }}","{{ posts.1.title_text }}","{{ posts.2.title_text }}","{{ posts.3.title_text }}",
-						"{{ posts.4.title_text }}","{{ posts.5.title_text }}","{{ posts.6.title_text }}","{{ posts.7.title_text }}",
-						"{{ posts.8.title_text }}","{{ posts.9.title_text }}"];
-
 var img =  ["{{ posts.0.images.url }}","{{ posts.1.images.url }}","{{ posts.2.images.url }}","{{ posts.3.images.url }}",
 						"{{ posts.4.images.url }}","{{ posts.5.images.url }}","{{ posts.6.images.url }}","{{ posts.7.images.url }}",
 						"{{ posts.8.images.url }}","{{ posts.9.images.url }}"];
@@ -163,9 +159,6 @@ function myFunctionR() {
 		document.getElementById(id[1] + i).title = title[y+i];
 		document.getElementById(id[2] + i).innerHTML = title[y+i];
 		document.getElementById(id[3] + i).innerHTML = date_p[y+i];
-		if (i==0){
-			document.getElementById(id[4] + i).innerHTML = text[y+i] + "...";
-		}
 	}
 	check();
 }
@@ -178,9 +171,6 @@ function myFunctionL() {
 		document.getElementById(id[1] + i).title = title[y+i];
 		document.getElementById(id[2] + i).innerHTML = title[y+i];
 		document.getElementById(id[3] + i).innerHTML = date_p[y+i];
-		if (i==0){
-			document.getElementById(id[4] + i).innerHTML = text[y+i];
-		}
 	}
 	check();
 }

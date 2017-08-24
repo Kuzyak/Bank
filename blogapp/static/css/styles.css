@@ -1,5 +1,5 @@
 .lineundernews {
-  margin: 10px 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
   width: 790px;
   height: 13px;
   border: none;
@@ -25,7 +25,7 @@
 .dottostart {
   border-radius: 15px 0 0 15px;
   height: 25px;
-  border-left: 25px solid green;
+  border-left: 25px solid #999999;
 }
 .btn_tovabb {
     background: #157e3e no-repeat right 7px center;
@@ -226,7 +226,7 @@ div.td .col1{
 a.post_link:link {
   color: blue;
 	text-decoration: none;
-	font-family:Comic Sans Ms;
+	font-family: Helvetica, Arial, sans-serif;
 	font-weight:bold;
 	font-size:14px;
 }
@@ -437,7 +437,7 @@ h5 { font-size:12px; }
   border-radius:10px 10px 10px 10px;
   -webkit-border-radius:10px 10px 10px 10px;
   -moz-border-radius:10px 10px 10px 10px;
-  background:#C9E6D2;
+  background:#66AD2D;
   margin:0 5px;
 }
 #middle .menu_block .left, #middle .menu_block .right {
@@ -571,7 +571,7 @@ h5 { font-size:12px; }
 }
 #middle .menu_block #menu li a {
   font-size:17px;
-  color:#157e3e;
+  color:white;
   font-weight:bold;
   position:relative;
   display:block;
@@ -2386,13 +2386,14 @@ h5 { font-size:12px; }
 }
 #middle .block { margin-bottom:18px; }
 #middle .block h3 {
-  background-color:#C9E6D2;
+  background-color:#66AD2D;
   border-radius: 10px 10px 10px 10px;
   padding:8px 10px 6px 10px;
   text-align: center;
+  color: white;
 }
 #middle .block h3 span {
-  color:#a9a9a9;
+  color:white;
   font-size:13px;
 }
 #middle .block.controls {
@@ -2423,7 +2424,7 @@ h5 { font-size:12px; }
   margin:0 5px 0 5px;
   position:relative;
   border-radius: 0 0 6px 6px;
-  background-color:#dedace;
+  background-color:#CED2DE;
 }
 #middle .block .content .calculator { padding:10px 0 10px 20px; }
 #middle .block .content .calculator .active { font-weight:bold; }
