@@ -1,5 +1,13 @@
 {% extends 'blogapp/index_en.html' %}
 {% block content %}
+
+<script>
+lan_en_hu()
+function lan_en_hu() {
+  document.getElementById("lan_change").href = "{% url 'post_list_all' %}";
+}
+</script>
+
 <div class="second">
   <div width="800px" style="padding-left:0px;">
     <div class="col-md-1 col-sm-1 col-xs-1" style="padding:0px;width: 10.9%;">

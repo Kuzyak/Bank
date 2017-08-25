@@ -2,6 +2,12 @@
 
 {% block content %}
 
+<script>
+lan_en_hu()
+function lan_en_hu() {
+  document.getElementById("lan_change").href = "{% url 'post_list_en' %}";
+}
+</script>
 
 
 <div class="second">
@@ -97,25 +103,25 @@
 	  <tr height = "80px">
 	    <td width = "300px">
 				<a href="{% url 'rate_ex_bank' %}" class="logo">
-					<img src="{% static 'css/img/exch1.svg' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<img src="{% static 'css/img/exch2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Árfolyamok</h2></a></td>
 			<td>
 				<a href="{% url 'loan' %}" class="logo">
-					<img src="{% static 'css/img/loan1.svg' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<img src="{% static 'css/img/loan2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Kölcsönök</h2></a></td>
 	  </tr>
 		<tr height = "80px">
 			<td>
 				<a href="{% url 'post_list_all' %}" class="logo">
-					<img src="{% static 'css/img/news1.svg' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<img src="{% static 'css/img/news2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Hírek</h2></a></td>
 			<td>
 				<a href="{% url 'bank_cards' %}" class="logo">
-					<img src="{% static 'css/img/bank1.png' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<img src="{% static 'css/img/bank2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Bankkártyák</h2></a></td>
 			<td>
 				<a href="{% url 'map' %}" class="logo">
-					<img src="{% static 'css/img/map1.svg' %}" alt="Logo ERROR" style="height:70px;width:70px;float:left;margin-right: 15px;"/>
+					<img src="{% static 'css/img/map2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Térkép</h2></a></td>
 	  </tr>
 </table>

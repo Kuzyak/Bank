@@ -3,6 +3,12 @@
 {% block content %}
 
 
+<script>
+lan_en_hu()
+function lan_en_hu() {
+  document.getElementById("lan_change").href = "{% url 'loan' %}";
+}
+</script>
 
 <div class="second">
 
@@ -2411,7 +2417,7 @@ function myFunctionM() {
       }
     }
     document.getElementById(list_name[11] + "01").style.display="block";
-    document.getElementById(list_name[11] + "01").innerHTML= num_bank + " Kedvező Lakáshitelt Találtunk Neked";
+    document.getElementById(list_name[11] + "01").innerHTML= "We found " + num_bank + " favorable housing loans for you.";
     check_color()
   }
   //document.getElementById("zatrat0").innerHTML = document.getElementById("yeartop").value;

@@ -1,5 +1,13 @@
 {% extends 'blogapp/index_en.html' %}
 {% block content %}
+
+<script>
+lan_en_hu()
+function lan_en_hu() {
+  document.getElementById("lan_change").href = "{% url 'rate_ex_history' %}";
+}
+</script>
+
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
