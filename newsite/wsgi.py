@@ -8,9 +8,7 @@ https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/
 """
 
 import os
-#import djcelery#
 from django.core.wsgi import get_wsgi_application
-#djcelery.setup_loader()#
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "newsite.settings")
 
