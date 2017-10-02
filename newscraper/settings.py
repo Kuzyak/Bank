@@ -14,7 +14,7 @@ BOT_NAME = 'newscraper'
 
 #SPIDER_MODULES = ['newscraper.spiders']
 #NEWSPIDER_MODULE = 'newscraper.spiders'
-
+LOG_STDOUT = False#
 
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))

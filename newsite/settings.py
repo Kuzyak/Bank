@@ -125,3 +125,14 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# django-celery settings
+import djcelery
+djcelery.setup_loader()
+BROKER_HOST = "localhost"
+BROKER_PORT = 5672
+BROKER_BACKEND = "django"
+BROKER_USER = "admin_top"
+BROKER_PASSWORD = "admin@top"
+BROKER_VHOST = "/"
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
