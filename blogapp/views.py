@@ -1,9 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from .models import Article
 from .models import Post
 from .models import BankCard
+
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.conf import settings
 
 from django.views.generic import View
 from django.http import JsonResponse
@@ -118,6 +123,62 @@ def bank_cards_en(request):
         cards[i].info_block = some.split("/*/")
     dictionary['cards'] = cards
     return render(request, 'blogapp/bank_cards_en.html', dictionary)
+
+def contact_us(request):
+    dictionary = bank_info()
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            full_name = form.cleaned_data['full_name']
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            to_email = settings.EMAIL_HOST_USER
+            contact_message = """
+            %s: %s From: %s
+            """%(full_name, message, from_email)
+            try:
+                send_mail(subject,
+                          contact_message,
+                          from_email,
+                          [to_email])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            #return redirect('success')
+            dictionary['email'] = {'send':'Success! Thank you for your message.'}
+    dictionary['form'] = form
+    #return render(request, 'blogapp/contact_us.html', dictionary)
+    return render(request, "blogapp/contact_us.html", dictionary)
+
+def contact_us_en(request):
+    dictionary = bank_info()
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            full_name = form.cleaned_data['full_name']
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            to_email = settings.EMAIL_HOST_USER
+            contact_message = """
+            %s: %s From: %s
+            """%(full_name, message, from_email)
+            try:
+                send_mail(subject,
+                          contact_message,
+                          from_email,
+                          [to_email])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            #return redirect('success')
+            dictionary['email'] = {'send':'Siker! Köszönöm az üzenetet.'}
+    dictionary['form'] = form
+    #return render(request, 'blogapp/contact_us.html', dictionary)
+    return render(request, "blogapp/contact_us_en.html", dictionary)
 
 def map(request):
     dictionary = bank_info()

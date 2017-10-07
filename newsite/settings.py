@@ -26,7 +26,13 @@ SECRET_KEY = 'a-ie+2e+rg@_w+5kp-s-&cfk3&zovk64#)kvqwex5-i5$sxh!m'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ujpenzcontact@gmail.com'
+EMAIL_HOST_PASSWORD = 'UjPenzAdmin2017'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +47,7 @@ INSTALLED_APPS = [
     'djcelery',
     'kombu.transport.django',
     'rest_framework',
+    #'send_mail',
 ]
 
 MIDDLEWARE = [

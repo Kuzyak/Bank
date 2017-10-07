@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^map/$', views.map, name='map'),
     url(r'^rate_bank/$', views.rate_ex_bank, name='rate_ex_bank'),
     url(r'^loan/$', views.loan, name='loan'),
+    url(r'^contact/$', views.contact_us, name='contact_us'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^en/$', views.post_list_en, name='post_list_en'),
     url(r'^en/history/$', views.rate_ex_history_en.as_view(), name='rate_ex_history_en'),
@@ -19,5 +20,6 @@ urlpatterns = [
     url(r'^en/map/$', views.map_en, name='map_en'),
     url(r'^en/rate_bank/$', views.rate_ex_bank_en, name='rate_ex_bank_en'),
     url(r'^en/loan/$', views.loan_en, name='loan_en'),
+    url(r'^en/contact/$', views.contact_us_en, name='contact_us_en'),
     url(r'^en/post/(?P<pk>[0-9]+)/$', views.post_detail_en, name='post_detail_en'),
 ]
