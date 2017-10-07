@@ -147,7 +147,7 @@ def contact_us(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             #return redirect('success')
-            dictionary['email'] = {'send':'Success! Thank you for your message.'}
+            dictionary['email'] = {'send':'Siker! Köszönöm az üzenetet.'}
     dictionary['form'] = form
     #return render(request, 'blogapp/contact_us.html', dictionary)
     return render(request, "blogapp/contact_us.html", dictionary)
@@ -175,7 +175,7 @@ def contact_us_en(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             #return redirect('success')
-            dictionary['email'] = {'send':'Siker! Köszönöm az üzenetet.'}
+            dictionary['email'] = {'send':'Success! Thank you for your message.'}
     dictionary['form'] = form
     #return render(request, 'blogapp/contact_us.html', dictionary)
     return render(request, "blogapp/contact_us_en.html", dictionary)
