@@ -47,9 +47,15 @@ INSTALLED_APPS = [
     'djcelery',
     'kombu.transport.django',
     'rest_framework',
-    #'send_mail',
+    'tinymce',
 ]
-
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'plugins': "wordcount,preview,emotions,preview,spellchecker,",
+    'height': "400px",
+    'width': "700px",
+    'theme_advanced_buttons3' : "fontselect,fontsizeselect,emotions,preview,",
+    }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

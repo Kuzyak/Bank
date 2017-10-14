@@ -1,0 +1,42 @@
+{% extends 'blogapp/index.html' %}
+
+{% block content %}
+
+<script>
+lan_en_hu()
+function lan_en_hu() {
+  document.getElementById("lan_change").href = "{% url 'contact_us_en' %}";
+}
+</script>
+
+
+<div class="second">
+  <div width="800px" style="padding-left:0px;">
+    <div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:16.5%;">
+      <p class="dottostart">
+        &nbsp;Kapcsolatok</p>
+    </div>
+    <div style="padding-left:0px;">
+        <hr class="linetostart"  style="width:667.1px;"/>
+    </div>
+  </div>
+
+  {% load staticfiles%}
+
+<div class="col-md-11 col-sm-11 col-xs-11">
+<br>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="form-actions">
+        <button type="submit" style="font-size: 24px;">Submit</button>
+      </div>
+  </form>
+<p>{{ email.send }}</p>
+</div>
+
+
+
+</div>
+
+{% endblock %}

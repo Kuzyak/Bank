@@ -5,7 +5,9 @@ from .models import Article
 from .models import Post
 from .models import BankCard
 
+from .forms import PostForm
 from .forms import ContactForm
+
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
@@ -103,6 +105,27 @@ def rate_ex_bank(request):
 def rate_ex_bank_en(request):
     dictionary = bank_info()
     return render(request, 'blogapp/rate_ex_bank_en.html', dictionary)
+
+def post_new(request):
+    dictionary = bank_info()
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = Post(file_field=request.FILES['images'])
+            instance.save()
+            post = form.save(commit=False)
+            post.published_date = timezone.now()
+            post.created_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+        dictionary['form'] = form
+    return render(request, 'blogapp/post_new.html', dictionary)
+    #form = PostForm()
+    #dictionary = bank_info()
+    #dictionary['form'] = form
+    #return render(request, 'blogapp/post_new.html', dictionary)
 
 def bank_cards(request):
     cards = BankCard.objects.all()

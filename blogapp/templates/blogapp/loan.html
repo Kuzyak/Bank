@@ -33,47 +33,42 @@ function lan_en_hu() {
 
 
 			<div class="form_panel">
+        <p style="padding: 10px 0 15px 0;">Hitel Összeg?</p>
 
-				<div class="biglabel">Mennyi pénzre van szükséged?</div>
 
-				<div class="field field_borrow" style="margin-right: 50px;">
-					<div class="labell">Hitelösszeg</div>
-					<div class="input-box">
+				<div class="col-md-10 col-sm-10 col-xs-10 field field_borrow" style="padding: 0px; margin-bottom:10px;">
+					<div class="col-md-3 col-sm-3 col-xs-3 labell"  style="padding: 0px;margin-right: 30px;">Hitelösszeg</div>
+					<div class="col-md-5 col-sm-5 col-xs-5 input-box">
 						<input name="borrowvalue" id="borrowvalue" value="10000000" class="txtinput numeric number_format" type="text" onkeyup="LastFunction()">
 						<span class="unit">Ft</span>
 					</div>
 				</div>
 
-				<div class="field field_futamido">
+				<div class="col-md-10 col-sm-10 col-xs-10 field field_futamido" style="padding: 0px; margin-bottom:10px;">
 
-					<div class="labell">Futamidő</div>
-					<div class="input-box field_year1">
-						<input name="yeartop" id="yeartop" value="15" maxlength="2" class="txtinput numeric" style="width: 50px;" type="text">
+					<div class="col-md-3 col-sm-3 col-xs-3 labell"  style="padding: 0px;margin-right: 30px;">Futamidő</div>
+					<div class="col-md-5 col-sm-5 col-xs-5 input-box field_year1">
+						<input name="yeartop" id="yeartop" value="15" maxlength="2" class="txtinput numeric" style="" type="text">
 						<span class="unit">év</span>
 					</div>
-
 				</div>
 
-								<div class="field field_ingatlan_vetelara">
-										<div class="labell">A lakás vételára</div>
-					<div class="input-box graytext">
+				<div class="col-md-10 col-sm-10 col-xs-10 field field_ingatlan_vetelara" style="padding: 0px;">
+				  <div class="col-md-3 col-sm-3 col-xs-3 labell"  style="padding: 0px;margin-right: 30px;">A lakás vételára</div>
+					<div class="col-md-5 col-sm-5 col-xs-5 input-box graytext">
 						<input name="ingatlan_vetelaravalue" id="ingatlan_vetelaravalue" value="14300000" class="txtinput numeric number_format" type="text">
 						<span class="unit">Ft</span>
 					</div>
 				</div>
 
-
-
-				<!-- </further_options> -->
         {% load staticfiles%}
 
+				<div class="col-md-10 col-sm-10 col-xs-10 button_container" style="padding: 0px;">
 
-				<div class="button_container">
-          <button onclick="myFunctionM()" id="buttonM"><span></span>Keresés</button>
+          <div class="col-md-5 col-sm-5 col-xs-5 " style="padding: 0px;">
+            <button onclick="myFunctionM()" class="btn_tovabb" style="border-radius: 10px; margin-left: 0; line-height: 0;" id="buttonM" ><span></span>&nbsp;&nbsp;Keresés&nbsp;&nbsp;</button>
+          </div>
 				</div>
-
-
-
 
 			</div>
 
@@ -112,17 +107,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat0" style="color:black;">
+                <div width="100%" id="zatrat0" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat00" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz0" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year0" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -133,11 +128,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat00" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year0" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz0" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -148,16 +143,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud0" style="color:black;">
+                <div width="100%" id="periud0" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits0" style="color:black;font-size:12px;">
+                <div width="100%" id="limits0" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -186,18 +181,18 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat1" style="color:black;">
+                <div width="100%" id="zatrat1" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat01" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
-                </div>
-                <div width="100%" id="zatratz1" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
-                </div>
+                  <div width="100%">
+                    Éves kamat
+                  </div>
+                  <div width="100%" id="year1" style="color:green;">
+                    {{ data.year.1 }}
+                  </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
                 <div width="100%">
@@ -207,11 +202,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat01" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year1" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz1" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -222,16 +217,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud1" style="color:black;">
+                <div width="100%" id="periud1" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits1" style="color:black;font-size:12px;">
+                <div width="100%" id="limits1" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -260,18 +255,18 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat2" style="color:black;">
+                <div width="100%" id="zatrat2" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat02" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
-                </div>
-                <div width="100%" id="zatratz2" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
-                </div>
+                  <div width="100%">
+                    Éves kamat
+                  </div>
+                  <div width="100%" id="year2" style="color:green;">
+                    {{ data.year.0 }}
+                  </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
                 <div width="100%">
@@ -281,11 +276,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat02" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year2" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz2" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -296,16 +291,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud2" style="color:black;">
+                <div width="100%" id="periud2" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits2" style="color:black;font-size:12px;">
+                <div width="100%" id="limits2" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -334,17 +329,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat3" style="color:black;">
+                <div width="100%" id="zatrat3"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat03" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz3" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year3" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -355,11 +350,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat03" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year3" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz3" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -370,16 +365,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud3" style="color:black;">
+                <div width="100%" id="periud3" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits3" style="color:black;font-size:12px;">
+                <div width="100%" id="limits3" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -408,17 +403,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat4" style="color:black;">
+                <div width="100%" id="zatrat4" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat04" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz4" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year4" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -429,11 +424,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat04" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year4" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz4" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -444,16 +439,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud4" style="color:black;">
+                <div width="100%" id="periud4"  style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits4" style="color:black;font-size:12px;">
+                <div width="100%" id="limits4" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -482,17 +477,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat5" style="color:black;">
+                <div width="100%" id="zatrat5" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat05" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz5" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year5" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -503,11 +498,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat05" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year5" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz5" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -518,16 +513,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud5" style="color:black;">
+                <div width="100%" id="periud5"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits5" style="color:black;font-size:12px;">
+                <div width="100%" id="limits5" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -556,17 +551,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat6" style="color:black;">
+                <div width="100%" id="zatrat6" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat06" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz6" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year6" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -577,11 +572,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat06" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year6" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz6" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -592,16 +587,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud6" style="color:black;">
+                <div width="100%" id="periud6"  style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits6" style="color:black;font-size:12px;">
+                <div width="100%" id="limits6" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -630,17 +625,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat7" style="color:black;">
+                <div width="100%" id="zatrat7" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat07" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz7" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year7" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -651,11 +646,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat07" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year7" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz7" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -666,16 +661,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud7" style="color:black;">
+                <div width="100%" id="periud7"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits7" style="color:black;font-size:12px;">
+                <div width="100%" id="limits7" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -704,17 +699,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat8" style="color:black;">
+                <div width="100%" id="zatrat8" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat08" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz8" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year8" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -725,11 +720,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat08" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year8" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz8" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -740,16 +735,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud8" style="color:black;">
+                <div width="100%" id="periud8" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits8" style="color:black;font-size:12px;">
+                <div width="100%" id="limits8" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -778,17 +773,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat9" style="color:black;">
+                <div width="100%" id="zatrat9" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat09" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz9" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year9" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -799,11 +794,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat09" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year9" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz9" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -814,16 +809,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud9" style="color:black;">
+                <div width="100%" id="periud9"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits9" style="color:black;font-size:12px;">
+                <div width="100%" id="limits9" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -852,17 +847,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat10" style="color:black;">
+                <div width="100%" id="zatrat10"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat010" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz10" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year10" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -873,11 +868,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat010" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year10" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz10" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -888,16 +883,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud10" style="color:black;">
+                <div width="100%" id="periud10" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits10" style="color:black;font-size:12px;">
+                <div width="100%" id="limits10" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -926,17 +921,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat11" style="color:black;">
+                <div width="100%" id="zatrat11" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat011" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz11" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year11" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -947,11 +942,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat011" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year11" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz11" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -962,16 +957,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud11" style="color:black;">
+                <div width="100%" id="periud11" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits11" style="color:black;font-size:12px;">
+                <div width="100%" id="limits11" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1000,17 +995,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat12" style="color:black;">
+                <div width="100%" id="zatrat12"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat012" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz12" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year12" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1021,11 +1016,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat012" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year12" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz12" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1036,16 +1031,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud12" style="color:black;">
+                <div width="100%" id="periud12" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits12" style="color:black;font-size:12px;">
+                <div width="100%" id="limits12" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1074,17 +1069,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat13" style="color:black;">
+                <div width="100%" id="zatrat13"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat013" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz13" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year13" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1095,11 +1090,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat013" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year13" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz13" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1110,16 +1105,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud13" style="color:black;">
+                <div width="100%" id="periud13" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits13" style="color:black;font-size:12px;">
+                <div width="100%" id="limits13" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1148,17 +1143,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat14" style="color:black;">
+                <div width="100%" id="zatrat14" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat014" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz14" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year14" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1169,11 +1164,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat014" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year14" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz14" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1184,16 +1179,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud14" style="color:black;">
+                <div width="100%" id="periud14" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits14" style="color:black;font-size:12px;">
+                <div width="100%" id="limits14" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1222,17 +1217,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat15" style="color:black;">
+                <div width="100%" id="zatrat15" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat015" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz15" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year15" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1243,11 +1238,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat015" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year15" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz15" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1258,16 +1253,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud15" style="color:black;">
+                <div width="100%" id="periud15"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits15" style="color:black;font-size:12px;">
+                <div width="100%" id="limits15" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1296,17 +1291,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat16" style="color:black;">
+                <div width="100%" id="zatrat16" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat016" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz16" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year16" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1317,11 +1312,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat016" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year16" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz16" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1332,16 +1327,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud16" style="color:black;">
+                <div width="100%" id="periud16" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits16" style="color:black;font-size:12px;">
+                <div width="100%" id="limits16" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1370,17 +1365,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat17" style="color:black;">
+                <div width="100%" id="zatrat17" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat017" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz17" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year17" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1391,11 +1386,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat017" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year17" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz17" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1406,16 +1401,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud17" style="color:black;">
+                <div width="100%" id="periud17" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits17" style="color:black;font-size:12px;">
+                <div width="100%" id="limits17" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1444,17 +1439,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat18" style="color:black;">
+                <div width="100%" id="zatrat18"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat018" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz18" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year18" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1465,11 +1460,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat018" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year18" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz18" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1480,16 +1475,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud18" style="color:black;">
+                <div width="100%" id="periud18" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits18" style="color:black;font-size:12px;">
+                <div width="100%" id="limits18" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1518,17 +1513,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat19" style="color:black;">
+                <div width="100%" id="zatrat19" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat019" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz19" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year19" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1539,11 +1534,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat019" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year19" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz19" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1554,16 +1549,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud19" style="color:black;">
+                <div width="100%" id="periud19"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits19" style="color:black;font-size:12px;">
+                <div width="100%" id="limits19" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1592,17 +1587,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat20" style="color:black;">
+                <div width="100%" id="zatrat20"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat020" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz20" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year20" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1613,11 +1608,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat020" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year20" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz20" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1628,16 +1623,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud20" style="color:black;">
+                <div width="100%" id="periud20"  style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits20" style="color:black;font-size:12px;">
+                <div width="100%" id="limits20" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1666,17 +1661,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat21" style="color:black;">
+                <div width="100%" id="zatrat21"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat021" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz21" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year21" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1687,11 +1682,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat021" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year21" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz21" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1702,16 +1697,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud21" style="color:black;">
+                <div width="100%" id="periud21"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits21" style="color:black;font-size:12px;">
+                <div width="100%" id="limits21" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1740,17 +1735,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat22" style="color:black;">
+                <div width="100%" id="zatrat22" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat022" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz22" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year22" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1761,11 +1756,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat022" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year22" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz22" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1776,16 +1771,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud22" style="color:black;">
+                <div width="100%" id="periud22"  style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits22" style="color:black;font-size:12px;">
+                <div width="100%" id="limits22" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1814,17 +1809,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat23" style="color:black;">
+                <div width="100%" id="zatrat23"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat023" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz23" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year23" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1835,11 +1830,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat023" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year23" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz23" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1850,16 +1845,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud23" style="color:black;">
+                <div width="100%" id="periud23"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits23" style="color:black;font-size:12px;">
+                <div width="100%" id="limits23" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -1888,17 +1883,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat24" style="color:black;">
+                <div width="100%" id="zatrat24"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat024" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz24" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year24" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1909,11 +1904,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat024" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year24" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz24" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1924,16 +1919,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud24" style="color:black;">
+                <div width="100%" id="periud24" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits24" style="color:black;font-size:12px;">
+                <div width="100%" id="limits24" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -1962,17 +1957,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat25" style="color:black;">
+                <div width="100%" id="zatrat25" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat025" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz25" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year25" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -1983,11 +1978,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat025" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year25" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz25" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -1998,16 +1993,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud25" style="color:black;">
+                <div width="100%" id="periud25"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits25" style="color:black;font-size:12px;">
+                <div width="100%" id="limits25" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -2036,17 +2031,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat26" style="color:black;">
+                <div width="100%" id="zatrat26" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat026" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz26" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year26" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -2057,11 +2052,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat026" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year26" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz26" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -2072,16 +2067,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud26" style="color:black;">
+                <div width="100%" id="periud26"  style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits26" style="color:black;font-size:12px;">
+                <div width="100%" id="limits26" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -2110,17 +2105,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat27" style="color:black;">
+                <div width="100%" id="zatrat27" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat027" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz27" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year27" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -2131,11 +2126,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat027" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year27" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz27" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -2146,16 +2141,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud27" style="color:black;">
+                <div width="100%" id="periud27"  style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits27" style="color:black;font-size:12px;">
+                <div width="100%" id="limits27" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>
@@ -2184,17 +2179,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat28" style="color:black;">
+                <div width="100%" id="zatrat28"  style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat028" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz28" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year28" style="color:green;">
+                  {{ data.year.0 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -2205,11 +2200,11 @@ function lan_en_hu() {
                   3000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat028" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year28" style="color:black;">
-                  {{ data.year.0 }}
+                <div width="100%" id="zatratz28" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -2220,16 +2215,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud28" style="color:black;">
+                <div width="100%" id="periud28" style="display:none;">
                   {{ data.per.0 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits28" style="color:black;font-size:12px;">
+                <div width="100%" id="limits28" style="color:black;">
                   {{ data.lim.0 }}
                 </div>
               </div>
@@ -2258,17 +2253,17 @@ function lan_en_hu() {
                   65000 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kezdeti költség
                 </div>
-                <div width="100%" id="zatrat29" style="color:black;">
+                <div width="100%" id="zatrat29" style="display:none;">
                   12600 Ft
                 </div>
-                <div width="100%" id="zatrat029" style="font-size:12px;display:none;">
-                  Ebből a bank visszatérít:
+                <div width="100%">
+                  Éves kamat
                 </div>
-                <div width="100%" id="zatratz29" style="font-size:12px;color:black;display:none;">
-                  12600 Ft
+                <div width="100%" id="year29" style="color:green;">
+                  {{ data.year.1 }}
                 </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3" style=" padding:0;width:30%">
@@ -2279,11 +2274,11 @@ function lan_en_hu() {
                   2000000
                 </div>
               </br>
-                <div width="100%">
-                  Éves kamat
+                <div width="100%" id="zatrat029" style="display:none;">
+                  Ebből a bank visszatérít:
                 </div>
-                <div width="100%" id="year29" style="color:black;">
-                  {{ data.year.1 }}
+                <div width="100%" id="zatratz29" style="color:black;display:none;">
+                  12600 Ft
                 </div>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5" style=" padding:0;width:35%">
@@ -2294,16 +2289,16 @@ function lan_en_hu() {
                   12918355 Ft
                 </div>
               </br>
-                <div width="100%">
+                <div width="100%" style="display:none;">
                   Kamatperiódus
                 </div>
-                <div width="100%" id="periud29" style="color:black;">
+                <div width="100%" id="periud29" style="display:none;">
                   {{ data.per.1 }}
                 </div>
-                <div width="100%" style="font-size:12px;">
+                <div width="100%">
                   Futamidő:
                 </div>
-                <div width="100%" id="limits29" style="color:black;font-size:12px;">
+                <div width="100%" id="limits29" style="color:black;">
                   {{ data.lim.1 }}
                 </div>
               </div>

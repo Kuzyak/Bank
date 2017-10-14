@@ -188,17 +188,18 @@
 
 
 		</div>
-
+		<!--
 			<ul class="social-icons">
 				<li><a class="rss" href="#" target="_blank"><img src="{% static 'css/img/soc11.png' %}" alt="My image"/></a></li>
 				<li><a class="facebook" href="#" target="_blank"><img src="{% static 'css/img/soc22.png' %}" alt="My image"/></a></li>
 				<li><a class="twitter" href="#" target="_blank"><img src="{% static 'css/img/soc33.png' %}" alt="My image"/></a></li>
-				<!--<li><a class="mail" href="#" target="_blank"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>
-				<li><a class="rss" href="http://bancamea.md/rss" target="_blank"><img src="{% static 'css/img/soc1.png' %}" alt="My image"/></a></li>
-				<li><a class="facebook" href="http://www.facebook.com/bancamea.md" target="_blank"><img src="{% static 'css/img/soc2.png' %}" alt="My image"/></a></li>
-				<li><a class="twitter" href="http://twitter.com/#%21/bancamea_md" target="_blank"><img src="{% static 'css/img/soc3.png' %}" alt="My image"/></a></li>
-				<li><a class="mail" target="_blank" href="mailto:team@bancamea.md"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>-->
+				<li><a class="mail" href="#" target="_blank"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>
+				<li><a class="rss" href="#" target="_blank"><img src="{% static 'css/img/soc1.png' %}" alt="My image"/></a></li>
+				<li><a class="facebook" href="#" target="_blank"><img src="{% static 'css/img/soc2.png' %}" alt="My image"/></a></li>
+				<li><a class="twitter" href="#" target="_blank"><img src="{% static 'css/img/soc3.png' %}" alt="My image"/></a></li>
+				<li><a class="mail" target="_blank" href="#"><img src="{% static 'css/img/soc4.png' %}" alt="My image"/></a></li>
 			</ul>
+		-->
 		</div>
 				</div>
 
@@ -232,8 +233,16 @@
 
 			</li>
 		</ul>
+		<!-- <a href="#" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+		{% if user.is_authenticated %}
+		<a href="{% url 'post_new' %}" class="top-menu">
+			<img src="{% static 'css/img/add.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
+		{% endif %} -->
+		<a href="http://www.facebook.com" target="_blank" rel="nofollow" class="facebook_all">
+			<img src="{% static 'css/img/facebook.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
 		<a href="{% url 'post_list_en' %}" class="language_en_hu" id="lan_change">
 			<img src="{% static 'css/img/en.png' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
+
 				</div>
 						<div class="clear"></div>
 						<div id="columns" class="clearfix">
@@ -831,8 +840,6 @@
 				<a href="{% url 'contact_us' %}">Kapcsolatok</a>			</li>
 					<li>
 				<a href="#">Rólunk</a>			</li>
-					<li>
-				<a href="#">Kövess minket</a>			</li>
       </ul>
 
 
