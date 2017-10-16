@@ -27,6 +27,14 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class AboutUs(models.Model):
+    title = models.CharField(max_length=10,default="About us")
+    Title_EN = models.TextField()
+    Title_HU = models.TextField()
+
+    def __str__(self):
+        return self.title
+
 class BankCard(models.Model):
     bank_name = models.CharField(max_length=300)
     card_name = models.CharField(max_length=300)

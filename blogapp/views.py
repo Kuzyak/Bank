@@ -1,12 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
-from .models import Article
-from .models import Post
-from .models import BankCard
 
-from .forms import PostForm
-from .forms import ContactForm
+from .models import Article, Post, BankCard, AboutUs
+from .forms import PostForm, ContactForm, ContactForm_en
 
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -36,6 +33,10 @@ def post_list(request):
             posts[i].title_text = posts[i].text
     dictionary = bank_info()
     dictionary['posts'] = posts
+    about = AboutUs.objects.all()
+    num1 = len(about)-1
+    about_n = about[num1]
+    dictionary['about'] = about_n
     return render(request, 'blogapp/post_list.html', dictionary)
 
 def post_list_en(request):
@@ -52,6 +53,10 @@ def post_list_en(request):
             posts[i].title_text = posts[i].text
     dictionary = bank_info()
     dictionary['posts'] = posts
+    about = AboutUs.objects.all()
+    num1 = len(about)-1
+    about_n = about[num1]
+    dictionary['about'] = about_n
     return render(request, 'blogapp/post_list_en.html', dictionary)
 
 def post_list_all(request):
@@ -111,10 +116,10 @@ def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            instance = Post(file_field=request.FILES['images'])
-            instance.save()
             post = form.save(commit=False)
-            post.published_date = timezone.now()
+            post.images = form.cleaned_data['images']
+            post.text = form.cleaned_data['text']
+            #post.published_date = timezone.now()
             post.created_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
@@ -122,10 +127,21 @@ def post_new(request):
         form = PostForm()
         dictionary['form'] = form
     return render(request, 'blogapp/post_new.html', dictionary)
-    #form = PostForm()
-    #dictionary = bank_info()
-    #dictionary['form'] = form
-    #return render(request, 'blogapp/post_new.html', dictionary)
+
+def post_edit(request, pk):
+    dictionary = bank_info()
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            #post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+        dictionary['form'] = form
+    return render(request, 'blogapp/post_new.html', dictionary)
 
 def bank_cards(request):
     cards = BankCard.objects.all()
@@ -178,9 +194,9 @@ def contact_us(request):
 def contact_us_en(request):
     dictionary = bank_info()
     if request.method == 'GET':
-        form = ContactForm()
+        form = ContactForm_en()
     else:
-        form = ContactForm(request.POST)
+        form = ContactForm_en(request.POST)
         if form.is_valid():
             full_name = form.cleaned_data['full_name']
             subject = form.cleaned_data['subject']

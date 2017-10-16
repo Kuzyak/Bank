@@ -18,6 +18,11 @@ function lan_en_hu() {
         <hr class="linetostart" style="width:717px;"/>
     </div>
   </div>
+  {% if user.is_authenticated %}
+  <div class="post col-md-11 col-sm-11 col-xs-11">
+  <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+  </div>
+  {% endif %}
     <div class="post col-md-11 col-sm-11 col-xs-11">
         <h1>{{ post.title }}</h1>   <br>
         <div class="news_photo">

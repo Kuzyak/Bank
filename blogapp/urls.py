@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^contact/$', views.contact_us, name='contact_us'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^post_new/$', views.post_new, name='post_new'),
+    url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^en/$', views.post_list_en, name='post_list_en'),
     url(r'^en/history/$', views.rate_ex_history_en.as_view(), name='rate_ex_history_en'),
     url(r'^en/news/$', views.post_list_all_en, name='post_list_all_en'),
