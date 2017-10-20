@@ -73,7 +73,7 @@
 }
 .page_kalkulator .form_panel .txtinput {
 	font-size: 18px !important;
-	color: #09a6f2 !important;
+	color: #555555 !important;
 	font-weight: bold !important;
 	text-align: right !important;
 	width: 180px;
@@ -84,7 +84,7 @@
 .page_kalkulator .form_panel .unit{
 	/*font-size: 18px;*/
 	vertical-align: middle;
-	color: #09a6f2 !important;
+	color: #555555 !important;
 }
 
 .page_kalkulator .form_panel .input-box{
