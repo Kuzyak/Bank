@@ -19,7 +19,7 @@ function lan_en_hu() {
     </div>
   </div>
   {% if user.is_authenticated %}
-  <div class="post col-md-11 col-sm-11 col-xs-11">
+  <div class="col-md-11 col-sm-11 col-xs-11">
   <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
   </div>
   {% endif %}

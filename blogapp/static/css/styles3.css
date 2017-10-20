@@ -310,6 +310,32 @@ body a { color:#666666; }
   margin:0 auto;
   position:relative;
 }
+.second .post h1{
+  color: black;
+}
+.second .post h2{
+  font-size:18px;
+  color: black;
+}
+.second .post h3{
+  color: black;
+}
+.second .post h4{
+  color: black;
+}
+.second .post h5{
+  color: black;
+}
+.second .post p{
+  font-size: 16px !important;
+  padding-bottom: 0 !important;
+}
+.post a{
+  color: #6495ED;
+}
+.post a:hover{
+  color: #0000FF;
+}
 h1 {
   font-size:24px;
   color:#333333;
