@@ -11,3 +11,18 @@ kwargs = {
 # 'followall' is the name of one of the spiders of the project.
 process.crawl('FirstSpider', **kwargs)
 process.start() # the script will block here until the crawling is finished
+
+'''
+import scrapy
+from scrapy.crawler import CrawlerProcess
+
+from apkmirror_scraper.spiders.sitemap_spider import ApkmirrorSitemapSpider
+
+process = CrawlerProcess({
+    'FEED_id': '1',
+    'FEED_do_action': 'yes'
+})
+
+process.crawl(ApkmirrorSitemapSpider)
+process.start() # the script will block here until the crawling is finished
+'''

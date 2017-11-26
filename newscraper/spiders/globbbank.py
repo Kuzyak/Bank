@@ -8,7 +8,9 @@ import json
 import requests
 from datetime import date
 from datetime import datetime
-#from django.utils import timezone
+from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
+#import timezone
 
 
 class ArticleSpider(DjangoSpider):
@@ -16,6 +18,8 @@ class ArticleSpider(DjangoSpider):
     name = 'FirstSpider'
     #base_url = 'https://www.mnb.hu/arfolyamok'
     #start_urls = [base_url]
+    to_email = settings.EMAIL_HOST_USER
+    from_email = to_email
 
     def __init__(self, *args, **kwargs):
         self._set_ref_object(NewsWebsite, **kwargs)
@@ -55,6 +59,14 @@ class ArticleSpider(DjangoSpider):
                                 url = "http://www.erstebank.hu/ekwa-web-web/exchangeRates.jsp",
                                 title = "ERSTE")
         except:
+            contact_message = """
+            Bank ERSTE:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    ERSTE!   ERROR--ERROR--ERROR--ERROR")
 
 
@@ -135,7 +147,6 @@ class ArticleSpider(DjangoSpider):
             gbp = gbp + "/" + sel_1.xpath('//div[@class="table"]/table/tr[8]/td[8]/text()').extract()[0]
             chf = sel_1.xpath('//div[@class="table"]/table/tr[4]/td[6]/text()').extract()[0]
             chf = chf + "/" + sel_1.xpath('//div[@class="table"]/table/tr[4]/td[8]/text()').extract()[0]
-
             yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -147,6 +158,14 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://www.budapestbank.hu/info/arfolyamok/db_arfolyamok.php?sent=1&frm_arfolyam=CCR",
                                 title = "BUDAPEST")
         except:
+            contact_message = """
+            Bank BUDAPEST:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    BUDAPEST!    ERROR--ERROR--ERROR--ERROR")
 
 
@@ -166,7 +185,6 @@ class ArticleSpider(DjangoSpider):
             gbp = gbp + "/" + sel_2.xpath('//div[@class="Content"]/table/tr[8]/td[5]/text()').extract()[0]
             chf = sel_2.xpath('//div[@class="Content"]/table/tr[4]/td[3]/text()').extract()[0]
             chf = chf + "/" + sel_2.xpath('//div[@class="Content"]/table/tr[4]/td[5]/text()').extract()[0]
-
             yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -178,6 +196,14 @@ class ArticleSpider(DjangoSpider):
                                 url = "http://www.cib.hu/maganszemelyek/arfolyamok/arfolyamok",
                                 title = "CIB")
         except:
+            contact_message = """
+            Bank CIB:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    CIB!    ERROR--ERROR--ERROR--ERROR")
 
 
@@ -197,7 +223,6 @@ class ArticleSpider(DjangoSpider):
             gbp = gbp + "/" + sel_5.xpath('//table[@class="rate_main"]/tr[5]/td[5]/text()').extract()[0]
             chf = sel_5.xpath('//table[@class="rate_main"]/tr[2]/td[3]/text()').extract()[0]
             chf = chf + "/" + sel_5.xpath('//table[@class="rate_main"]/tr[2]/td[5]/text()').extract()[0]
-
             yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -209,25 +234,44 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://granitbank.hu/arfolyamok",
                                 title = "GRANIT")
         except:
+            contact_message = """
+            Bank GRANIT:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    GRANIT!    ERROR--ERROR--ERROR--ERROR")
 
     def otp(self, response):
         try:
             #['CHF'4, 'CNY'5, 'CZK', 'DKK', 'EUR'8, 'GBP'9, 'HRK', 'JPY', 'NOK', 'PLN', 'RON'14, 'RSD', 'RUB'16, 'SEK', 'TRY', 'UAH', 'USD'20]
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    OTP!")
-            sel_8 = Selector(response)
-            eur = sel_8.xpath('//thead//tr[8]/td[4]/text()').extract()[0]
-            eur = eur + "/" + sel_8.xpath('//thead//tr[8]/td[5]/text()').extract()[0]
-            usd = sel_8.xpath('//thead//tr[20]/td[4]/text()').extract()[0]
-            usd = usd + "/" + sel_8.xpath('//thead//tr[20]/td[5]/text()').extract()[0]
-            cny = sel_8.xpath('//thead//tr[5]/td[8]/text()').extract()[0]
-            cny = cny + "/" + sel_8.xpath('//thead//tr[5]/td[9]/text()').extract()[0]
-            rub = " — "
-            ron = " — "
-            gbp = sel_8.xpath('//thead//tr[9]/td[4]/text()').extract()[0]
-            gbp = gbp + "/" + sel_8.xpath('//thead//tr[9]/td[5]/text()').extract()[0]
-            chf = sel_8.xpath('//thead//tr[4]/td[4]/text()').extract()[0]
-            chf = chf + "/" + sel_8.xpath('//thead//tr[4]/td[5]/text()').extract()[0]
+            jsonresponse = json.loads(response.body_as_unicode())
+            pages = jsonresponse["dates"][0]["versions"][-1]["exchangeRates"]
+            for num in range(len(pages)):
+                if pages[num]["currencyCode"] == "EUR":
+                    eur = pages[num]["currencyBuyingRate"]
+                    eur = str(eur) + "/" + str(pages[num]["currencySellingRate"])
+                elif pages[num]["currencyCode"] == "USD":
+                    usd = pages[num]["currencyBuyingRate"]
+                    usd = str(usd) + "/" + str(pages[num]["currencySellingRate"])
+                elif pages[num]["currencyCode"] == "CNY":
+                    cny = pages[num]["foreignExchangeBuyingRate"]
+                    cny = str(cny) + "/" + str(pages[num]["foreignExchangeSellingRate"])
+                elif pages[num]["currencyCode"] == "RUB":
+                    rub = pages[num]["currencyBuyingRate"]
+                    rub = str(rub) + "/" + str(pages[num]["currencySellingRate"])
+                elif pages[num]["currencyCode"] == "RON":
+                    ron = pages[num]["currencyBuyingRate"]
+                    ron = str(ron) + "/" + str(pages[num]["currencySellingRate"])
+                elif pages[num]["currencyCode"] == "GBP":
+                    gbp = pages[num]["currencyBuyingRate"]
+                    gbp = str(gbp) + "/" + str(pages[num]["currencySellingRate"])
+                elif pages[num]["currencyCode"] == "CHF":
+                    chf = pages[num]["currencyBuyingRate"]
+                    chf = str(chf) + "/" + str(pages[num]["currencySellingRate"])
             yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -239,6 +283,14 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://www.otpbank.hu/portal/hu/Arfolyamok/OTP",
                                 title = "OTP")
         except:
+            contact_message = """
+            Bank OTP:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    OTP!    ERROR--ERROR--ERROR--ERROR")
 
 
@@ -271,57 +323,76 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://www.raiffeisen.hu/hasznos/arfolyamok/lakossagi/valutaarfolyamok",
                                 title = "RAIFFEISEN")
         except:
+            contact_message = """
+            Bank RAIFFEISEN:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    RAIFFEISEN!    ERROR--ERROR--ERROR--ERROR")
 
 
     def k_and_h(self, response):
-        #actualDateInLong =
-        print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   K&H!")
-        sel_q = Selector(response)
-        data = sel_q.xpath('//body/script[@type="text/javascript"]').extract()[-3].split("actualDateInLong = ")[-1].split(";")[0]
-        payload = {'_rateslisterportlet_WAR_ratescalculatorportlet_dateInLong': data}
-        headers = {     'Accept': 'application/json, text/javascript, */*',
-                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-        respons3 = requests.post('https://www.kh.hu/valuta-deviza-arfolyam?p_p_id=rateslisterportlet_WAR_ratescalculatorportlet&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=getRates&p_p_cacheability=cacheLevelPage&p_p_col_id=column-1&p_p_col_pos=2&p_p_col_count=6',
-                                    headers = headers,
-                                    data=payload)
-        sel_14 = Selector(respons3)
-        result = json.loads(sel_14.xpath('//p').extract()[0][3:-4])
-        for some in range(0,len(result["results"][0]["results"][1]["results"])):
-            if result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'CHF':
-                chf = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
-            elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'EUR':
-                eur = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
-            elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'GBP':
-                gbp = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
-            elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'USD':
-                usd = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
         try:
-            for some in range(0,len(result["results"][1]["results"][0]["results"])):
-                if result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'CNY':
-                    cny = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
-                elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RON':
-                    ron = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
-                elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RUB':
-                    rub = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+            #actualDateInLong =
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   K&H!")
+            sel_q = Selector(response)
+            data = sel_q.xpath('//body/script[@type="text/javascript"]').extract()[-3].split("actualDateInLong = ")[-1].split(";")[0]
+            payload = {'_rateslisterportlet_WAR_ratescalculatorportlet_dateInLong': data}
+            headers = {     'Accept': 'application/json, text/javascript, */*',
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+            respons3 = requests.post('https://www.kh.hu/valuta-deviza-arfolyam?p_p_id=rateslisterportlet_WAR_ratescalculatorportlet&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=getRates&p_p_cacheability=cacheLevelPage&p_p_col_id=column-1&p_p_col_pos=2&p_p_col_count=6',
+                                        headers = headers,
+                                        data=payload)
+            sel_14 = Selector(respons3)
+            result = json.loads(sel_14.xpath('//p').extract()[0][3:-4])
+            for some in range(0,len(result["results"][0]["results"][1]["results"])):
+                if result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'CHF':
+                    chf = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
+                elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'EUR':
+                    eur = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
+                elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'GBP':
+                    gbp = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
+                elif result["results"][0]["results"][1]["results"][some]["currencyCode"] == 'USD':
+                    usd = str(result["results"][0]["results"][1]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][1]["results"][some]["askPrice"])
+            try:
+                for some in range(0,len(result["results"][1]["results"][0]["results"])):
+                    if result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'CNY':
+                        cny = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+                    elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RON':
+                        ron = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+                    elif result["results"][1]["results"][0]["results"][some]["currencyCode"] == 'RUB':
+                        rub = str(result["results"][1]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][1]["results"][0]["results"][some]["askPrice"])
+            except:
+                for some in range(0,len(result["results"][0]["results"][0]["results"])):
+                    if result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'CNY':
+                        cny = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+                    elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RON':
+                        ron = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+                    elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RUB':
+                        rub = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
+            yield ArticleItem(      EUR = eur,
+                                    USD = usd,
+                                    CNY = cny,
+                                    RUB = rub,
+                                    RON = ron,
+                                    GBP = gbp,
+                                    CHF = chf,
+                                    #description = des,
+                                    url = "https://www.kh.hu/valuta-deviza-arfolyam",
+                                    title = "K&H")
         except:
-            for some in range(0,len(result["results"][0]["results"][0]["results"])):
-                if result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'CNY':
-                    cny = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
-                elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RON':
-                    ron = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
-                elif result["results"][0]["results"][0]["results"][some]["currencyCode"] == 'RUB':
-                    rub = str(result["results"][0]["results"][0]["results"][some]["bidPrice"]) + "/" + str(result["results"][0]["results"][0]["results"][some]["askPrice"])
-        yield ArticleItem(      EUR = eur,
-                                USD = usd,
-                                CNY = cny,
-                                RUB = rub,
-                                RON = ron,
-                                GBP = gbp,
-                                CHF = chf,
-                                #description = des,
-                                url = "https://www.kh.hu/valuta-deviza-arfolyam",
-                                title = "K&H")
+            contact_message = """
+            Bank K&H:\n
+            ERROR or Weekend
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    K&H!    ERROR--ERROR--ERROR--ERROR")
 
     def mkb(self, response):
         try:
@@ -356,6 +427,14 @@ class ArticleSpider(DjangoSpider):
                                 url = "https://www.mkb.hu/apps/rates/rates?type=CAD",
                                 title = "MKB")
         except:
+            contact_message = """
+            Bank MKB:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    MKB!    ERROR--ERROR--ERROR--ERROR")
 
     def kredit(self, response):
@@ -394,7 +473,6 @@ class ArticleSpider(DjangoSpider):
         except:
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    KREDIT!    ERROR--ERROR--ERROR--ERROR")
 
-
     @inline_requests
     def parse(self, response):
         try:
@@ -426,7 +504,6 @@ class ArticleSpider(DjangoSpider):
                     gbp = value
                 elif (name == "CHF"):
                     chf = value
-            #print (sel.xpath('//table[@class="datatable"]/tbody/tr[5]/td//text()').extract())
             yield ArticleItem(      EUR = eur,
                                 USD = usd,
                                 CNY = cny,
@@ -438,6 +515,14 @@ class ArticleSpider(DjangoSpider):
                                 url = 'https://www.mnb.hu/arfolyamok',
                                 title = "NachBank")
         except:
+            contact_message = """
+            Bank NachBank:\n
+            ERROR
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    NachBank!    ERROR--ERROR--ERROR--ERROR")
 
         #KREDIT
@@ -464,7 +549,7 @@ class ArticleSpider(DjangoSpider):
         yield Request("https://granitbank.hu/arfolyamok", callback=self.granit)
 
         #OTP
-        yield Request("https://www.otpbank.hu/portal/hu/Arfolyamok/OTP", callback=self.otp)
+        yield Request("https://www.otpbank.hu/apps/exchangerate/api/exchangerate/otp/{}".format(str(datetime.now()).split(" ")[0]), callback=self.otp)
 
         #RAIFFEISEN
         yield Request("https://www.raiffeisen.hu/hasznos/arfolyamok/lakossagi/valutaarfolyamok", callback=self.raiffeisen)
@@ -540,54 +625,81 @@ class ArticleSpider(DjangoSpider):
                                     url = "https://www.unicreditbank.hu/hu/maganszemelyek/exchange_rate.html",
                                     title = "UNICREDIT")
         except:
+            contact_message = """
+            Bank UNICREDIT:\n
+            ERROR or Weekend
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   UNICREDIT!   ________   ERROR or Weekend")
 
-        print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    SBERBANK!")
-        d = datetime.today()
-        date_now = str(d.year)
-        if len(str(d.month)) == 1:
-            date_now = date_now + ".0" + str(d.month)
-        else:
-            date_now = date_now + "." + str(d.month)
-        if len(str(d.day)) == 1:
-            date_now = date_now + ".0" + str(d.day)
-        else:
-            date_now = date_now + "." + str(d.day)
-        payload = { 'maxDays':"60",
-                    'language':"hu",
-                    'rateType':"valuta",
-                    'dateFrom':date_now,
-                    'allCurrency':"true"}
-        headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-        respons5 = requests.post('https://www.sberbank.hu/servlet/currencyRateServlet',
-                                    headers = headers,
-                                    data=payload)
-        sel_10 = Selector(respons5)
-        result = json.loads(sel_10.xpath('//p').extract()[0][3:-4])
-        print (result["notFound"])
-        if result["notFound"] == False:
-            cny = " — "
-            ron = " — "
-            for some in range(0,len(result["currencyRatesByDay"][0]["currencyRates"])):
-                if result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'CHF':
-                    chf = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
-                elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'EUR':
-                    eur = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
-                elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'GBP':
-                    gbp = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
-                elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'RUB':
-                    rub = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
-                elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'USD':
-                    usd = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
-            yield ArticleItem(      EUR = eur,
-                                    USD = usd,
-                                    CNY = cny,
-                                    RUB = rub,
-                                    RON = ron,
-                                    GBP = gbp,
-                                    CHF = chf,
-                                    description = date_now,
-                                    url = "http://www.sberbank.hu/hu/alkalmazasok/arfolyamok.html",
-                                    title = "SBERBANK")
-        else:
-            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   SBERBANK!   ________   ERROR or Weekend")
+        try:
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    SBERBANK!")
+            d = datetime.today()
+            date_now = str(d.year)
+            if len(str(d.month)) == 1:
+                date_now = date_now + ".0" + str(d.month)
+            else:
+                date_now = date_now + "." + str(d.month)
+            if len(str(d.day)) == 1:
+                date_now = date_now + ".0" + str(d.day)
+            else:
+                date_now = date_now + "." + str(d.day)
+            payload = { 'maxDays':"60",
+                        'language':"hu",
+                        'rateType':"valuta",
+                        'dateFrom':date_now,
+                        'allCurrency':"true"}
+            headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+            respons5 = requests.post('https://www.sberbank.hu/servlet/currencyRateServlet',
+                                        headers = headers,
+                                        data=payload)
+            sel_10 = Selector(respons5)
+            result = json.loads(sel_10.xpath('//p').extract()[0][3:-4])
+            print (result["notFound"])
+            if result["notFound"] == False:
+                cny = " — "
+                ron = " — "
+                for some in range(0,len(result["currencyRatesByDay"][0]["currencyRates"])):
+                    if result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'CHF':
+                        chf = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
+                    elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'EUR':
+                        eur = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
+                    elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'GBP':
+                        gbp = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
+                    elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'RUB':
+                        rub = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
+                    elif result["currencyRatesByDay"][0]["currencyRates"][some]["currency"] == 'USD':
+                        usd = str(result["currencyRatesByDay"][0]["currencyRates"][some]["buyRate"]) + "/" + str(result["currencyRatesByDay"][0]["currencyRates"][some]["sellRate"])
+                yield ArticleItem(      EUR = eur,
+                                        USD = usd,
+                                        CNY = cny,
+                                        RUB = rub,
+                                        RON = ron,
+                                        GBP = gbp,
+                                        CHF = chf,
+                                        description = date_now,
+                                        url = "http://www.sberbank.hu/hu/alkalmazasok/arfolyamok.html",
+                                        title = "SBERBANK")
+            else:
+                contact_message = """
+                Bank SBERBANK:\n
+                ERROR or Weekend
+                """
+                send_mail("Bank fail",
+                          contact_message,
+                          self.from_email,
+                          [self.to_email])
+                print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   SBERBANK!   ________   ERROR or Weekend")
+        except:
+            contact_message = """
+            Bank SBERBANK:\n
+            ERROR or Weekend
+            """
+            send_mail("Bank fail",
+                      contact_message,
+                      self.from_email,
+                      [self.to_email])
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   UNICREDIT!   ________   ERROR or Weekend")
