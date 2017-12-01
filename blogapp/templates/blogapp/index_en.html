@@ -74,38 +74,35 @@
 		}
 	</script>
 
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=115370438592501";
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	}(document, 'script', 'facebook-jssdk'));</script>-->
 
-	<script type="text/javascript">
-		<!--//--><![CDATA[//><!--
+	<!--<script type="text/javascript">
 		var pp_gemius_identifier = 'bO464dfmyvJQmXaxUjDHxpZWLSpFlmeX7Dv4HUbVWFf.07';
 		// lines below shouldn't be edited
 		function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
 		gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
 		(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':''); gt.setAttribute('async','async');
 			gt.setAttribute('defer','defer'); gt.src=l+'://gamd.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
-		//--><!]]>
-	</script>
+	</script>-->
 
 
-		<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-29881747-1']);
-	  _gaq.push(['_trackPageview']);
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110511438-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
+		gtag('config', 'UA-110511438-1');
+		</script>
+
 
 
     <script type="text/javascript" src="{% static 'js/ado.js' %}"></script>
@@ -835,7 +832,7 @@
 		</div>
 				<ul class="menu">
 					<li>
-				<a href="{% url 'contact_us' %}">Contacts</a>			</li>
+				<a href="{% url 'contact_us_en' %}">Contacts</a>			</li>
       </ul>
 
 

@@ -6,3 +6,5 @@ MAILTO=ujpenzcontact@gmail.com
 */2 * * * * source /home/kuzya/test/myvenv/bin/activate && cd $HOME/kuzya/TEST && python3 spider_script.py
 
 */1 * * * * cd /home/kuzya/TEST && /home/kuzya/test/myvenv/bin/python3 spider_script.py
+
+30 08,12,18 * * 1-5

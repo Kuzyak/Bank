@@ -345,7 +345,7 @@ class ArticleSpider(DjangoSpider):
                             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
             respons3 = requests.post('https://www.kh.hu/valuta-deviza-arfolyam?p_p_id=rateslisterportlet_WAR_ratescalculatorportlet&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=getRates&p_p_cacheability=cacheLevelPage&p_p_col_id=column-1&p_p_col_pos=2&p_p_col_count=6',
                                         headers = headers,
-                                        data=payload)
+                                        data = payload)
             sel_14 = Selector(respons3)
             result = json.loads(sel_14.xpath('//p').extract()[0][3:-4])
             for some in range(0,len(result["results"][0]["results"][1]["results"])):
