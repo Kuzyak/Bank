@@ -2528,11 +2528,10 @@ h5 { font-size:12px; }
   font-style:normal !important;
 }
 #middle .block .content .calculator a {
-  background:url("/img/copy.png") no-repeat 0px 0px;
   visibility:hidden;
   height:15px;
   position:absolute;
-  right:82px;
+  right:64px;
   top:6px;
   width:16px;
   cursor:pointer;
