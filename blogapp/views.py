@@ -96,6 +96,7 @@ def post_list_all_en(request):
 def ico_en(request):
     ico = IcoName.objects.all()
     ico_list = list(IcoName.objects.values())
+    newlist = sorted(ico_list, key=itemgetter('start_date'), reverse=True)
     dictionary = bank_info()
     if request.method == "POST":
         preset = request.POST['preset']#start_date ICO_name
@@ -110,7 +111,7 @@ def ico_en(request):
         dictionary['ico'] = newlist
         return render(request, 'blogapp/ico_en.html', dictionary)
     else:
-        dictionary['ico'] = ico
+        dictionary['ico'] = newlist
         return render(request, 'blogapp/ico_en.html', dictionary)
 
 def post_detail(request, pk):
