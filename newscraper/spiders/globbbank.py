@@ -56,7 +56,7 @@ class ArticleSpider(DjangoSpider):
                 print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    kraken    ----------------------------")
                 for x in range(10):
                     kraken_del = Article.objects.filter(title="kraken")
-                    if len(kraken_del) > 4:
+                    if len(kraken_del) > 49:
                         kraken_del.first().delete()
                     else:
                         break
@@ -105,7 +105,7 @@ class ArticleSpider(DjangoSpider):
                 XLM_USD = "{0:.2f}".format(float(some[0])) + "/" + ("{0:,.2f}".format(float(some[1].replace(",",""))/20)).split(".")[0]
             for x in range(10):
                 binance_del = Article.objects.filter(title="binance")
-                if len(binance_del) > 4:
+                if len(binance_del) > 49:
                     binance_del.first().delete()
                 else:
                     break
@@ -152,7 +152,7 @@ class ArticleSpider(DjangoSpider):
                     LTC_USD = "{0:.2f}".format(float(code[5])) + "/" + "{0:,.2f}".format(float(code[13])).split(".")[0]
             for x in range(10):
                 bittrex_del = Article.objects.filter(title="bittrex")
-                if len(bittrex_del) > 4:
+                if len(bittrex_del) > 49:
                     bittrex_del.first().delete()
                 else:
                     break
@@ -240,7 +240,7 @@ class ArticleSpider(DjangoSpider):
                 pass
             for x in range(10):
                 bitfinex_del = Article.objects.filter(title="bitfinex")
-                if len(bitfinex_del) > 4:
+                if len(bitfinex_del) > 49:
                     bitfinex_del.first().delete()
                 else:
                     break
