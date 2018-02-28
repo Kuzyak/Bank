@@ -15,7 +15,7 @@
 .language_en_hu{
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 85px;
 }
 .facebook_all{
   position: absolute;
@@ -25,7 +25,7 @@
 .top-menu{
   position: absolute;
   top: 5px;
-  right: 85px;
+  right: 5px;
 }
 .linetostart {
   border-radius: 0 15px 15px 0;
@@ -2486,7 +2486,7 @@ h5 { font-size:12px; }
 #middle .block .content .calculator input {
   font-size:13px;
   color:#555555;
-  width:90px;
+  width:165px;
   margin-right:10px;
   font-weight:bold;
   letter-spacing:-0.05em;
@@ -2603,13 +2603,13 @@ h5 { font-size:12px; }
   margin:0 0 0 0;
   width:100%;
 }
-#middle .block .content .table .a { width:54%; }
+#middle .block .content .table .a { width:25%; }
 #middle .block .content .table .b {
-  width:21%;
-  text-align:center;
+  width:27%;
+  text-align: right;
 }
 #middle .block .content .table .c {
-  width:21%;
+  width:44%;
   text-align:right;
 }
 #middle .block .content .table .best {
@@ -2764,7 +2764,7 @@ h5 { font-size:12px; }
 }
 #middle .block .content .tabs li.f { margin-left:0; }
 #middle .block .content .tabs li.l { margin-right:0; }
-#middle .block .content .tab_container { padding:0 20px; }
+#middle .block .content .tab_container { padding:0 15px; }
 #middle .block .content .tab_container .tab_content {
   width:100%;
   padding-bottom:6px;

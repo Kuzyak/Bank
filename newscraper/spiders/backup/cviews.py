@@ -1,9 +1,8 @@
-from django.shortcuts import render, render_to_response, get_object_or_404, redirect
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 
-from .models import Article, Post, IcoName, BankCard, AboutUs
+from .models import Article, Post, BankCard, AboutUs
 from .forms import PostForm, ContactForm, ContactForm_en
 
 from django.core.mail import send_mail, BadHeaderError
@@ -15,7 +14,6 @@ from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from operator import itemgetter
 # Create your views here.
 User = get_user_model()
 
@@ -93,26 +91,6 @@ def post_list_all_en(request):
     dictionary['postst'] = post
     return render(request, 'blogapp/post_list_all_en.html', dictionary)
 
-def ico_en(request):
-    ico = IcoName.objects.all()
-    ico_list = list(IcoName.objects.values())
-    dictionary = bank_info()
-    if request.method == "POST":
-        preset = request.POST['preset']#start_date ICO_name
-        if preset == "1":
-            newlist = sorted(ico_list, key=itemgetter('ICO_name'))
-        elif preset == "2":
-            newlist = sorted(ico_list, key=itemgetter('ICO_name'), reverse=True)
-        elif preset == "3":
-            newlist = sorted(ico_list, key=itemgetter('start_date'))
-        elif preset == "4":
-            newlist = sorted(ico_list, key=itemgetter('start_date'), reverse=True)
-        dictionary['ico'] = newlist
-        return render(request, 'blogapp/ico_en.html', dictionary)
-    else:
-        dictionary['ico'] = ico
-        return render(request, 'blogapp/ico_en.html', dictionary)
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     dictionary = bank_info()
@@ -144,11 +122,11 @@ def post_new(request):
             #post.published_date = timezone.now()
             post.created_date = timezone.now()
             post.save()
-            return redirect('post_detail_en', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
         dictionary['form'] = form
-    return render(request, 'blogapp/post_new_en.html', dictionary)
+    return render(request, 'blogapp/post_new.html', dictionary)
 
 def post_edit(request, pk):
     dictionary = bank_info()
@@ -159,11 +137,11 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             #post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail_en', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
         dictionary['form'] = form
-    return render(request, 'blogapp/post_new_en.html', dictionary)
+    return render(request, 'blogapp/post_new.html', dictionary)
 
 def bank_cards(request):
     cards = BankCard.objects.all()
@@ -409,28 +387,14 @@ def bank_info():
     BITFINEX.LTC1 = BITFINEX.CHF.split("/")[0]
     BITFINEX.LTC2 = BITFINEX.CHF.split("/")[1]
     BITFINEX.LTC3 = BITFINEX.CHF.split("/")[2]#
-    #BINANCE
-    BINANCE = Article.objects.filter(title="binance")
-    num1 = len(BINANCE)-1
-    BINANCE = BINANCE[num1]
-    BINANCE.USD1 = BINANCE.USD.split("/")[0]
-    BINANCE.USD2 = BINANCE.USD.split("/")[1]
-    BINANCE.ETH1 = BINANCE.CNY.split("/")[0]
-    BINANCE.ETH2 = BINANCE.CNY.split("/")[1]
-    BINANCE.XRP1 = BINANCE.RUB.split("/")[0]
-    BINANCE.XRP2 = BINANCE.RUB.split("/")[1]
-    BINANCE.BCH1 = BINANCE.RON.split("/")[0]
-    BINANCE.BCH2 = BINANCE.RON.split("/")[1]
-    BINANCE.XLM1 = BINANCE.GBP.split("/")[0]
-    BINANCE.XLM2 = BINANCE.GBP.split("/")[1]
-    BINANCE.LTC1 = BINANCE.CHF.split("/")[0]
-    BINANCE.LTC2 = BINANCE.CHF.split("/")[1]
-    #KRAKEN
+    #BITFINEX
     KRAKEN = Article.objects.filter(title="kraken")
     num1 = len(KRAKEN)-1
     KRAKEN = KRAKEN[num1]
     KRAKEN.USD1 = KRAKEN.USD.split("/")[0]
     KRAKEN.USD2 = KRAKEN.USD.split("/")[1]
+    KRAKEN.EUR1 = KRAKEN.EUR.split("/")[0]
+    KRAKEN.EUR2 = KRAKEN.EUR.split("/")[1]
     KRAKEN.ETH1 = KRAKEN.CNY.split("/")[0]
     KRAKEN.ETH2 = KRAKEN.CNY.split("/")[1]
     KRAKEN.XRP1 = KRAKEN.RUB.split("/")[0]
@@ -441,22 +405,6 @@ def bank_info():
     KRAKEN.XLM2 = KRAKEN.GBP.split("/")[1]
     KRAKEN.LTC1 = KRAKEN.CHF.split("/")[0]
     KRAKEN.LTC2 = KRAKEN.CHF.split("/")[1]
-    #BITTREX
-    BITTREX = Article.objects.filter(title="bittrex")
-    num1 = len(BITTREX)-1
-    BITTREX = BITTREX[num1]
-    BITTREX.USD1 = BITTREX.USD.split("/")[0]
-    BITTREX.USD2 = BITTREX.USD.split("/")[1]
-    BITTREX.ETH1 = BITTREX.CNY.split("/")[0]
-    BITTREX.ETH2 = BITTREX.CNY.split("/")[1]
-    BITTREX.XRP1 = BITTREX.RUB.split("/")[0]
-    BITTREX.XRP2 = BITTREX.RUB.split("/")[1]
-    BITTREX.BCH1 = BITTREX.RON.split("/")[0]
-    BITTREX.BCH2 = BITTREX.RON.split("/")[1]
-    BITTREX.XLM1 = BITTREX.GBP.split("/")[0]
-    BITTREX.XLM2 = BITTREX.GBP.split("/")[1]
-    BITTREX.LTC1 = BITTREX.CHF.split("/")[0]
-    BITTREX.LTC2 = BITTREX.CHF.split("/")[1]
     #BUDAEST
     BUDAPEST = Article.objects.filter(title="BUDAPEST")
     num1 = len(BUDAPEST)-1
@@ -612,9 +560,6 @@ def bank_info():
     time = timezone.now().date()
     dictionary = {  'firstbank':firstbank[num0],
                     'BITFINEX':BITFINEX,
-                    'KRAKEN':KRAKEN,
-                    'BINANCE':BINANCE,
-                    'BITTREX':BITTREX,
                     'BUDAPEST':BUDAPEST_N,
                     'CIB':CIB_N,
                     'ERSTE':ERSTE_N,

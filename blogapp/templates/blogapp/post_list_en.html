@@ -2,13 +2,6 @@
 
 {% block content %}
 
-<script>
-lan_en_hu()
-function lan_en_hu() {
-  document.getElementById("lan_change").href = "{% url 'post_list' %}";
-}
-</script>
-
 
 <div class="second">
 
@@ -38,7 +31,7 @@ function lan_en_hu() {
 	<div class="col-md-5 col-sm-5 col-xs-5" style="padding-left:0px; padding-top:10px;">
 			<div>	<a id="a1_0" href="{% url 'post_detail_en' pk=posts.0.pk %}"><img id="img_0" src="{{ posts.0.images.url }}" title="{{ posts.0.title }}" alt="Error" width="356" height="240"></a>
 				<a id="a2_0" href="{% url 'post_detail_en' pk=posts.0.pk %}"><div style="overflow: hidden; height:46px;"><h2 id="title_0">{{ posts.0.title }}</h2></div></a><br>
-				<h5 id="h5_0">{{ posts.3.published_date }}</h5><br>
+				<h5 id="h5_0">{{ posts.0.published_date }}</h5><br>
 				<!--<h3 id="h3_0">{{ posts.0.title_text}}</h3>-->
 
 			</div>
@@ -99,7 +92,7 @@ function lan_en_hu() {
 </div>
 	<div class="col-md-11  col-sm-11 col-xs-11" style=" padding-left:0px;">
 	<hr class="lineundernews"/>
-	<table class="main_table" cellpadding="7" align="center" width="790">
+	<!--<table class="main_table" cellpadding="7" align="center" width="790">
 	  <tr height = "80px">
 	    <td width = "300px">
 				<a href="{% url 'rate_ex_bank_en' %}" class="logo">
@@ -124,7 +117,7 @@ function lan_en_hu() {
 					<img src="{% static 'css/img/map2.png' %}" alt="Logo ERROR" style="height:60px;width:60px;float:left;margin-right: 15px;"/>
 					<h2 style="padding-top: 24px;">Map</h2></a></td>
 	  </tr>
-</table>
+</table>-->
 <table class="main_table" cellpadding="7" align="center" width="790">
   <tr>
     <td>
@@ -138,7 +131,7 @@ function lan_en_hu() {
 
 <script>
 /*
-{% url 'post_detail' pk=posts.0.pk %}
+{% url 'post_detail_en' pk=posts.0.pk %}
 {{ posts.0.images.url }}
 {{ posts.0.title }}
 {{ posts.0.published_date }}

@@ -35,6 +35,18 @@ class AboutUs(models.Model):
     def __str__(self):
         return self.title
 
+class IcoName(models.Model):
+    ICO_name = models.CharField(max_length=300)
+    start_date = models.DateField(
+            default=timezone.now)
+    platform = models.CharField(max_length=50)
+    info_block = models.TextField()
+    link = models.CharField(max_length=300)
+    ICO_image = models.ImageField(upload_to='new', blank=True)
+
+    def __str__(self):
+        return self.ICO_name
+
 class BankCard(models.Model):
     bank_name = models.CharField(max_length=300)
     card_name = models.CharField(max_length=300)

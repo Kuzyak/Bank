@@ -24,7 +24,7 @@
 	<meta property="og:url" content="http://bancamea.md/">
 	<meta property="og:image" content="http://bancamea.md/img/fb_b.png">
 -->
-	<link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
 	<script type="text/javascript" async="" src="{% static 'js/ga.js' %}"></script><script async="async" defer="defer" src="{% static 'js/xgemius.js' %}"></script><script id="facebook-jssdk" src="{% static 'js/all.js' %}"></script><script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/package.js' %}"></script>
@@ -35,7 +35,7 @@
 	<script type="text/javascript" src="{% static 'js/selectiviz.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-ui-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/converter.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/converter2.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery_002.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/all_002.js' %}"></script>
@@ -144,8 +144,8 @@
 		<div class="curs curs2">
 					<div class="left">
 								<i>Now</i>
-								<b>EUR</b>
-					{{ firstbank.EUR }} huf
+								<b>BTC</b>
+					{{ BITFINEX.USD1 }} usd
 						<!--<span class="up">
 											<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
 							0,1785							</span>
@@ -164,8 +164,8 @@
 
 
 			<div class="right">
-				<b>USD</b>
-				{{ firstbank.USD }} huf
+				<b>ETH</b>
+				{{ BITFINEX.ETH3 }} usd
 			<!--	<span class="up">
 									<ins><img src="{% static 'css/sprite.png' %}" alt=""></ins>
 						0,0266					</span>
@@ -209,24 +209,24 @@
 				<a href="{% url 'post_list_en' %}" class="sf-with-ul">Home<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
-			<li class="">
+			<!--<li class="">
 				<a href="{% url 'rate_ex_bank_en' %}" class="sf-with-ul">Exchange Rates<span class="sf-sub-indicator"> »</span></a>
 				<ul style="display: none; visibility: hidden;">
 													<li><a href="{% url 'rate_ex_bank_en' %}">Today Exchange Rates</a></li>
 													<li><a href="{% url 'rate_ex_history_en' %}">Exchange Rates History</a></li>
 
 				</ul>
-			</li>
+			</li>-->
 			<li class="">
-				<a href="{% url 'loan_en' %}" class="sf-with-ul">Loans<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'post_list_all_en' %}" class="sf-with-ul">News<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 			<li class="">
-				<a href="{% url 'bank_cards_en' %}" class="sf-with-ul">Bank Cards<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'ico_en' %}" class="sf-with-ul">ICOs<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 			<li class="">
-				<a href="{% url 'map_en' %}" class="sf-with-ul">Map<span class="sf-sub-indicator"> »</span></a>
+				<a href="{% url 'bank_cards_en' %}" class="sf-with-ul">Bank cards<span class="sf-sub-indicator"> »</span></a>
 
 			</li>
 		</ul>
@@ -234,58 +234,58 @@
 		<a href="{% url 'post_new' %}" class="top-menu">
 			<img src="{% static 'css/img/add.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
 		{% endif %}
-		<a href="https://www.facebook.com/UjPenz-1614516125253551/" target="_blank" rel="nofollow" class="facebook_all">
+		<!--<a href="https://www.facebook.com/UjPenz-1614516125253551/" target="_blank" rel="nofollow" class="facebook_all">
 			<img src="{% static 'css/img/facebook.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
 		<a href="{% url 'post_list_en' %}" class="language_en_hu" id="lan_change">
-			<img src="{% static 'css/img/hu.png' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
+			<img src="{% static 'css/img/hu.png' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>-->
 				</div>
 						<div class="clear"></div>
 						<div id="columns" class="clearfix">
 							<!-- Today BNM Exchange Rates -->
-		<input name="today-eur" value="{{ firstbank.EUR }}" type="hidden">
-		<input name="today-usd" value="{{ firstbank.USD }}" type="hidden">
-		<input name="today-ron" value="{{ firstbank.RON }}" type="hidden">
-		<input name="today-rub" value="{{ firstbank.RUB }}" type="hidden">
-		<input name="today-uah" value="{{ firstbank.CNY }}" type="hidden">
-		<input name="today-gbp" value="{{ firstbank.GBP }}" type="hidden">
-		<input name="today-chf" value="{{ firstbank.CHF }}" type="hidden">
+		<input name="today-usd" value="{{ BITFINEX.USD1 }}" type="hidden">
+		<input name="today-eur" value="{{ BITFINEX.EUR1 }}" type="hidden">
+		<input name="today-ron" value="{{ BITFINEX.ETH1 }}" type="hidden">
+		<input name="today-uah" value="{{ BITFINEX.XRP1 }}" type="hidden">
+		<input name="today-rub" value="{{ BITFINEX.BCH1 }}" type="hidden">
+		<input name="today-gbp" value="1" type="hidden">
+		<input name="today-chf" value="{{ BITFINEX.LTC1 }}" type="hidden">
 		<!-- / Today BNM Exchange Rates -->
 		<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 
 
 		<div class="first">
 		 	<div class="block">
-				<h3 style="border-radius: 6px 6px 6px 6px;">Currency converter</h3>
+				<h3 style="border-radius: 6px 6px 6px 6px;">Crypto	Converter</h3>
 				<div class="content" style="margin: 0 5px 0 5px;">
 					<div class="corner"></div>
 					<form class="calculator">
-						<div><label>HUF</label><input name="converter-mdl" id="vlt1" type="text"><b>–</b></div>
-						<div class="active"><label>EUR</label><input id="vlt2" name="converter-eur" type="text"><b>{{ firstbank.EUR }}</b></div>
-						<div><label>USD</label><input id="vlt3" name="converter-usd" type="text"><b>{{ firstbank.USD }}</b></div>
-						<div><label>RON</label><input id="vlt4" name="converter-ron" type="text"><b>{{ firstbank.RON }}</b></div>
-						<div><label>CNY</label><input id="vlt5" name="converter-uah" type="text"><b>{{ firstbank.CNY }}</b></div>
-						<div><label>RUB</label><input id="vlt6" name="converter-rub" type="text"><b>{{ firstbank.RUB }}</b></div>
-						<div><label>GBP</label><input id="vlt7" name="converter-gbp" type="text"><b>{{ firstbank.GBP }}</b></div>
-						<div id="last"><label>CHF</label><input id="vlt8" name="converter-chf" type="text"><b>{{ firstbank.CHF }}</b></div>
+						<div class="active"><label>BTC :</label><b style="font-size: 13px;">–</b><input name="converter-mdl" id="vlt1" type="text"></div>
+						<div><label>USD :</label><b style="font-size: 13px;">{{ BITFINEX.USD1 }}</b><input id="vlt2" name="converter-usd" type="text"></div>
+						<div><label>EUR :</label><b style="font-size: 13px;">{{ BITFINEX.EUR1 }}</b><input id="vlt3" name="converter-eur" type="text"></div>
+						<div><label>ETH :</label><b style="font-size: 13px;">{{ BITFINEX.ETH1 }}</b><input id="vlt4" name="converter-ron" type="text"></div>
+						<div><label>XRP :</label><b style="font-size: 13px;">{{ BITFINEX.XRP1 }}</b><input id="vlt5" name="converter-uah" type="text"></div>
+						<div><label>BCH :</label><b style="font-size: 13px;">{{ BITFINEX.BCH1 }}</b><input id="vlt6" name="converter-rub" type="text"></div>
+						<!--<div><label>XLM :</label><b style="font-size: 13px;">1</b><input id="vlt7" name="converter-gbp" type="text"></div>-->
+						<div id="last"><label>LTC :</label><b style="font-size: 13px;">{{ BITFINEX.LTC1 }}</b><input id="vlt8" name="converter-chf" type="text"></div>
 					</form>
 				</div>
 			</div>
 
 			<div class="block">
 
-		<h3 style="border-radius: 6px 6px 6px 6px;">Exchange rate</br> <span>{{ time_date }}</span></h3>
+		<h3 style="border-radius: 6px 6px 6px 6px;">Crypto	Rate</br> <span>{{ time_date }}</span></h3>
 		<div class="content" style="margin: 0 5px 0 5px;">
 	<div class="corner"></div>
 
 	<!-- Tabs -->
 	<ul class="tabs">
-			<li class="f active"><a href="#tab1">€</a></li>
-			<li class=""><a href="#tab2">$</a></li>
-			<li class=""><a href="#tab3">RON</a></li>
-			<li class=""><a href="#tab4">RUB</a></li>
-			<li class=""><a href="#tab5">CNY</a></li>
-			<li class=""><a href="#tab6">₤</a></li>
-			<li class="l"><a href="#tab7">CHF</a></li>
+			<li class="f active"><a href="#tab1"><img src="{% static 'css/img/BTC.svg' %}" alt="BTC" title="Bitcoin (BTC)" style="height:18px;width:18px;"/></a></li>
+			<li class=""><a href="#tab2"><img src="{% static 'css/img/ETH.svg' %}" alt="ETH" title="Ethereum (ETH)" style="height:18px;width:18px;"/></a></li>
+			<li class=""><a href="#tab3"><img src="{% static 'css/img/XRP.svg' %}" alt="XRP" title="Ripple (XRP)" style="height:18px;width:18px;"/></a></li>
+			<li class=""><a href="#tab4"><img src="{% static 'css/img/BCH.svg' %}" alt="BCH" title="Bitcoin Cash (BCH)" style="height:18px;width:18px;"/></a></li>
+			<li class=""><a href="#tab5"><img src="{% static 'css/img/XLM.svg' %}" alt="XLM" title="Stellar (XLM)" style="height:18px;width:18px;"/></a></li>
+			<li class="l"><a href="#tab6"><img src="{% static 'css/img/LTC.svg' %}" alt="LTC" title="Litecoin (LTC)" style="height:18px;width:18px;"/></a></li>
+			<!--<li class="l"><a href="#tab7"><img src="{% static 'css/img/BTC.svg' %}" alt="BTC" title="BTC" style="height:18px;width:18px;"/></a></li>-->
 
 	</ul>
 	<!-- Tabs -->
@@ -297,71 +297,36 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
 				</div>
 
 
 								<div class="tr">
 					<div class="td a">
-						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.EUR1 }}</div>
-					<div class="td c">{{ BUDAPEST.EUR2 }}</div>
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.USD1 }}</div>
+					<div class="td c">{{ KRAKEN.USD2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						CIB					</div>
-					<div class="td b">{{ CIB.EUR1 }}</div>
-					<div class="td c">{{ CIB.EUR2 }}</div>
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.USD1 }}</div>
+					<div class="td c">{{ BITFINEX.USD2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						ERSTE					</div>
-					<div class="td b">{{ ERSTE.EUR1 }}</div>
-					<div class="td c">{{ ERSTE.EUR2 }}</div>
+						Binance					</div>
+					<div class="td b">{{ BINANCE.USD1 }}</div>
+					<div class="td c">{{ BINANCE.USD2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						GRANIT					</div>
-					<div class="td b">{{ GRANIT.EUR1 }}</div>
-					<div class="td c">{{ GRANIT.EUR2 }}</div>
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.USD1 }}</div>
+					<div class="td c">{{ BITTREX.USD2 }}</div>
 				</div>
-								<div class="tr">
-					<div class="td a">
-						K&H					</div>
-					<div class="td b">{{ KANDH.EUR1 }}</div>
-					<div class="td c">{{ KANDH.EUR2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						MKB					</div>
-					<div class="td b">{{ MKB.EUR1 }}</div>
-					<div class="td c">{{ MKB.EUR2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						OTP					</div>
-					<div class="td b">{{ OTP.EUR1 }}</div>
-					<div class="td c">{{ OTP.EUR2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.EUR1 }}</div>
-					<div class="td c">{{ RAIFFEISEN.EUR2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						SBERBANK					</div>
-					<div class="td b">{{ SBERBANK.EUR1 }}</div>
-					<div class="td c">{{ SBERBANK.EUR2 }}</div>
-				</div>
-							<div class="tr">
-					<div class="td a">
-						UNICREDIT					</div>
-					<div class="td b">{{ UNICREDIT.EUR1 }}</div>
-					<div class="td c">{{ UNICREDIT.EUR2 }}</div>
-				</div>
+
 
 
 			</div>
@@ -371,70 +336,34 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
 				</div>
 
 
 								<div class="tr">
 					<div class="td a">
-						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.USD1 }}</div>
-					<div class="td c">{{ BUDAPEST.USD2 }}</div>
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.ETH1 }}</div>
+					<div class="td c">{{ KRAKEN.ETH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						CIB					</div>
-					<div class="td b">{{ CIB.USD1 }}</div>
-					<div class="td c">{{ CIB.USD2 }}</div>
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.ETH3 }}</div>
+					<div class="td c">{{ BITFINEX.ETH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						ERSTE					</div>
-					<div class="td b">{{ ERSTE.USD1 }}</div>
-					<div class="td c">{{ ERSTE.USD2 }}</div>
+						Binance					</div>
+					<div class="td b">{{ BINANCE.ETH1 }}</div>
+					<div class="td c">{{ BINANCE.ETH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						GRANIT					</div>
-					<div class="td b">{{ GRANIT.USD1 }}</div>
-					<div class="td c">{{ GRANIT.USD2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						K&H					</div>
-					<div class="td b">{{ KANDH.USD1 }}</div>
-					<div class="td c">{{ KANDH.USD2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						MKB					</div>
-					<div class="td b">{{ MKB.USD1 }}</div>
-					<div class="td c">{{ MKB.USD2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						OTP					</div>
-					<div class="td b">{{ OTP.USD1 }}</div>
-					<div class="td c">{{ OTP.USD2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.USD1 }}</div>
-					<div class="td c">{{ RAIFFEISEN.USD2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						SBERBANK					</div>
-					<div class="td b">{{ SBERBANK.USD1 }}</div>
-					<div class="td c">{{ SBERBANK.USD2 }}</div>
-				</div>
-							<div class="tr">
-					<div class="td a">
-						UNICREDIT					</div>
-					<div class="td b">{{ UNICREDIT.USD1 }}</div>
-					<div class="td c">{{ UNICREDIT.USD2 }}</div>
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.ETH1 }}</div>
+					<div class="td c">{{ BITTREX.ETH2 }}</div>
 				</div>
 
 
@@ -445,70 +374,35 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
 				</div>
 
-									<div class="tr">
-						<div class="td a">
-							BUDAPEST					</div>
-						<div class="td b">{{ BUDAPEST.RON }}</div>
-						<div class="td c">{{ BUDAPEST.RON }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							CIB					</div>
-						<div class="td b">{{ CIB.RON }}</div>
-						<div class="td c">{{ CIB.RON }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							ERSTE					</div>
-						<div class="td b">{{ ERSTE.RON1 }}</div>
-						<div class="td c">{{ ERSTE.RON2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							GRANIT					</div>
-						<div class="td b">{{ GRANIT.RON }}</div>
-						<div class="td c">{{ GRANIT.RON }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							K&H					</div>
-						<div class="td b">{{ KANDH.RON1 }}</div>
-						<div class="td c">{{ KANDH.RON2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							MKB					</div>
-						<div class="td b">{{ MKB.RON1 }}</div>
-						<div class="td c">{{ MKB.RON2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							OTP					</div>
-						<div class="td b">{{ OTP.RON1 }}</div>
-						<div class="td c">{{ OTP.RON2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							RAIFFEISEN					</div>
-						<div class="td b">{{ RAIFFEISEN.RON1 }}</div>
-						<div class="td c">{{ RAIFFEISEN.RON2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							SBERBANK					</div>
-						<div class="td b">{{ SBERBANK.RON }}</div>
-						<div class="td c">{{ SBERBANK.RON }}</div>
-					</div>
+
 								<div class="tr">
-						<div class="td a">
-							UNICREDIT					</div>
-						<div class="td b">{{ UNICREDIT.RON1 }}</div>
-						<div class="td c">{{ UNICREDIT.RON2 }}</div>
-					</div>
+					<div class="td a">
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.XRP1 }}</div>
+					<div class="td c">{{ KRAKEN.XRP2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.XRP3 }}</div>
+					<div class="td c">{{ BITFINEX.XRP2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Binance					</div>
+					<div class="td b">{{ BINANCE.XRP1 }}</div>
+					<div class="td c">{{ BINANCE.XRP2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.XRP1 }}</div>
+					<div class="td c">{{ BITTREX.XRP2 }}</div>
+				</div>
 
 			</div>
 		</div>
@@ -516,69 +410,34 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
 				</div>
+
 
 								<div class="tr">
 					<div class="td a">
-						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.RUB }}</div>
-					<div class="td c">{{ BUDAPEST.RUB }}</div>
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.BCH1 }}</div>
+					<div class="td c">{{ KRAKEN.BCH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						CIB					</div>
-					<div class="td b">{{ CIB.RUB }}</div>
-					<div class="td c">{{ CIB.RUB }}</div>
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.BCH3 }}</div>
+					<div class="td c">{{ BITFINEX.BCH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						ERSTE					</div>
-					<div class="td b">{{ ERSTE.RUB }}</div>
-					<div class="td c">{{ ERSTE.RUB }}</div>
+						Binance					</div>
+					<div class="td b">{{ BINANCE.BCH1 }}</div>
+					<div class="td c">{{ BINANCE.BCH2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						GRANIT					</div>
-					<div class="td b">{{ GRANIT.RUB }}</div>
-					<div class="td c">{{ GRANIT.RUB }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						K&H					</div>
-					<div class="td b">{{ KANDH.RUB1 }}</div>
-					<div class="td c">{{ KANDH.RUB2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						MKB					</div>
-					<div class="td b">{{ MKB.RUB1 }}</div>
-					<div class="td c">{{ MKB.RUB2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						OTP					</div>
-					<div class="td b">{{ OTP.RUB1 }}</div>
-					<div class="td c">{{ OTP.RUB2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.RUB1 }}</div>
-					<div class="td c">{{ RAIFFEISEN.RUB2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						SBERBANK					</div>
-					<div class="td b">{{ SBERBANK.RUB1 }}</div>
-					<div class="td c">{{ SBERBANK.RUB2 }}</div>
-				</div>
-							<div class="tr">
-					<div class="td a">
-						UNICREDIT					</div>
-					<div class="td b">{{ UNICREDIT.RUB1 }}</div>
-					<div class="td c">{{ UNICREDIT.RUB2 }}</div>
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.BCH1 }}</div>
+					<div class="td c">{{ BITTREX.BCH2 }}</div>
 				</div>
 
 			</div>
@@ -587,68 +446,34 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
+				</div>
+
+
+								<div class="tr">
+					<div class="td a">
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.XLM1 }}</div>
+					<div class="td c">{{ KRAKEN.XLM2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.CNY }}</div>
-					<div class="td c">{{ BUDAPEST.CNY }}</div>
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.XLM3 }}</div>
+					<div class="td c">{{ BITFINEX.XLM2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						CIB					</div>
-					<div class="td b">{{ CIB.CNY }}</div>
-					<div class="td c">{{ CIB.CNY }}</div>
+						Binance					</div>
+					<div class="td b">{{ BINANCE.XLM1 }}</div>
+					<div class="td c">{{ BINANCE.XLM2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						ERSTE					</div>
-					<div class="td b">{{ ERSTE.CNY }}</div>
-					<div class="td c">{{ ERSTE.CNY }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						GRANIT					</div>
-					<div class="td b">{{ GRANIT.CNY }}</div>
-					<div class="td c">{{ GRANIT.CNY }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						K&H					</div>
-					<div class="td b">{{ KANDH.CNY1 }}</div>
-					<div class="td c">{{ KANDH.CNY2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						MKB					</div>
-					<div class="td b">{{ MKB.CNY1 }}</div>
-					<div class="td c">{{ MKB.CNY2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						OTP					</div>
-					<div class="td b">{{ OTP.CNY1 }}</div>
-					<div class="td c">{{ OTP.CNY2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.CNY }}</div>
-					<div class="td c">{{ RAIFFEISEN.CNY }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						SBERBANK					</div>
-					<div class="td b">{{ SBERBANK.CNY }}</div>
-					<div class="td c">{{ SBERBANK.CNY }}</div>
-				</div>
-							<div class="tr">
-					<div class="td a">
-						UNICREDIT					</div>
-					<div class="td b">{{ UNICREDIT.CNY1 }}</div>
-					<div class="td c">{{ UNICREDIT.CNY2 }}</div>
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.XLM1 }}</div>
+					<div class="td c">{{ BITTREX.XLM2 }}</div>
 				</div>
 
 			</div>
@@ -658,68 +483,34 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
+				</div>
+
+
+								<div class="tr">
+					<div class="td a">
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.LTC1 }}</div>
+					<div class="td c">{{ KRAKEN.LTC2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						BUDAPEST					</div>
-					<div class="td b">{{ BUDAPEST.GBP1 }}</div>
-					<div class="td c">{{ BUDAPEST.GBP2 }}</div>
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.LTC3 }}</div>
+					<div class="td c">{{ BITFINEX.LTC2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						CIB					</div>
-					<div class="td b">{{ CIB.GBP1 }}</div>
-					<div class="td c">{{ CIB.GBP2 }}</div>
+						Binance					</div>
+					<div class="td b">{{ BINANCE.LTC1 }}</div>
+					<div class="td c">{{ BINANCE.LTC2 }}</div>
 				</div>
 								<div class="tr">
 					<div class="td a">
-						ERSTE					</div>
-					<div class="td b">{{ ERSTE.GBP1 }}</div>
-					<div class="td c">{{ ERSTE.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						GRANIT					</div>
-					<div class="td b">{{ GRANIT.GBP1 }}</div>
-					<div class="td c">{{ GRANIT.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						K&H					</div>
-					<div class="td b">{{ KANDH.GBP1 }}</div>
-					<div class="td c">{{ KANDH.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						MKB					</div>
-					<div class="td b">{{ MKB.GBP1 }}</div>
-					<div class="td c">{{ MKB.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						OTP					</div>
-					<div class="td b">{{ OTP.GBP1 }}</div>
-					<div class="td c">{{ OTP.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						RAIFFEISEN					</div>
-					<div class="td b">{{ RAIFFEISEN.GBP1 }}</div>
-					<div class="td c">{{ RAIFFEISEN.GBP2 }}</div>
-				</div>
-								<div class="tr">
-					<div class="td a">
-						SBERBANK					</div>
-					<div class="td b">{{ SBERBANK.GBP1 }}</div>
-					<div class="td c">{{ SBERBANK.GBP2 }}</div>
-				</div>
-							<div class="tr">
-					<div class="td a">
-						UNICREDIT					</div>
-					<div class="td b">{{ UNICREDIT.GBP1 }}</div>
-					<div class="td c">{{ UNICREDIT.GBP2 }}</div>
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.LTC1 }}</div>
+					<div class="td c">{{ BITTREX.LTC2 }}</div>
 				</div>
 
 			</div>
@@ -729,69 +520,35 @@
 			<div class="table">
 				<div class="tr">
 					<div class="th a"></div>
-					<div class="th b"><a href="#">Buy</a></div>
-					<div class="th c"><a href="#">Sell</a></div>
+					<div class="th b"><a href="#">Price ($)</a></div>
+					<div class="th c"><a href="#">Volume</a></div>
 				</div>
-									<div class="tr">
-						<div class="td a">
-							BUDAPEST					</div>
-						<div class="td b">{{ BUDAPEST.CHF1 }}</div>
-						<div class="td c">{{ BUDAPEST.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							CIB					</div>
-						<div class="td b">{{ CIB.CHF1 }}</div>
-						<div class="td c">{{ CIB.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							ERSTE					</div>
-						<div class="td b">{{ ERSTE.CHF1 }}</div>
-						<div class="td c">{{ ERSTE.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							GRANIT					</div>
-						<div class="td b">{{ GRANIT.CHF1 }}</div>
-						<div class="td c">{{ GRANIT.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							K&H					</div>
-						<div class="td b">{{ KANDH.CHF1 }}</div>
-						<div class="td c">{{ KANDH.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							MKB					</div>
-						<div class="td b">{{ MKB.CHF1 }}</div>
-						<div class="td c">{{ MKB.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							OTP					</div>
-						<div class="td b">{{ OTP.CHF1 }}</div>
-						<div class="td c">{{ OTP.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							RAIFFEISEN					</div>
-						<div class="td b">{{ RAIFFEISEN.CHF1 }}</div>
-						<div class="td c">{{ RAIFFEISEN.CHF2 }}</div>
-					</div>
-									<div class="tr">
-						<div class="td a">
-							SBERBANK					</div>
-						<div class="td b">{{ SBERBANK.CHF1 }}</div>
-						<div class="td c">{{ SBERBANK.CHF2 }}</div>
-					</div>
+
+
 								<div class="tr">
-						<div class="td a">
-							UNICREDIT					</div>
-						<div class="td b">{{ UNICREDIT.CHF1 }}</div>
-						<div class="td c">{{ UNICREDIT.CHF2 }}</div>
-					</div>
+					<div class="td a">
+						Kraken					</div>
+					<div class="td b">{{ KRAKEN.LTC1 }}</div>
+					<div class="td c">{{ KRAKEN.LTC2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Bitfinex						</div>
+					<div class="td b">{{ BITFINEX.LTC3 }}</div>
+					<div class="td c">{{ BITFINEX.LTC2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Binance					</div>
+					<div class="td b">{{ BINANCE.LTC1 }}</div>
+					<div class="td c">{{ BINANCE.LTC2 }}</div>
+				</div>
+								<div class="tr">
+					<div class="td a">
+						Bittrex					</div>
+					<div class="td b">{{ BITTREX.LTC1 }}</div>
+					<div class="td c">{{ BITTREX.LTC2 }}</div>
+				</div>
 
 			</div>
 	</div>

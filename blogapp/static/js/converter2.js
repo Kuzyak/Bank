@@ -68,8 +68,8 @@ $(function() {
 		$(this).parent().addClass("active");
 	});
 
-	$("[name='converter-eur']").val(100);
-	calculateEUR();
+	$("[name='converter-mdl']").val(1);
+	calculateMDL();
 
 	$("[name='converter-mdl']").focus(function() {
 		cacheMDL = $(this).val();
@@ -143,31 +143,31 @@ function calculateMDL() {
 	var resultEUR, resultUSD, resultRON, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-eur']").val(resultEUR);
@@ -188,31 +188,31 @@ function calculateEUR() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -232,31 +232,31 @@ function calculateUSD() {
 	var resultMDL, resultEUR, resultRON, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -276,31 +276,31 @@ function calculateRON() {
 	var resultMDL, resultUSD, resultEUR, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -320,31 +320,31 @@ function calculateRUB() {
 	var resultMDL, resultUSD, resultRON, resultEUR, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -364,31 +364,31 @@ function calculateUAH() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -408,31 +408,31 @@ function calculateGBP() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultUAH, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(2);
+	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
 	resultCHF = resultCHF.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -452,31 +452,31 @@ function calculateCHF() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultGBP;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(2);
+	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
 	resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
-	resultUSD = resultUSD.toFixed(2);
+	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
 	resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(2);
+	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
 	resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(2);
+	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
 	resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
-	resultEUR = resultEUR.toFixed(2);
+	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
 	resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(2);
+	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
 	resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(2);
+	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
 	resultGBP = resultGBP.replace(/\./g, ",");
 
 	$("[name='converter-mdl']").val(resultMDL);
@@ -491,8 +491,10 @@ function calculateCHF() {
 function GetBNMRates() {
 	curEUR = $("[name='today-eur']").val();
 	curEUR = curEUR.replace(/\,/g, ".");
+	curEUR = (1 / curEUR);
 	curUSD = $("[name='today-usd']").val();
 	curUSD = curUSD.replace(/\,/g, ".");
+	curUSD = (1 / curUSD);
 	curRON = $("[name='today-ron']").val();
 	curRON = curRON.replace(/\,/g, ".");
 	curRUB = $("[name='today-rub']").val();

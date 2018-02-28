@@ -12,7 +12,6 @@ urlpatterns = [
     #url(r'^loan/$', views.loan, name='loan'),
     #url(r'^contact/$', views.contact_us, name='contact_us'),
     #url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
-
     url(r'^api/chart/data/$', views.ChartData.as_view()),
     url(r'^post_new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
@@ -20,7 +19,6 @@ urlpatterns = [
     url(r'^history/$', views.rate_ex_history_en.as_view(), name='rate_ex_history_en'),
     url(r'^news/$', views.post_list_all_en, name='post_list_all_en'),
     url(r'^bank_cards/$', views.bank_cards_en, name='bank_cards_en'),
-    url(r'^icos/$', views.ico_en, name='ico_en'),
     url(r'^map/$', views.map_en, name='map_en'),
     url(r'^rate_bank/$', views.rate_ex_bank_en, name='rate_ex_bank_en'),
     url(r'^loan/$', views.loan_en, name='loan_en'),

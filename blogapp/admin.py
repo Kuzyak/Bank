@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import NewsWebsite
 from .models import Article
 from .models import Post
+from .models import IcoName
 from .models import BankCard
 from .models import AboutUs
 
@@ -21,6 +22,7 @@ class ArticleModelAdmin(admin.ModelAdmin):
         model = Article
 
 admin.site.register(AboutUs)
+admin.site.register(IcoName)
 admin.site.register(BankCard)
 admin.site.register(NewsWebsite)
 admin.site.register(Article, ArticleModelAdmin)

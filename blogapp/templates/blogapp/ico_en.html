@@ -1,0 +1,100 @@
+{% extends 'blogapp/index_en.html' %}
+
+{% block content %}
+
+
+
+<div class="second">
+{% load staticfiles%}
+  <div width="800px" style="padding-left:0px;">
+    <div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:17.5%;">
+      <p class="dottostart">
+        &nbsp;Browse ICOs</p>
+    </div>
+    <div style="padding-left:0px;">
+        <hr class="linetostart"  style="width:660.5px;"/>
+    </div>
+  </div>
+
+<div class="col-md-11 col-sm-11 col-xs-11" style="padding:0;margin-top:0px;margin-bottom:26px;">
+  <div class="main_center">
+    <form action="" method="POST">{% csrf_token %}
+      <table border="0" style="width: 816px;">
+        <tr>
+          <td style="width:46%;"><label for="ICO Name" style="font-size: 18px;">ICO Name&nbsp;</label><button name="preset" value="1" type="submit" class="save glyphicon glyphicon-arrow-down btn-link"></button><button name="preset" value="2" type="submit" class="save glyphicon glyphicon-arrow-up btn-xs btn-link"></button></td>
+          <td style="width:20%;text-align: center;"><label for="Start	Date" style="font-size: 18px;">Start	Date&nbsp;</label><button name="preset" value="3" type="submit" class="save glyphicon glyphicon-arrow-down btn-link"></button><button name="preset" value="4" type="submit" class="save glyphicon glyphicon-arrow-up btn-xs btn-link"></button></td>
+          <td style="width:12%;text-align: center;"><label for="Platform" style="font-size: 18px;">Platform&nbsp;</label></td>
+          <td style="width:22%;text-align: center;"><label for="Visit	Website" style="font-size: 18px;">Visit	Website&nbsp;</label></td>
+        </tr>
+      </table>
+</form>
+  <div class="col-md-12 col-sm-12 col-xs-12" style="padding:15px 0 0 0;">
+  {% for post in ico %}
+  <div class="card_some" style="display:block; margin-bottom:110px;">
+    <div class="col-md-12 col-sm-12 col-xs-12 borders" style="background:#e6e6e6;padding:0;margin-bottom:20px;">
+      <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0;">
+        <div class="col-md-2 col-sm-2 col-xs-2 name" style="padding:10px 0 0 10px;width:13%;">
+          <div>
+            <div><img src="/media/{{ post.ICO_image }}" title="{{ post.ICO_name }}" alt="Error" width="85" height="85"></div>
+          </div>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-10 name" style="padding:6px 0 0 0;width:87%;">
+          <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top:3px; padding:0 5px 0 0;width:40%;">
+            <div width="100%" style="margin-left:5px;font-size: 18px;margin-bottom: 3px;">
+              {{ post.ICO_name }}
+            </div>
+            <div width="100%" style="margin-left:5px;font-size: 12px;">
+              {{ post.info_block }}
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4" style="margin-top:35px; padding:0 5px 0 5px;width:20%;font-size: 16px;">
+            <div width="100%" style="text-align: left;">
+              {{ post.start_date }}
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top:35px; padding:0;width:15%; font-size:16px;">
+            <div width="100%" style="text-align: center">
+              {{ post.platform }}
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-5" style="padding:0;width:25%; font-size:20px">
+            <div width="100%">
+					         <a href={{ post.link }} target="_blank" rel="nofollow" class="elem_link">&nbsp;</a>
+                   <a href={{ post.link }} target="_blank" rel="nofollow" class="btn_tovabb">
+                  <span>Details</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</br>
+  {% endfor %}
+  </div>
+  </div>
+  </div>
+
+
+<!--
+{% for post in cards %}
+  <div class = "card">
+    </br>
+    <a href="#"><img src="{{ post.card_image.url }}" title="{{ post.card_name }}" alt="Error" width="120" height="75"></a>
+    {{ post.card_image.url }}
+    </br>
+    {{ post.bank_name }}
+    </br>
+    {{ post.card_name }}
+    </br>
+    {{ post.thm }}
+    </br>
+    {{ post.link }}
+    </br>
+    {{ post.info_block }}
+  </div>
+{% endfor %}
+-->
+
+</div>
+
+{% endblock %}
