@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -99,7 +100,7 @@ def ico_en(request):
     newlist = sorted(ico_list, key=itemgetter('start_date'), reverse=True)
     dictionary = bank_info()
     if request.method == "POST":
-        preset = request.POST['preset']#start_date ICO_name
+        preset = request.POST['preset']
         if preset == "1":
             newlist = sorted(ico_list, key=itemgetter('ICO_name'))
         elif preset == "2":
@@ -209,7 +210,7 @@ def contact_us(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             #return redirect('success')
-            dictionary['email'] = {'send':'Siker! Köszönöm az üzenetet.'}
+            dictionary['email'] = {'send':'Success! Thank you for your message.'}
     dictionary['form'] = form
     #return render(request, 'blogapp/contact_us.html', dictionary)
     return render(request, "blogapp/contact_us.html", dictionary)

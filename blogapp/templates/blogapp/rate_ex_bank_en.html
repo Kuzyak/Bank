@@ -1,13 +1,13 @@
 {% extends 'blogapp/index_en.html' %}
 {% block content %}
-
+{% load static %}
 
 <div class="second">
 
 	<div width="800px" style="padding-left:0px;">
 		<div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:27.5%;">
 			<p class="dottostart">
-				&nbsp;Today Exchange Rates</p>
+				&nbsp;Today Crypto Rates</p>
 		</div>
 		<div style="padding-left:0px;">
 				<hr class="linetostart"  style="width:569.15px;"/>
@@ -21,423 +21,171 @@
 		<div class="col_span"><i><b>&nbsp;</b></i></div>
 	</div>
 	<div class="th active">
-		<div class="col_span"><b>€</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/BTC.svg' %}" alt="BTC" title="Bitcoin (BTC)" style="height:12px;width:12px;"/>&nbsp;&nbsp; BTC</b></div>
 	</div>
 	<div class="th">
-		<div class="col_span"><b>$</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/ETH.svg' %}" alt="ETH" title="Ethereum (ETH)" style="height:12px;width:12px;"/>&nbsp;&nbsp; ETH</b></div>
 	</div>
 	<div class="th">
-		<div class="col_span"><b>RON</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/XRP.svg' %}" alt="XRP" title="Ripple (XRP)" style="height:12px;width:12px;"/>&nbsp;&nbsp; XRP</b></div>
 	</div>
 	<div class="th">
-		<div class="col_span"><b>RUB</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/BCH.svg' %}" alt="BCH" title="Bitcoin Cash (BCH)" style="height:12px;width:12px;"/>&nbsp;&nbsp; BCH</b></div>
 	</div>
 	<div class="th">
-		<div class="col_span"><b>CNY</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/XLM.svg' %}" alt="XLM" title="Stellar (XLM)" style="height:12px;width:12px;"/>&nbsp;&nbsp; XLM</b></div>
 	</div>
 	<div class="th">
-		<div class="col_span"><b>₤</b></div>
-	</div>
-	<div class="th">
-		<div class="col_span"><b>CHF</b></div>
+		<div class="col_span"><b><img src="{% static 'css/img/LTC.svg' %}" alt="LTC" title="Litecoin (LTC)" style="height:12px;width:12px;"/>&nbsp;&nbsp; LTC</b></div>
 	</div>
 </div>
 
 <div class="tr comp">
 	<div class="td col1"></div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
-	</div>
-	<div class="td">
-		<div class="tdc">Buy</div>
-		<div class="tdc">Sell</div>
+		<div class="tdc">Price ($)</div>
 	</div>
 </div>
 <!-- / Header -->
 
 
-<!-- BNM -->
+<!-- BNM
 <div class="tr bnm">
 	<div class="td col1">Banca Nationala</div>
 
 		<div class="td">
-		<div class="tdcs">{{ firstbank.EUR }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.USD }} <ins></ins></div>
 	</div>
 		<div class="td">
-		<div class="tdcs">{{ firstbank.USD }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.RON }} <ins></ins></div>
 	</div>
 		<div class="td">
-		<div class="tdcs">{{ firstbank.RON }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.RUB }} <ins></ins></div>
 	</div>
 		<div class="td">
-		<div class="tdcs">{{ firstbank.RUB }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.CNY }} <ins></ins></div>
 	</div>
 		<div class="td">
-		<div class="tdcs">{{ firstbank.CNY }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.GBP }} <ins></ins></div>
 	</div>
 		<div class="td">
-		<div class="tdcs">{{ firstbank.GBP }} <ins></ins></div>
-	</div>
-		<div class="td">
-		<div class="tdcs">{{ firstbank.CHF }} <ins></ins></div>
+		<div class="tdcs">{{ KRAKEN.CHF }} <ins></ins></div>
 	</div>
 
 </div>
-<!-- / BNM -->
+ / BNM -->
 
 <!-- Other banks -->
-<div class="tr">
+<div class="tr" style="border-top: 1px solid #e2e2e2;">
 	<div class="td col1">
-		Budapest Bank	</div>
+		Bitfinex	</div>
 
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.EUR1 }}</div>
-		<div class="tdc">{{ BUDAPEST.EUR2 }}</div>
+		<div class="tdc">{{ BITFINEX.USD1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.USD1 }}</div>
-		<div class="tdc">{{ BUDAPEST.USD2 }}</div>
+		<div class="tdc">{{ BITFINEX.ETH3 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.RON }}</div>
-		<div class="tdc">{{ BUDAPEST.RON }}</div>
+		<div class="tdc">{{ BITFINEX.XRP3 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.RUB }}</div>
-		<div class="tdc">{{ BUDAPEST.RUB }}</div>
+		<div class="tdc">{{ BITFINEX.BCH3 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.CNY }}</div>
-		<div class="tdc">{{ BUDAPEST.CNY }}</div>
+		<div class="tdc">{{ BITFINEX.XLM1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ BUDAPEST.GBP1 }}</div>
-		<div class="tdc">{{ BUDAPEST.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ BUDAPEST.CHF1 }}</div>
-		<div class="tdc">{{ BUDAPEST.CHF2 }}</div>
+		<div class="tdc">{{ BITFINEX.LTC3 }}</div>
 	</div>
 	</div>
 <div class="tr">
 	<div class="td col1">
-		CIB Bank	</div>
+		Binance </div>
+
 
 		<div class="td">
-		<div class="tdc">{{ CIB.EUR1 }}</div>
-		<div class="tdc">{{ CIB.EUR2 }}</div>
+		<div class="tdc">{{ BINANCE.USD1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ CIB.USD1 }}</div>
-		<div class="tdc">{{ CIB.USD2 }}</div>
+		<div class="tdc">{{ BINANCE.ETH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ CIB.RON }}</div>
-		<div class="tdc">{{ CIB.RON }}</div>
+		<div class="tdc">{{ BINANCE.XRP1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ CIB.RUB }}</div>
-		<div class="tdc">{{ CIB.RUB }}</div>
+		<div class="tdc">{{ BINANCE.BCH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ CIB.CNY }}</div>
-		<div class="tdc">{{ CIB.CNY }}</div>
+		<div class="tdc">{{ BINANCE.XLM1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ CIB.GBP1 }}</div>
-		<div class="tdc">{{ CIB.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ CIB.CHF1 }}</div>
-		<div class="tdc">{{ CIB.CHF2 }}</div>
+		<div class="tdc">{{ BINANCE.LTC1 }}</div>
 	</div>
 	</div>
 <div class="tr">
 	<div class="td col1">
-		Erste Bank	</div>
+		Bittrex </div>
+
 
 		<div class="td">
-		<div class="tdc">{{ ERSTE.EUR1 }}</div>
-		<div class="tdc">{{ ERSTE.EUR2 }}</div>
+		<div class="tdc">{{ BITTREX.USD1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ ERSTE.USD1 }}</div>
-		<div class="tdc">{{ ERSTE.USD2 }}</div>
+		<div class="tdc">{{ BITTREX.ETH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ ERSTE.RON1 }}</div>
-		<div class="tdc">{{ ERSTE.RON2 }}</div>
+		<div class="tdc">{{ BITTREX.XRP1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ ERSTE.RUB }}</div>
-		<div class="tdc">{{ ERSTE.RUB }}</div>
+		<div class="tdc">{{ BITTREX.BCH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ ERSTE.CNY }}</div>
-		<div class="tdc">{{ ERSTE.CNY }}</div>
+		<div class="tdc">{{ BITTREX.XLM1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ ERSTE.GBP1 }}</div>
-		<div class="tdc">{{ ERSTE.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ ERSTE.CHF1 }}</div>
-		<div class="tdc">{{ ERSTE.CHF1 }}</div>
+		<div class="tdc">{{ BITTREX.LTC1 }}</div>
 	</div>
 	</div>
 <div class="tr">
 	<div class="td col1">
-		Granit Bank	</div>
+		Kraken 	</div>
+
 
 		<div class="td">
-		<div class="tdc">{{ GRANIT.EUR1 }}</div>
-		<div class="tdc">{{ GRANIT.EUR2 }}</div>
+		<div class="tdc">{{ KRAKEN.USD1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ GRANIT.USD1 }}</div>
-		<div class="tdc">{{ GRANIT.USD2 }}</div>
+		<div class="tdc">{{ KRAKEN.ETH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ GRANIT.RON }}</div>
-		<div class="tdc">{{ GRANIT.RON }}</div>
+		<div class="tdc">{{ KRAKEN.XRP1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ GRANIT.RUB }}</div>
-		<div class="tdc">{{ GRANIT.RUB }}</div>
+		<div class="tdc">{{ KRAKEN.BCH1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ GRANIT.CNY }}</div>
-		<div class="tdc">{{ GRANIT.CNY }}</div>
+		<div class="tdc">{{ KRAKEN.XLM1 }}</div>
 	</div>
 		<div class="td">
-		<div class="tdc">{{ GRANIT.GBP1 }}</div>
-		<div class="tdc">{{ GRANIT.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ GRANIT.CHF1 }}</div>
-		<div class="tdc">{{ GRANIT.CHF2 }}</div>
+		<div class="tdc">{{ KRAKEN.LTC1 }}</div>
 	</div>
 	</div>
-<div class="tr">
-	<div class="td col1">
-		K&H Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ KANDH.EUR1 }}</div>
-		<div class="tdc">{{ KANDH.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.USD1 }}</div>
-		<div class="tdc">{{ KANDH.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.RON1 }}</div>
-		<div class="tdc">{{ KANDH.RON2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.RUB1 }}</div>
-		<div class="tdc">{{ KANDH.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.CNY1 }}</div>
-		<div class="tdc">{{ KANDH.CNY2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.GBP1 }}</div>
-		<div class="tdc">{{ KANDH.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ KANDH.CHF1 }}</div>
-		<div class="tdc">{{ KANDH.CHF2 }}</div>
-	</div>
-	</div>
-<div class="tr">
-	<div class="td col1">
-		MKB Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ MKB.EUR1 }}</div>
-		<div class="tdc">{{ MKB.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.USD1 }}</div>
-		<div class="tdc">{{ MKB.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.RON1 }}</div>
-		<div class="tdc">{{ MKB.RON2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.RUB1 }}</div>
-		<div class="tdc">{{ MKB.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.CNY1 }}</div>
-		<div class="tdc">{{ MKB.CNY2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.GBP1 }}</div>
-		<div class="tdc">{{ MKB.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ MKB.CHF1 }}</div>
-		<div class="tdc">{{ MKB.CHF2 }}</div>
-	</div>
-	</div>
-<div class="tr">
-	<div class="td col1">
-		OTP Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ OTP.EUR1 }}</div>
-		<div class="tdc">{{ OTP.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.USD1 }}</div>
-		<div class="tdc">{{ OTP.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.RON1 }}</div>
-		<div class="tdc">{{ OTP.RON2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.RUB1 }}</div>
-		<div class="tdc">{{ OTP.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.CNY1 }}</div>
-		<div class="tdc">{{ OTP.CNY2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.GBP1 }}</div>
-		<div class="tdc">{{ OTP.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ OTP.CHF1 }}</div>
-		<div class="tdc">{{ OTP.CHF2 }}</div>
-	</div>
-	</div>
-<div class="tr">
-	<div class="td col1">
-		Raiffeisien Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.EUR1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.USD1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.RON1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.RON2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.RUB1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.CNY }}</div>
-		<div class="tdc">{{ RAIFFEISEN.CNY }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.GBP1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ RAIFFEISEN.CHF1 }}</div>
-		<div class="tdc">{{ RAIFFEISEN.CHF2 }}</div>
-	</div>
-	</div>
-<div class="tr">
-	<div class="td col1">
-		Sberbank Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.EUR1 }}</div>
-		<div class="tdc">{{ SBERBANK.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.USD1 }}</div>
-		<div class="tdc">{{ SBERBANK.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.RON }}</div>
-		<div class="tdc">{{ SBERBANK.RON }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.RUB1 }}</div>
-		<div class="tdc">{{ SBERBANK.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.CNY }}</div>
-		<div class="tdc">{{ SBERBANK.CNY }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.GBP1 }}</div>
-		<div class="tdc">{{ SBERBANK.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ SBERBANK.CHF1 }}</div>
-		<div class="tdc">{{ SBERBANK.CHF2 }}</div>
-	</div>
-	</div>
-<div class="tr">
-	<div class="td col1">
-		UniCredit Bank	</div>
-
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.EUR1 }}</div>
-		<div class="tdc">{{ UNICREDIT.EUR2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.USD1 }}</div>
-		<div class="tdc">{{ UNICREDIT.USD2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.RON1 }}</div>
-		<div class="tdc">{{ UNICREDIT.RON2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.RUB1 }}</div>
-		<div class="tdc">{{ UNICREDIT.RUB2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.CNY1 }}</div>
-		<div class="tdc">{{ UNICREDIT.CNY2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.GBP1 }}</div>
-		<div class="tdc">{{ UNICREDIT.GBP2 }}</div>
-	</div>
-		<div class="td">
-		<div class="tdc">{{ UNICREDIT.CHF1 }}</div>
-		<div class="tdc">{{ UNICREDIT.CHF2 }}</div>
-	</div>
-	</div>
-
 <!-- / Other banks -->
 
 </div>

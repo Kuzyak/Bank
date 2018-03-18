@@ -24,7 +24,7 @@ SECRET_KEY = 'a-ie+2e+rg@_w+5kp-s-&cfk3&zovk64#)kvqwex5-i5$sxh!m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1",".ujpenz.hu","ec2-35-162-173-251.us-west-2.compute.amazonaws.com","35.162.173.251","ip-172-31-13-189.us-west-2.compute.internal"]
+ALLOWED_HOSTS = ["127.0.0.1",".ujpenz.hu","ec2-35-162-173-251.us-west-2.compute.amazonaws.com","35.162.173.251","ip-172-31-13-189.us-west-2.compute.internal","ec2-54-71-92-29.us-west-2.compute.amazonaws.com","54.71.92.29","ip-172-31-5-112.us-west-2.compute.internal"]
 #ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
