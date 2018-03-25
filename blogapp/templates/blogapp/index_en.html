@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<meta name="description" content="">
 	{% load static %}
-	<link rel="shortcut icon" href="{% static 'css/img/main.png' %}" >
+	<link rel="shortcut icon" href="{% static 'css/img/logo_icon.png' %}" >
 <!--
 	<link rel="shortcut icon" href="http://bancamea.md/favicon.png">
 	<link rel="apple-touch-icon" href="http://bancamea.md/touch-icon-iphone.png">
@@ -24,7 +24,7 @@
 	<meta property="og:url" content="http://bancamea.md/">
 	<meta property="og:image" content="http://bancamea.md/img/fb_b.png">
 -->
-	<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles5.css' %}">
 	<script type="text/javascript" async="" src="{% static 'js/ga.js' %}"></script><script async="async" defer="defer" src="{% static 'js/xgemius.js' %}"></script><script id="facebook-jssdk" src="{% static 'js/all.js' %}"></script><script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/package.js' %}"></script>
@@ -94,14 +94,14 @@
 
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110511438-1"></script>
-		<!--<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116283228-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-		gtag('config', 'UA-110511438-1');
-		</script>-->
+	  gtag('config', 'UA-116283228-1');
+	</script>
 
 
 
@@ -231,8 +231,8 @@
 			</li>
 		</ul>
 		{% if user.is_authenticated %}
-		<a href="{% url 'post_new' %}" class="top-menu">
-			<img src="{% static 'css/img/add.svg' %}" title="Add new news" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
+		<a href="{% url 'post_new' %}" class="top-menu add_some">News</a>
+		<a href="{% url 'ico_new_en' %}" class="facebook_all add_some">Icos</a>
 		{% endif %}
 		<!--<a href="https://www.facebook.com/UjPenz-1614516125253551/" target="_blank" rel="nofollow" class="facebook_all">
 			<img src="{% static 'css/img/facebook.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
@@ -586,7 +586,7 @@
 	<div class="wrapper">
 		<div class="copy">
 			<div class="footer_logo"></div>
-			© 2017 CoinBlooming
+			© 2018 CoinBlooming
 		</div>
 				<ul class="menu">
 					<li>

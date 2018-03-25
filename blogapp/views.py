@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 
 from .models import Article, Post, IcoName, BankCard, AboutUs
-from .forms import PostForm, ContactForm, ContactForm_en
+from .forms import PostForm, ContactForm, ContactForm_en, IcoNameForm
 
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -134,6 +134,28 @@ def rate_ex_bank(request):
 def rate_ex_bank_en(request):
     dictionary = bank_info()
     return render(request, 'blogapp/rate_ex_bank_en.html', dictionary)
+
+def ico_new_en(request):
+    dictionary = bank_info()
+    if request.method == "POST":
+        form = IcoNameForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            #post.ICO_image = form.cleaned_data['ICO_image']
+            #post.ICO_name = form.cleaned_data['ICO_name']
+            #post.platform = form.cleaned_data['platform']
+            #post.info_block = form.cleaned_data['info_block']
+            #post.link = form.cleaned_data['link']
+            #post.start_date = form.cleaned_data['start_date']
+            print("some_________________---")
+            print(post.ICO_name)
+            print("some_________________---")
+            post.save()
+            return redirect('ico_en')
+    else:#'ICO_name', 'platform','info_block','start_date','link','ICO_image',)
+        form = IcoNameForm()
+        dictionary['form'] = form
+    return render(request, 'blogapp/ico_new_en.html', dictionary)
 
 def post_new(request):
     dictionary = bank_info()

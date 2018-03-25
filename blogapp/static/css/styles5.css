@@ -17,7 +17,15 @@
   top: 5px;
   right: 85px;
 }
+.add_some{
+  font-size: 18px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  padding: 6px;
+}
 .facebook_all{
+  margin-right: 21px;
   position: absolute;
   top: 5px;
   right: 45px;

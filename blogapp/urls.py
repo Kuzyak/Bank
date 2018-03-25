@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^history/$', views.rate_ex_history_en.as_view(), name='rate_ex_history_en'),
     url(r'^news/$', views.post_list_all_en, name='post_list_all_en'),
     url(r'^bank_cards/$', views.bank_cards_en, name='bank_cards_en'),
+    url(r'^icos_new/$', views.ico_new_en, name='ico_new_en'),
     url(r'^icos/$', views.ico_en, name='ico_en'),
     url(r'^map/$', views.map_en, name='map_en'),
     url(r'^rate_bank/$', views.rate_ex_bank_en, name='rate_ex_bank_en'),

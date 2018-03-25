@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top:35px; padding:0;width:15%; font-size:16px;">
-            <div width="100%" style="text-align: center">
+            <div width="100%" style="text-align: center;overflow: auto;">
               {{ post.platform }}
             </div>
           </div>
@@ -73,27 +73,6 @@
   </div>
   </div>
   </div>
-
-
-<!--
-{% for post in cards %}
-  <div class = "card">
-    </br>
-    <a href="#"><img src="{{ post.card_image.url }}" title="{{ post.card_name }}" alt="Error" width="120" height="75"></a>
-    {{ post.card_image.url }}
-    </br>
-    {{ post.bank_name }}
-    </br>
-    {{ post.card_name }}
-    </br>
-    {{ post.thm }}
-    </br>
-    {{ post.link }}
-    </br>
-    {{ post.info_block }}
-  </div>
-{% endfor %}
--->
 
 </div>
 

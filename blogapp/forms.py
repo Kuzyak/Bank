@@ -1,8 +1,7 @@
 from django import forms
-from .models import Post
+from .models import Post, IcoName
 from tinymce import models as tinymce_models
 from tinymce.widgets import TinyMCE
-
 
 """
 from tinymce import models as tinymce_models
@@ -14,6 +13,17 @@ class PostForm(forms.ModelForm):
         model = Post
         exclude = ['text']
 """
+
+class IcoNameForm(forms.ModelForm):
+    ICO_name = forms.CharField(required=True,label='ICOs name')
+    platform = forms.CharField(required=True)
+    info_block = forms.CharField()
+    link = forms.CharField(required=True)
+    start_date = forms.DateTimeField(widget=forms.SelectDateWidget())
+    ICO_image = forms.ImageField(required=True,label='ICOs image')
+    class Meta:
+        model = IcoName
+        fields = ('ICO_name', 'platform','info_block','start_date','link','ICO_image',)
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(required=True)
