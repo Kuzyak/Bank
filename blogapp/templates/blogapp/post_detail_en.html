@@ -18,16 +18,29 @@
   </div>
   {% endif %}
     <div class="post col-md-11 col-sm-11 col-xs-11">
-        <h1>{{ post.title }}</h1>   <br>
-        <div class="news_photo">
-          <img src="{{ post.images.url }}" title="{{ post.title }}" alt="Error" width="327">
+        <h1 class="header">{{ post.title }}</h1>   <br>
+        <div class="post-content">
+          <div class="news_photo image">
+            <img src="{{ post.images.url }}" title="{{ post.title }}" alt="Error" width="327">
+          </div>
+              {% if post.published_date %}
+                  <div class="date">
+                      {{ post.published_date }}
+                  </div>
+              {% endif %}
+          <br>
+          <div class="post-full-text contents" itemprop="articleBody"><p>{{ post.text|safe|escape }}</p></div>
         </div>
-            {% if post.published_date %}
-                <div class="date">
-                    {{ post.published_date }}
-                </div>
-            {% endif %}
-        <br><p>{{ post.text|safe|escape }}</p>
     </div>
   </div>
+{% endblock %}
+
+{% block head %}
+<meta name="description" content="{{ post.text|truncatewords:30 }}...">
+<meta property="og:url" content="{% url 'post_detail_en' pk=post.pk %}">
+<meta property="og:image" content="{{ post.images.url }}">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.text|truncatewords:30 }}...">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coinblooming">
 {% endblock %}

@@ -25,15 +25,25 @@
   padding: 6px;
 }
 .facebook_all{
-  margin-right: 21px;
   position: absolute;
   top: 5px;
-  right: 45px;
+  right: 5px;
 }
 .top-menu{
   position: absolute;
   top: 5px;
   right: 5px;
+}
+.top-menu-news{
+  position: absolute;
+  top: 5px;
+  right: 45px;
+}
+.top-menu-icos{
+  margin-right: 21px;
+  position: absolute;
+  top: 5px;
+  right: 85px;
 }
 .linetostart {
   border-radius: 0 15px 15px 0;

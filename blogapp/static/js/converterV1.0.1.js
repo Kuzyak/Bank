@@ -144,41 +144,53 @@ function calculateMDL() {
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
+
+function addSpaces(nStr){
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+	}
+	return x1 + x2;
+};
 
 function calculateEUR() {
 	var units = $("[name='converter-eur']").val();
@@ -188,40 +200,40 @@ function calculateEUR() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateUSD() {
@@ -232,40 +244,40 @@ function calculateUSD() {
 	var resultMDL, resultEUR, resultRON, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateRON() {
@@ -276,40 +288,40 @@ function calculateRON() {
 	var resultMDL, resultUSD, resultEUR, resultRUB, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateRUB() {
@@ -320,40 +332,40 @@ function calculateRUB() {
 	var resultMDL, resultUSD, resultRON, resultEUR, resultUAH, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateUAH() {
@@ -364,40 +376,40 @@ function calculateUAH() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultGBP, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-gbp']").val(resultGBP);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateGBP() {
@@ -408,40 +420,40 @@ function calculateGBP() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultUAH, resultCHF;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultCHF = val * units / curCHF;
-	resultCHF = resultCHF.toFixed(9).replace(/\.?0+$/, '');
-	resultCHF = resultCHF.replace(/\./g, ",");
+	resultCHF = resultCHF.toFixed(6).replace(/\.?0+$/, '');
+	//resultCHF = resultCHF.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-chf']").val(resultCHF);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-chf']").val(addSpaces(resultCHF));
 }
 
 function calculateCHF() {
@@ -452,40 +464,40 @@ function calculateCHF() {
 	var resultMDL, resultUSD, resultRON, resultRUB, resultEUR, resultGBP;
 
 	resultMDL = val * units / curMDL;
-	resultMDL = resultMDL.toFixed(9).replace(/\.?0+$/, '');
-	resultMDL = resultMDL.replace(/\./g, ",");
+	resultMDL = resultMDL.toFixed(6).replace(/\.?0+$/, '');
+	//resultMDL = resultMDL.replace(/\./g, ",");
 
 	resultUSD = val * units / curUSD;
 	resultUSD = resultUSD.toFixed(2).replace(/\.?0+$/, '');
-	resultUSD = resultUSD.replace(/\./g, ",");
+	//resultUSD = resultUSD.replace(/\./g, ",");
 
 	resultRON = val * units / curRON;
-	resultRON = resultRON.toFixed(9).replace(/\.?0+$/, '');
-	resultRON = resultRON.replace(/\./g, ",");
+	resultRON = resultRON.toFixed(6).replace(/\.?0+$/, '');
+	//resultRON = resultRON.replace(/\./g, ",");
 
 	resultRUB = val * units / curRUB;
-	resultRUB = resultRUB.toFixed(9).replace(/\.?0+$/, '');
-	resultRUB = resultRUB.replace(/\./g, ",");
+	resultRUB = resultRUB.toFixed(6).replace(/\.?0+$/, '');
+	//resultRUB = resultRUB.replace(/\./g, ",");
 
 	resultEUR = val * units / curEUR;
 	resultEUR = resultEUR.toFixed(2).replace(/\.?0+$/, '');
-	resultEUR = resultEUR.replace(/\./g, ",");
+	//resultEUR = resultEUR.replace(/\./g, ",");
 
 	resultUAH = val * units / curUAH;
-	resultUAH = resultUAH.toFixed(9).replace(/\.?0+$/, '');
-	resultUAH = resultUAH.replace(/\./g, ",");
+	resultUAH = resultUAH.toFixed(6).replace(/\.?0+$/, '');
+	//resultUAH = resultUAH.replace(/\./g, ",");
 
 	resultGBP = val * units / curGBP;
-	resultGBP = resultGBP.toFixed(9).replace(/\.?0+$/, '');
-	resultGBP = resultGBP.replace(/\./g, ",");
+	resultGBP = resultGBP.toFixed(6).replace(/\.?0+$/, '');
+	//resultGBP = resultGBP.replace(/\./g, ",");
 
-	$("[name='converter-mdl']").val(resultMDL);
-	$("[name='converter-usd']").val(resultUSD);
-	$("[name='converter-ron']").val(resultRON);
-	$("[name='converter-rub']").val(resultRUB);
-	$("[name='converter-eur']").val(resultEUR);
-	$("[name='converter-uah']").val(resultUAH);
-	$("[name='converter-gbp']").val(resultGBP);
+	$("[name='converter-mdl']").val(addSpaces(resultMDL));
+	$("[name='converter-usd']").val(addSpaces(resultUSD));
+	$("[name='converter-ron']").val(addSpaces(resultRON));
+	$("[name='converter-rub']").val(addSpaces(resultRUB));
+	$("[name='converter-eur']").val(addSpaces(resultEUR));
+	$("[name='converter-uah']").val(addSpaces(resultUAH));
+	$("[name='converter-gbp']").val(addSpaces(resultGBP));
 }
 
 function GetBNMRates() {

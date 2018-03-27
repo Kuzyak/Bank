@@ -10,6 +10,9 @@
 	<meta name="description" content="">
 	{% load static %}
 	<link rel="shortcut icon" href="{% static 'css/img/logo_icon.png' %}" >
+
+	{% block head %}
+	{% endblock %}
 <!--
 	<link rel="shortcut icon" href="http://bancamea.md/favicon.png">
 	<link rel="apple-touch-icon" href="http://bancamea.md/touch-icon-iphone.png">
@@ -24,7 +27,7 @@
 	<meta property="og:url" content="http://bancamea.md/">
 	<meta property="og:image" content="http://bancamea.md/img/fb_b.png">
 -->
-	<link rel="stylesheet" href="{% static 'css/styles5.css' %}">
+	<link rel="stylesheet" href="{% static 'css/stylesV1.0.1.css' %}">
 	<script type="text/javascript" async="" src="{% static 'js/ga.js' %}"></script><script async="async" defer="defer" src="{% static 'js/xgemius.js' %}"></script><script id="facebook-jssdk" src="{% static 'js/all.js' %}"></script><script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/package.js' %}"></script>
@@ -35,7 +38,7 @@
 	<script type="text/javascript" src="{% static 'js/selectiviz.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-ui-1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/converter2.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/converterV1.0.1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jquery_002.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/all_002.js' %}"></script>
@@ -231,8 +234,10 @@
 			</li>
 		</ul>
 		{% if user.is_authenticated %}
-		<a href="{% url 'post_new' %}" class="top-menu add_some">News</a>
-		<a href="{% url 'ico_new_en' %}" class="facebook_all add_some">Icos</a>
+		<a href="{% url 'post_new' %}" class="top-menu-news add_some">News</a>
+		<a href="{% url 'ico_new_en' %}" class="top-menu-icos add_some">Icos</a>
+		<a href="https://www.facebook.com/coinblooming/" target="_blank" rel="nofollow" class="facebook_all">
+			<img src="{% static 'css/img/facebook.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>
 		{% endif %}
 		<!--<a href="https://www.facebook.com/UjPenz-1614516125253551/" target="_blank" rel="nofollow" class="facebook_all">
 			<img src="{% static 'css/img/facebook.svg' %}" alt="Logo ERROR" style="height:35px;width:35px;"/></a>

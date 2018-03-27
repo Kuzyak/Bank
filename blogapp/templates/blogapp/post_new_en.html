@@ -4,6 +4,8 @@
 
 
 <div class="second">
+
+  {% if user.is_authenticated %}
   <div width="800px" style="padding-left:0px;">
     <div class="col-md-2 col-sm-2 col-xs-2" style="padding:0px; width:16.5%;">
       <p class="dottostart">
@@ -29,6 +31,7 @@
 </div>
 
 
+{% endif %}
 
 </div>
 

@@ -222,6 +222,7 @@ def contact_us(request):
             message = form.cleaned_data['message']
             to_email = settings.EMAIL_HOST_USER
             contact_message = """
+            www.coinblooming.com 
             %s: %s From: %s
             """%(full_name, message, from_email)
             try:
