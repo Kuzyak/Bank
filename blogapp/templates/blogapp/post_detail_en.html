@@ -36,11 +36,11 @@
 {% endblock %}
 
 {% block head %}
-<meta name="description" content="{{ post.text|safe|truncatewords:30 }}...">
+<meta name="description" content='{{ post.text|safe|striptags|truncatewords:35 }}...'>
 <meta property="og:url" content="{% url 'post_detail_en' pk=post.pk %}">
 <meta property="og:image" content="{{ post.images.url }}">
 <meta property="og:title" content="{{ post.title }}">
-<meta property="og:description" content="{{ post.text|safe|truncatewords:30 }}...">
+<meta property="og:description" content='{{ post.text|safe|striptags|truncatewords:35 }}...'>
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Coinblooming">
 {% endblock %}
