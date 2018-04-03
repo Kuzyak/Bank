@@ -228,13 +228,13 @@ class ArticleSpider(DjangoSpider):
                     BTC_EUR = bitfinex.EUR
                 if BTC_USD == " — ":
                     BTC_USD = bitfinex.USD
-                if ETH_BTC == " — ":
+                if ETH_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     ETH_BTC = bitfinex.CNY
-                if XRP_BTC == " — ":
+                if XRP_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     XRP_BTC = bitfinex.RUB
-                if BCH_BTC == " — ":
+                if BCH_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     BCH_BTC = bitfinex.RON
-                if LTC_BTC == " — ":
+                if LTC_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     LTC_BTC = bitfinex.CHF
             except:
                 pass
