@@ -200,17 +200,17 @@ class ArticleSpider(DjangoSpider):
                     LTC_BTC = some.xpath('./td[2]/text()').extract_first()
             for some in result2:
                 name = ' '.join(some.xpath('./td[1]/text()').extract()).strip()
-                if name == 'BTC EUR' and BTC_EUR != " — ":
+                if name == 'BTC EUR' and BTC_EUR != " — / — ":
                     BTC_EUR = BTC_EUR + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
-                elif name == 'BTC USD' and BTC_USD != " — ":
+                elif name == 'BTC USD' and BTC_USD != " — / — ":
                     BTC_USD = BTC_USD + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
-                elif name == 'ETH BTC' and ETH_BTC != " — ":
+                elif name == 'ETH BTC' and ETH_BTC != " — / — / — ":
                     ETH_BTC = ETH_BTC + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
-                elif name == 'XRP BTC' and XRP_BTC != " — ":
+                elif name == 'XRP BTC' and XRP_BTC != " — / — / — ":
                     XRP_BTC = XRP_BTC + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
-                elif name == 'BCH BTC' and BCH_BTC != " — ":
+                elif name == 'BCH BTC' and BCH_BTC != " — / — / — ":
                     BCH_BTC = BCH_BTC + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
-                elif name == 'LTC BTC' and LTC_BTC != " — ":
+                elif name == 'LTC BTC' and LTC_BTC != " — / — / — ":
                     LTC_BTC = LTC_BTC + "/" + some.xpath('./td[2]/text()').extract_first().strip().split(".")[0]
             for some in result:
                 name = ' '.join(some.xpath('./td[1]/text()').extract()).strip()
@@ -224,9 +224,9 @@ class ArticleSpider(DjangoSpider):
                     LTC_BTC = LTC_BTC + "/" + "{0:.2f}".format(float(some.xpath('./td[2]/text()').extract_first()))
             try:
                 bitfinex = Article.objects.filter(title="bitfinex").last()
-                if BTC_EUR == " — ":
+                if BTC_EUR == " — / — ":
                     BTC_EUR = bitfinex.EUR
-                if BTC_USD == " — ":
+                if BTC_USD == " — / — ":
                     BTC_USD = bitfinex.USD
                 if ETH_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     ETH_BTC = bitfinex.CNY
