@@ -88,17 +88,17 @@ class ArticleSpider(DjangoSpider):
             for some in result:
                 name = ' '.join(some.xpath('./li[2]/font/text()').extract())
                 if name == 'BTC':
-                    BTC_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    BTC_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'ETH':
-                    ETH_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    ETH_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'XRP':
-                    XRP_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    XRP_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'BCC':
-                    BCH_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    BCH_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'XLM':
-                    XLM_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    XLM_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'LTC':
-                    LTC_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
+                    LTC_USD = "{0:.2f}".format(float(some.xpath('./li[3]/span/text()').extract_first())) + "/" + some.xpath('./li[6]/span/text()').extract_first()
             if XLM_USD == " — / — ":
                 some = Article.objects.filter(title="kraken").last()
                 some = some.GBP.split('/')
