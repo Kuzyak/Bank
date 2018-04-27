@@ -77,28 +77,28 @@ class ArticleSpider(DjangoSpider):
         try:
             print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    binance    ----------------------------")
             sel = Selector(response)
-            result = sel.xpath('//table[@class="table table-bordered table-hover"]/tbody/tr')#.extract()
-            BTC_EUR = " — "
-            BTC_USD = " — "
-            ETH_USD = " — "
-            XRP_USD = " — "
-            BCH_USD = " — "
+            result = sel.xpath('//ul[@class="indexMarkets-list-content-con"]/li/a/ol')#.extract()
+            BTC_EUR = " — / — "
+            BTC_USD = " — / — "
+            ETH_USD = " — / — "
+            XRP_USD = " — / — "
+            BCH_USD = " — / — "
             XLM_USD = " — / — "
-            LTC_USD = " — "
+            LTC_USD = " — / — "
             for some in result:
-                name = ' '.join(some.xpath('./td[2]/font/text()').extract())
+                name = ' '.join(some.xpath('./li[2]/font/text()').extract())
                 if name == 'BTC':
-                    BTC_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    BTC_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'ETH':
-                    ETH_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    ETH_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'XRP':
-                    XRP_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    XRP_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'BCC':
-                    BCH_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    BCH_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'XLM':
-                    XLM_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    XLM_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
                 elif name == 'LTC':
-                    LTC_USD = some.xpath('./td[3]/text()').extract_first() + "/" + some.xpath('./td[5]/text()').extract_first()
+                    LTC_USD = some.xpath('./li[3]/span/text()').extract_first() + "/" + some.xpath('./li[6]/span/text()').extract_first()
             if XLM_USD == " — / — ":
                 some = Article.objects.filter(title="kraken").last()
                 some = some.GBP.split('/')
@@ -128,13 +128,13 @@ class ArticleSpider(DjangoSpider):
             sel = Selector(response)
             result = json.loads(sel.xpath('//text()').extract_first())
             result = result['Data']
-            BTC_EUR = " — "
-            BTC_USD = " — "
-            ETH_USD = " — "
-            XRP_USD = " — "
-            BCH_USD = " — "
+            BTC_EUR = " — / — "
+            BTC_USD = " — / — "
+            ETH_USD = " — / — "
+            XRP_USD = " — / — "
+            BCH_USD = " — / — "
             XLM_USD = " — / — "
-            LTC_USD = " — "
+            LTC_USD = " — / — "
             for some in range(0,len(result)):
                 name = result[some]["CoinInfo"]["Name"]
                 code = result[some]["ConversionInfo"]["RAW"][0].split('~')
@@ -177,13 +177,13 @@ class ArticleSpider(DjangoSpider):
             sel = Selector(response)
             result = sel.xpath('(//table[@class="compact striped"])[1]/tbody/tr')#.extract()
             result2 = sel.xpath('(//table[@class="compact striped"])[2]/tbody/tr')#.extract()
-            BTC_EUR = " — "
-            BTC_USD = " — "
-            ETH_BTC = " — "
-            XRP_BTC = " — "
-            BCH_BTC = " — "
+            BTC_EUR = " — / — "
+            BTC_USD = " — / — "
+            ETH_BTC = " — / — / — "
+            XRP_BTC = " — / — / — "
+            BCH_BTC = " — / — / — "
             XLM_BTC = " — / — / — "
-            LTC_BTC = " — "
+            LTC_BTC = " — / — / — "
             for some in result:
                 name = ' '.join(some.xpath('./td[1]/text()').extract()).strip()
                 if name == 'BTC EUR':
@@ -230,11 +230,11 @@ class ArticleSpider(DjangoSpider):
                     BTC_USD = bitfinex.USD
                 if ETH_BTC == " — " or len(ETH_BTC.split('/')) != 3:
                     ETH_BTC = bitfinex.CNY
-                if XRP_BTC == " — " or len(ETH_BTC.split('/')) != 3:
+                if XRP_BTC == " — " or len(XRP_BTC.split('/')) != 3:
                     XRP_BTC = bitfinex.RUB
-                if BCH_BTC == " — " or len(ETH_BTC.split('/')) != 3:
+                if BCH_BTC == " — " or len(BCH_BTC.split('/')) != 3:
                     BCH_BTC = bitfinex.RON
-                if LTC_BTC == " — " or len(ETH_BTC.split('/')) != 3:
+                if LTC_BTC == " — " or len(LTC_BTC.split('/')) != 3:
                     LTC_BTC = bitfinex.CHF
             except:
                 pass
